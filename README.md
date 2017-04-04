@@ -36,7 +36,11 @@ Unzip it.
    unzip PATH/FILE_NAME.zip
 ```
 
-Move to`docker_images` directory.
+Build the sources
+```sh
+    ./gradlew clean ci
+```
+Move to `docker_images` directory.
 
 ```sh
    cd docker_images
