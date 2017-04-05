@@ -1,300 +1,88 @@
 {
   "keyword": [
     {
-      "word": "alerte",
-      "score": 5,
-      "associate": [
-        {
-          "associateWord": "jaune",
-          "associateScore": 2
-        },
-        {
-          "associateWord": "orange",
-          "associateScore": 3
-        },
-        {
-          "associateWord": "rouge",
-          "associateScore": 4
-        }
-      ]
+      "word": "infrastructure",
+      "score": 10
     },
     {
-      "word": "fuir",
-      "score": 20
+      "word": "hôpital",
+      "score": 10
     },
     {
-      "word": "fuite",
-      "score": 20
+      "word": "aéroport",
+      "score": 10
     },
     {
-      "word": "consommation anormale",
+      "word": "mine",
+      "score": 10
+    },
+    {
+      "word": "pétrole",
+      "score": 10
+    },
+    {
+      "word": "gaz",
+      "score": 10
+    },
+    {
+      "word": "plateforme",
+      "score": 10
+    },
+    {
+      "word": "piste",
+      "score": 5
+    },
+    {
+      "word": "route",
+      "score": 5
+    },
+    {
+      "word": "construction",
+      "score": 10
+    },
+    {
+      "word": "gare",
+      "score": 5
+    },
+    {
+      "word": "train",
+      "score": 5
+    },
+    {
+      "word": "autoroute",
+      "score": 10
+    },
+    {
+      "word": "voie",
+      "score": 5
+    },
+    {
+      "word": "ville",
+      "score": 5
+    },
+    {
+      "word": "évolution",
       "score": 2
     },
     {
-      "word": "aire de jeux",
-      "score": 4
-    },
-    {
-      "word": "arrosage",
-      "score": 10
-    },
-    {
-      "word": "baignade",
-      "score": 8
-    },
-    {
-      "word": "bassin",
-      "score": 12
-    },
-    {
-      "word": "bombardier",
-      "score": 10
-    },
-    {
-      "word": "braises",
+      "word": "camp",
       "score": 5
     },
     {
-      "word": "brasier",
-      "score": 5
-    },
-    {
-      "word": "canadaire",
-      "score": 15
-    },
-    {
-      "word": "canalisation",
-      "score": 20
-    },
-    {
-      "word": "canicule",
-      "score": 12
-    },
-    {
-      "word": "chaleur",
-      "score": 15,
-      "associate": [
-        {
-          "associateWord": "exceptionnelle",
-          "associateScore": 8
-        },
-        {
-          "associateWord": "forte",
-          "associateScore": 7
-        },
-        {
-          "associateWord": "pic",
-          "associateScore": 6
-        },
-        {
-          "associateWord": "étouffante",
-          "associateScore": 5
-        }
-      ]
-    },
-    {
-      "word": "chaud",
+      "word": "réfugié",
       "score": 10
     },
     {
-      "word": "chauffer",
+      "word": "politique",
+      "score": 2
+    },
+    {
+      "word": "catastrophe",
       "score": 10
     },
     {
-      "word": "concert",
-      "score": 8
-    },
-    {
-      "word": "conduite",
-      "score": 4
-    },
-    {
-      "word": "eau",
-      "score": 8,
-      "associate": [
-        {
-          "associateWord": "château",
-          "associateScore": 4
-        },
-        {
-          "associateWord": "compteur",
-          "associateScore": 4
-        },
-        {
-          "associateWord": "dégât",
-          "associateScore": 10
-        },
-        {
-          "associateWord": "fuite",
-          "associateScore": 10
-        },
-        {
-          "associateWord": "perte",
-          "associateScore": 8
-        },
-        {
-          "associateWord": "sinistre",
-          "associateScore": 5
-        },
-        {
-          "associateWord": "égout",
-          "associateScore": 4
-        },
-        {
-          "associateWord": "chasse",
-          "associateScore": 3
-        }
-      ]
-    },
-    {
-      "word": "embraser",
+      "word": "agriculture",
       "score": 5
-    },
-    {
-      "word": "festival",
-      "score": 5
-    },
-    {
-      "word": "feu",
-      "score": 5
-    },
-    {
-      "word": "fissure",
-      "score": 5
-    },
-    {
-      "word": "flamme",
-      "score": 7
-    },
-    {
-      "word": "fontaine",
-      "score": 10
-    },
-    {
-      "word": "fumée",
-      "score": 7
-    },
-    {
-      "word": "hydratation",
-      "score": 15
-    },
-    {
-      "word": "incendie",
-      "score": 20
-    },
-    {
-      "word": "inondation",
-      "score": 20
-    },
-    {
-      "word": "marathon",
-      "score": 10
-    },
-    {
-      "word": "match",
-      "score": 10
-    },
-    {
-      "word": "nautique",
-      "score": 10
-    },
-    {
-      "word": "plombier",
-      "score": 10
-    },
-    {
-      "word": "pompage",
-      "score": 8
-    },
-    {
-      "word": "pompier",
-      "score": 15
-    },
-    {
-      "word": "robinet",
-      "score": 5
-    },
-    {
-      "word": "rupture",
-      "score": 4
-    },
-    {
-      "word": "réseau",
-      "score": 4,
-      "associate": [
-        {
-          "associateWord": "assainissement",
-          "associateScore": 4
-        }
-      ]
-    },
-    {
-      "word": "réservoir",
-      "score": 5
-    },
-    {
-      "word": "soleil",
-      "score": 6
-    },
-    {
-      "word": "surchauffe",
-      "score": 8
-    },
-    {
-      "word": "surconsommation",
-      "score": 6
-    },
-    {
-      "word": "température",
-      "score": 4,
-      "associate": [
-        {
-          "associateWord": "hausse",
-          "associateScore": 4
-        }
-      ]
-    },
-    {
-      "word": "travaux",
-      "score": 6
-    },
-    {
-      "word": "tuyau",
-      "score": 5
-    },
-    {
-      "word": "vigilance",
-      "score": 5,
-      "associate": [
-        {
-          "associateWord": "orange",
-          "associateScore": 3
-        },
-        {
-          "associateWord": "rouge",
-          "associateScore": 4
-        },
-        {
-          "associateWord": "jaune",
-          "associateScore": 2
-        }
-      ]
-    },
-    {
-      "word": "étincelle",
-      "score": 3
-    },
-    {
-      "word": "événement",
-      "score": 10
-    },
-    {
-      "word": "piscine",
-      "score": 8
-    },
-    {
-      "word": "ikb4stream",
-      "score": 50
     }
   ]
 }
