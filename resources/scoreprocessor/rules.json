@@ -83,6 +83,22 @@
     {
       "word": "agriculture",
       "score": 5
+    },
+    {
+      "word": "centrale",
+      "score": 10
+    },
+    {
+      "word": "nucléaire",
+      "score": 10
+    },
+    {
+      "word": "uranium",
+      "score": 10
+    },
+    {
+      "word": "électrique",
+      "score": 10
     }
   ]
 }
