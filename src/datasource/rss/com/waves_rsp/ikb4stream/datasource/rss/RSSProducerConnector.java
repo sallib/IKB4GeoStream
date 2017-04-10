@@ -39,6 +39,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -73,16 +74,16 @@ public class RSSProducerConnector implements IProducerConnector {
     /**
      * Single instance of {@link OpenNLP} per each Thread
      *
-     * @see RSSProducerConnector#geocodeRSS(String)
+     * @see RSSProducerConnector#geocodeRSS(String, String)
      */
     private final OpenNLP openNLP = OpenNLP.getOpenNLP(Thread.currentThread());
     /**
      * Source name of corresponding {@link Event}
      *
-     * @see RSSProducerConnector#geocodeRSS(String)
+     * @see RSSProducerConnector#geocodeRSS(String, String)
      * @see RSSProducerConnector#load(IDataProducer)
      */
-    private final String source;
+    private final String[] sources;
     /**
      * Interval time between two batch
      *
@@ -92,22 +93,22 @@ public class RSSProducerConnector implements IProducerConnector {
     /**
      * @see RSSProducerConnector#load(IDataProducer)
      */
-    private final URL url;
+    private final String[] urls;
 
     /**
      * Public constructor to init variable from {@link RSSProducerConnector#PROPERTIES_MANAGER}
      *
      * @throws IllegalStateException if invalid value in configuration file
-     * @see RSSProducerConnector#source
+     * @see RSSProducerConnector#sources
      * @see RSSProducerConnector#interval
-     * @see RSSProducerConnector#url
+     * @see RSSProducerConnector#urls
      */
     public RSSProducerConnector() {
         try {
-            this.source = PROPERTIES_MANAGER.getProperty("RSSProducerConnector.source");
+            this.sources = PROPERTIES_MANAGER.getProperty("RSSProducerConnector.source").split(",");
             this.interval = Integer.parseInt(PROPERTIES_MANAGER.getProperty("RSSProducerConnector.interval"));
-            this.url = new URL(PROPERTIES_MANAGER.getProperty("RSSProducerConnector.url"));
-        } catch (IllegalArgumentException | MalformedURLException e) {
+            this.urls = PROPERTIES_MANAGER.getProperty("RSSProducerConnector.url").split(",");
+        } catch (IllegalArgumentException e) {
             LOGGER.error("Invalid configuration [] ", e);
             throw new IllegalStateException("Invalid configuration");
         }
@@ -118,45 +119,67 @@ public class RSSProducerConnector implements IProducerConnector {
      *
      * @param dataProducer {@link IDataProducer} contains the data queue
      * @throws NullPointerException if dataProducer is null
-     * @see RSSProducerConnector#source
-     * @see RSSProducerConnector#url
+     * @see RSSProducerConnector#sources
+     * @see RSSProducerConnector#urls
      * @see RSSProducerConnector#interval
      */
     @Override
     public void load(IDataProducer dataProducer) {
         Objects.requireNonNull(dataProducer);
+        final int rssCount = countSources();
         final boolean[] first = {true};
         final Date[] lastTime = {Date.from(Instant.now())};
         while (!Thread.currentThread().isInterrupted()) {
-            try {
-                long start = System.currentTimeMillis(); //metrics
-                SyndFeedInput input = new SyndFeedInput();
-                SyndFeed feed = input.build(new XmlReader(this.url));
-                Date currentTime = Date.from(Instant.now());
-                feed.getEntries().stream()
-                        .filter(entry -> first[0] || entry.getPublishedDate().after(lastTime[0]))
-                        .forEach(entry -> {
-                            lastTime[0] = currentTime;
-                            Date startDate = (entry.getPublishedDate() != null) ? entry.getPublishedDate() : currentTime;
-                            String description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
-                            String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
-                            GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
-                            LatLong latLong = getLatLong(module, completeDesc);
-                            if (latLong != null) {
-                                Event event = new Event(latLong, startDate, currentTime, completeDesc, source);
-                                dataProducer.push(event);
-                            }
-                        });
-                first[0] = false;
-                long time = System.currentTimeMillis() - start;
-                METRICS_LOGGER.log("time_process_" + this.source, time);
-                Thread.sleep(interval);
-            } catch (IOException | FeedException e) {
-                LOGGER.error("Can't parse RSS [] ", e);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+            for (int i = 0; i < rssCount; i++) {
+                first[0] = true;
+                try {
+                    URL url = new URL(urls[i]);
+                    String source = sources[i];
+
+                    long start = System.currentTimeMillis(); //metrics
+                    SyndFeedInput input = new SyndFeedInput();
+                    SyndFeed feed = input.build(new XmlReader(url));
+                    Date currentTime = Date.from(Instant.now());
+                    feed.getEntries().stream()
+                            .filter(entry -> first[0] || entry.getPublishedDate().after(lastTime[0]))
+                            .forEach(entry -> {
+                                lastTime[0] = currentTime;
+                                Date startDate = (entry.getPublishedDate() != null) ? entry.getPublishedDate() : currentTime;
+                                String description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
+                                String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
+                                GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
+                                LatLong latLong = getLatLong(module, completeDesc, source);
+                                if (latLong != null) {
+                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source);
+                                    dataProducer.push(event);
+                                }
+                            });
+                    first[0] = false;
+                    long time = System.currentTimeMillis() - start;
+                    METRICS_LOGGER.log("time_process_" + source, time);
+                    if (i == this.sources.length -1) {
+                        Thread.sleep(interval);
+                    }
+                } catch (MalformedURLException e) {
+                    LOGGER.error("Invalid configuration [] ", e);
+                    throw new IllegalStateException("Invalid configuration");
+                } catch (IOException | FeedException e) {
+                    LOGGER.error("Can't parse RSS [] ", e);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
         }
+    }
+
+
+    private int countSources() {
+        int count = sources.length;
+        if (count != urls.length) {
+            LOGGER.error("Invalid configuration : number of sources is different of number of urls");
+            throw new IllegalStateException("Invalid configuration");
+        }
+        return count;
     }
 
     /**
@@ -167,11 +190,11 @@ public class RSSProducerConnector implements IProducerConnector {
      * @return {@link LatLong} if found something or null
      * @see LatLong
      */
-    private LatLong getLatLong(GeoRSSModule module, String desc) {
+    private LatLong getLatLong(GeoRSSModule module, String desc, String source) {
         if (module != null) {
             return new LatLong(module.getPosition().getLatitude(), module.getPosition().getLongitude());
         } else if (desc != null) {
-            return geocodeRSS(desc);
+            return geocodeRSS(desc, source);
         }
         return null;
     }
@@ -195,20 +218,29 @@ public class RSSProducerConnector implements IProducerConnector {
      * Select a list of location from a RSS with the NER OpenNLP algorithme.
      * Then, geolocalize the first location found with the geocoder Nominatim (OSM)
      *
-     * @param text to analyze
+     * @param text to analyze, source
      * @return a latLong coordinates
      * @see RSSProducerConnector#openNLP
-     * @see RSSProducerConnector#source
      */
-    private LatLong geocodeRSS(String text) {
+    private LatLong geocodeRSS(String text, String source) {
         long start = System.currentTimeMillis();
 
         List<String> locations = openNLP.applyNLPner(text, OpenNLP.nerOptions.LOCATION);
         if (!locations.isEmpty()) {
             long time = System.currentTimeMillis() - start;
-            METRICS_LOGGER.log("time_geocode_" + this.source, time);
+            METRICS_LOGGER.log("time_geocode_" + source, time);
             return Geocoder.geocode(locations.get(0)).getLatLong();
         }
-        return null;
+        return new LatLong(0,0);
     }
+/*
+    public static void main(String[] args) {
+        RSSProducerConnector rss = new RSSProducerConnector();
+        Thread t = new Thread(() -> rss.load(event -> {
+            System.out.println("***" + event.getDescription());
+        }));
+        t.start();
+
+    }
+*/
 }

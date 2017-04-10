@@ -41,8 +41,6 @@ apply from: 'gradle/communication_kafka.gradle'
 apply from: 'gradle/communication_web.gradle'
 
 // datasource
-apply from: 'gradle/datasource_dbpedia.gradle'
-apply from: 'gradle/datasource_dbpediamock.gradle'
 apply from: 'gradle/datasource_facebook.gradle'
 apply from: 'gradle/datasource_facebookmock.gradle'
 apply from: 'gradle/datasource_openagenda.gradle'
@@ -91,8 +89,6 @@ sourceSets {
                        'src/communication/kafka',
                        'src/datasource/twitter',
                        'src/datasource/twittermock',
-                       'src/datasource/dbpedia',
-                       'src/datasource/dbpediamock',
                        'src/datasource/owm',
                        'src/datasource/facebook',
                        'src/datasource/openagenda',
@@ -115,7 +111,6 @@ sourceSets {
                     datasourceTwittermock.compileClasspath + datasourceTwittermock.output +
                     datasourceFacebookmock.compileClasspath + datasourceFacebookmock.output +
                     datasourceTwitter.compileClasspath + datasourceTwitter.output +
-                    datasourceDbpedia.output + datasourceDbpedia.compileClasspath +
                     datasourceFacebook.output + datasourceFacebook.compileClasspath +
                     datasourceOWM.output + datasourceOWM.compileClasspath +
                     datasourceOpenAgenda.output + datasourceOpenAgenda.compileClasspath +
@@ -125,7 +120,6 @@ sourceSets {
                     scoringMock.compileClasspath + scoringMock.output +
                     scoringEvent.compileClasspath + scoringEvent.output +
                     scoringOpenAgenda.compileClasspath + scoringOpenAgenda.output +
-                    datasourceDbpediaMock.compileClasspath + datasourceDbpediaMock.output +
                     datasourceOpenAgendaMock.compileClasspath + datasourceOpenAgendaMock.output
 
             runtimeClasspath = output + compileClasspath + runtimeClasspath
@@ -143,7 +137,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.datasourceTwittermock.allJava +
             sourceSets.datasourceFacebookmock.allJava +
             sourceSets.datasourceTwitter.allJava +
-            sourceSets.datasourceDbpedia.allJava +
             sourceSets.datasourceFacebook.allJava +
             sourceSets.datasourceOWM.allJava +
             sourceSets.datasourceOpenAgenda.allJava +
@@ -153,7 +146,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.scoringMock.allJava +
             sourceSets.scoringEvent.allJava +
             sourceSets.scoringOpenAgenda.allJava +
-            sourceSets.datasourceDbpediaMock.allJava +
             sourceSets.datasourceOpenAgendaMock.allJava
     classpath += sourceSets.core.compileClasspath +
             sourceSets.consumer.compileClasspath +
@@ -164,7 +156,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.datasourceTwittermock.compileClasspath +
             sourceSets.datasourceFacebookmock.compileClasspath +
             sourceSets.datasourceTwitter.compileClasspath +
-            sourceSets.datasourceDbpedia.compileClasspath +
             sourceSets.datasourceFacebook.compileClasspath +
             sourceSets.datasourceOWM.compileClasspath +
             sourceSets.datasourceOpenAgenda.compileClasspath +
@@ -174,7 +165,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.scoringMock.compileClasspath +
             sourceSets.scoringEvent.compileClasspath +
             sourceSets.scoringOpenAgenda.compileClasspath +
-            sourceSets.datasourceDbpediaMock.compileClasspath +
             sourceSets.datasourceOpenAgendaMock.compileClasspath
     destinationDir = file("${buildDir}/docs/javadoc")
     options.memberLevel = JavadocMemberLevel.PRIVATE
@@ -227,8 +217,6 @@ task packageAll(dependsOn: ['copyConfigProperties',
                             'packageRssJar',
                             'packageKafkaCommunicationJar',
                             'packageTwitterJar',
-                            'packageDbpediaJar',
-                            'packageDbpediaMockJar',
                             'packageFacebookJar',
                             'packageOwmJar',
                             'packageOpenAgendaJar',
