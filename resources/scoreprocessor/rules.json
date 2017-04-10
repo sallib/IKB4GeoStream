@@ -66,7 +66,7 @@
     },
     {
       "word": "camp",
-      "score": 5
+      "score": 10
     },
     {
       "word": "réfugié",
@@ -98,6 +98,58 @@
     },
     {
       "word": "électrique",
+      "score": 10
+    },
+    {
+      "word": "solaire",
+      "score": 5
+    },
+    {
+      "word": "thermique",
+      "score": 5
+    },
+    {
+      "word": "raffinerie",
+      "score": 10
+    },
+    {
+      "word": "dessalage",
+      "score": 10
+    },
+    {
+      "word": "militaire",
+      "score": 10
+    },
+    {
+      "word": "pipeline",
+      "score": 10
+    },
+    {
+      "word": "terminal",
+      "score": 10
+    },
+    {
+      "word": "financement",
+      "score": 10
+    },
+    {
+      "word": "banque",
+      "score": 5
+    },
+    {
+      "word": "islamique",
+      "score": 5
+    },
+    {
+      "word": "développement",
+      "score": 5
+    },
+    {
+      "word": "africain",
+      "score": 5
+    },
+    {
+      "word": "FMI",
       "score": 10
     }
   ]
