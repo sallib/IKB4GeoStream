@@ -1,9 +1,9 @@
-IKB4Stream
+IKB4GeoStream
 =====================
 
 # Introduction
 
-*IKB4Stream* is a module of the smart waterleak detection system WAVES.
+*IKB4GeoStream* is a module of the smart waterleak detection system WAVES.
 
 ## About WAVES
 > WAVES is a scalable and distributed platform for processing semantic streams based on open source frameworks.
@@ -12,8 +12,8 @@ IKB4Stream
 
 More info on http://www.waves-rsp.org/
 
-## IKB4Stream
-IKB4Stream is a module inside WAVES. Its goal is to detect false positives among the leaks reported from the WAVES system water sensors.
+## IKB4GeoStream
+IKB4GeoStream is a module inside WAVES. Its goal is to detect false positives among the leaks reported from the WAVES system water sensors.
 
 # Team Members
 * Project Manager: Vincent Heng
