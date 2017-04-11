@@ -131,6 +131,7 @@ public class RSSProducerConnector implements IProducerConnector {
         final Date[] lastTime = {Date.from(Instant.now())};
         while (!Thread.currentThread().isInterrupted()) {
             for (int i = 0; i < rssCount; i++) {
+                //System.out.println("\n*********************************************\n" + "*************" + sources[i] +"\n*********************************************\n" );
                 first[0] = true;
                 try {
                     URL url = new URL(urls[i]);
@@ -145,7 +146,10 @@ public class RSSProducerConnector implements IProducerConnector {
                             .forEach(entry -> {
                                 lastTime[0] = currentTime;
                                 Date startDate = (entry.getPublishedDate() != null) ? entry.getPublishedDate() : currentTime;
-                                String description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
+                                String description ="";
+                                if (entry.getDescription() != null) {
+                                    description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
+                                }
                                 String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
                                 GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
                                 LatLong latLong = getLatLong(module, completeDesc, source);
@@ -229,18 +233,20 @@ public class RSSProducerConnector implements IProducerConnector {
         if (!locations.isEmpty()) {
             long time = System.currentTimeMillis() - start;
             METRICS_LOGGER.log("time_geocode_" + source, time);
+            LOGGER.info("geocode RSS at " + locations.get(0));
             return Geocoder.geocode(locations.get(0)).getLatLong();
         }
+        LOGGER.info("Can't find location");
         return new LatLong(0,0);
     }
-/*
+
     public static void main(String[] args) {
         RSSProducerConnector rss = new RSSProducerConnector();
         Thread t = new Thread(() -> rss.load(event -> {
-            System.out.println("***" + event.getDescription());
+           //DO NOTHING
         }));
         t.start();
 
     }
-*/
+
 }
