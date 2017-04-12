@@ -153,7 +153,7 @@ public class DatabaseReader implements IDatabaseReader {
         final long start = System.currentTimeMillis();
         this.mongoCollection
                 .find(and(
-                        geoIntersects("location", new Polygon(polygon)),
+                       // geoIntersects("location", new Polygon(polygon)),
                         lte("start", request.getEnd().getTime()),
                         gte("end", request.getStart().getTime())
                 ))
