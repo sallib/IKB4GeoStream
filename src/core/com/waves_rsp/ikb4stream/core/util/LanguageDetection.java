@@ -22,14 +22,13 @@ public class LanguageDetection {
      * Logger used to log all information in this class
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(OpenNLP.class);
-    private final List<LanguageProfile> languageProfiles;
     private final LanguageDetector languageDetector;
     private final TextObjectFactory textObjectFactory;
 
     public LanguageDetection() {
         try {
             //load all languages:
-            this.languageProfiles = new LanguageProfileReader().readAllBuiltIn();
+            List<LanguageProfile> languageProfiles = new LanguageProfileReader().readAllBuiltIn();
             //build language detector:
             languageDetector = LanguageDetectorBuilder.create(NgramExtractors.standard())
                     .withProfiles(languageProfiles)
