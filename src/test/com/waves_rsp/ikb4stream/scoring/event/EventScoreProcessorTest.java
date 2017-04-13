@@ -2,6 +2,7 @@ package com.waves_rsp.ikb4stream.scoring.event;
 
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.junit.Test;
 import twitter4j.JSONException;
 
@@ -22,7 +23,7 @@ public class EventScoreProcessorTest {
     @Test
     public void checkScore() throws JSONException {
         String description = "Roger, il y a une fuite d'eau à Paris #eau";
-        Event event = new Event(latlong, date, date, description, "Facebook");
+        Event event = new Event(latlong, date, date, description, "Facebook", OpenNLP.langOptions.FRENCH);
         Event clone = tsp.processScore(event);
         assert (clone.getScore() != -1);
     }

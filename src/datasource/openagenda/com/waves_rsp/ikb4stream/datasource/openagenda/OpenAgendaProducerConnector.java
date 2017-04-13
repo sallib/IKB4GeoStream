@@ -23,6 +23,7 @@ import com.waves_rsp.ikb4stream.core.datasource.IOpenAgenda;
 import com.waves_rsp.ikb4stream.core.datasource.model.IDataProducer;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,6 +79,7 @@ public class OpenAgendaProducerConnector implements IOpenAgenda {
      * @see OpenAgendaProducerConnector#createURL()
      */
     private final String bbox;
+
 
     /**
      * Instantiate the OpenAgendaMock object with load properties to connect to the OPen Agenda API

@@ -26,6 +26,8 @@ import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +51,7 @@ public interface IOpenAgenda extends IProducerConnector {
      * @see MetricsLogger#getMetricsLogger()
      */
     MetricsLogger METRICS_LOGGER = MetricsLogger.getMetricsLogger();
-
+    LanguageDetection languageDetection = new LanguageDetection();
     Logger LOGGER = LoggerFactory.getLogger(IOpenAgenda.class);
     /**
      * Default charset
@@ -148,7 +150,8 @@ public interface IOpenAgenda extends IProducerConnector {
             LOGGER.warn("Cannot find the date of end on OpenAgenda.");
             end = Calendar.getInstance().getTime();
         }
-        return new Event(latLong, start, end, jsonDescription.toString(), source);
+        OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+        return new Event(latLong, start, end, jsonDescription.toString(), source, lang);
     }
 
     /**

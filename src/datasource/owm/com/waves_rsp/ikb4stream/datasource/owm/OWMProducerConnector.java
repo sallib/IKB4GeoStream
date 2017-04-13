@@ -26,6 +26,8 @@ import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import net.aksingh.owmjapis.CurrentWeather;
 import net.aksingh.owmjapis.OpenWeatherMap;
 import org.slf4j.Logger;
@@ -96,6 +98,7 @@ public class OWMProducerConnector implements IProducerConnector {
      * @see OWMProducerConnector#load(IDataProducer)
      */
     private final String source;
+    private final LanguageDetection languageDetection = new LanguageDetection();
 
     /**
      * Instantiate the {@link OWMProducerConnector} object with load properties
@@ -146,7 +149,8 @@ public class OWMProducerConnector implements IProducerConnector {
             LatLong latLong = new LatLong(Double.valueOf(jn.path("coord").path("lat").toString()), Double.valueOf(jn.path("coord").path("lon").toString()));
             Date start = new Date(Long.valueOf(jn.path("dt").toString()) * 1000);
             Date end = new Date(start.getTime() + requestInterval - 1000);
-            return new Event(latLong, start, end, description, this.source);
+            OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+            return new Event(latLong, start, end, description, this.source, lang);
         } catch (NumberFormatException e) {
             LOGGER.warn("value of() failed: {}", e.getMessage());
             return null;

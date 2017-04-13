@@ -49,7 +49,7 @@ apply from: 'gradle/datasource_owm.gradle'
 apply from: 'gradle/datasource_rss.gradle'
 apply from: 'gradle/datasource_twitter.gradle'
 apply from: 'gradle/datasource_twittermock.gradle'
-apply from: 'gradle/datasource_weather.gradle'
+
 
 // scoring
 apply from: 'gradle/scoring_event.gradle'
@@ -84,7 +84,6 @@ sourceSets {
                        'src/datasource',
                        'src/scoring',
                        'src/communication/web',
-                       'src/datasource/weather',
                        'src/datasource/rss',
                        'src/communication/kafka',
                        'src/datasource/twitter',
@@ -106,7 +105,6 @@ sourceSets {
                     consumer.compileClasspath + consumer.output +
                     producer.compileClasspath + producer.output +
                     communicationKafka.compileClasspath + communicationKafka.output +
-                    datasourceWeather.compileClasspath + datasourceWeather.output +
                     datasourceRSS.compileClasspath + datasourceRSS.output +
                     datasourceTwittermock.compileClasspath + datasourceTwittermock.output +
                     datasourceFacebookmock.compileClasspath + datasourceFacebookmock.output +
@@ -132,7 +130,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.consumer.allJava +
             sourceSets.producer.allJava +
             sourceSets.communicationKafka.allJava +
-            sourceSets.datasourceWeather.allJava +
             sourceSets.datasourceRSS.allJava +
             sourceSets.datasourceTwittermock.allJava +
             sourceSets.datasourceFacebookmock.allJava +
@@ -151,7 +148,6 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.consumer.compileClasspath +
             sourceSets.producer.compileClasspath +
             sourceSets.communicationKafka.compileClasspath +
-            sourceSets.datasourceWeather.compileClasspath +
             sourceSets.datasourceRSS.compileClasspath +
             sourceSets.datasourceTwittermock.compileClasspath +
             sourceSets.datasourceFacebookmock.compileClasspath +
@@ -213,7 +209,6 @@ task zipBuild(type: Zip) {
 task packageAll(dependsOn: ['copyConfigProperties',
                             'packageConsumerJar',
                             'packageProducerJar',
-                            'packageWeatherJar',
                             'packageRssJar',
                             'packageKafkaCommunicationJar',
                             'packageTwitterJar',

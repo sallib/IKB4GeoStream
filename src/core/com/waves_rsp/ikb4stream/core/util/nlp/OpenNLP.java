@@ -35,6 +35,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
+import static com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP.langOptions.DEFAULT;
+import static com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP.langOptions.FRENCH;
+
 /**
  * @author ikb4stream
  * @version 1.0
@@ -104,19 +107,19 @@ public class OpenNLP {
     /**
      * Private constructor to allow only one {@link OpenNLP} for each Thread
      *
-     * @throws IllegalStateException if an error occurred from {@link LoaderNLP} or {@link PropertiesManager}
+     * @throws IllegalStateException if an error occurred from {@link FRLoaderNLP} or {@link PropertiesManager}
      */
     private OpenNLP() {
         try {
-            detector = new SentenceDetectorME(LoaderNLP.getSentenceModel());
-            tokenizer = new TokenizerME(LoaderNLP.getTokenizerModel());
-            tagger = new POSTaggerME(LoaderNLP.getPosModel());
-            nameFinderOrg = new NameFinderME(LoaderNLP.getTokenNameFinderModelOrg());
-            nameFinderLoc = new NameFinderME(LoaderNLP.getTokenNameFinderModelLoc());
-            nameFinderPers = new NameFinderME(LoaderNLP.getTokenNameFinderModelPers());
-            InputStream inputStream = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.dictionaries.path"));
-            lemmatizer = new SimpleLemmatizer(inputStream);
-            inputStream.close();
+                detector = new SentenceDetectorME(FRLoaderNLP.getSentenceModel());
+                tokenizer = new TokenizerME(FRLoaderNLP.getTokenizerModel());
+                tagger = new POSTaggerME(FRLoaderNLP.getPosModel());
+                nameFinderOrg = new NameFinderME(FRLoaderNLP.getTokenNameFinderModelOrg());
+                nameFinderLoc = new NameFinderME(FRLoaderNLP.getTokenNameFinderModelLoc());
+                nameFinderPers = new NameFinderME(FRLoaderNLP.getTokenNameFinderModelPers());
+                InputStream inputStream = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.dictionaries.path"));
+                lemmatizer = new SimpleLemmatizer(inputStream);
+                inputStream.close();
         } catch (IllegalArgumentException | IOException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e);
@@ -141,6 +144,13 @@ public class OpenNLP {
      */
     public enum nerOptions {
         LOCATION, PERSON, ORGANIZATION
+    }
+
+    /**
+     * Enum availables languages
+     */
+    public enum langOptions {
+        FRENCH, ENGLISH, DEFAULT
     }
 
     /**

@@ -162,7 +162,7 @@ public class OWMScoreProcessor implements IScoreProcessor {
             //About the weather, if it rain or snow
             byte score2 = weatherType(score1, jn.path("weather").get(0).path("main").asText());
             String description = createDescription(jn);
-            return new Event(event.getLocation(), event.getStart(), event.getEnd(), description, verifyMaxScore(score2), event.getSource());
+            return new Event(event.getLocation(), event.getStart(), event.getEnd(), description, verifyMaxScore(score2), event.getSource(), event.getLang());
         } catch (IOException e) {
             LOGGER.warn("objectMapper failed: {}", e);
             return event;

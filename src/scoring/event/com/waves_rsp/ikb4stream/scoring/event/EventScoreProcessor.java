@@ -119,7 +119,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         }
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
-        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource());
+        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(), event.getLang());
     }
 
     /**

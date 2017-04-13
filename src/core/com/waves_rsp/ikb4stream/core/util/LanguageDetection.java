@@ -17,11 +17,14 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * https://github.com/optimaize/language-detector
+ */
 public class LanguageDetection {
     /**
      * Logger used to log all information in this class
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(OpenNLP.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LanguageDetection.class);
     private final LanguageDetector languageDetector;
     private final TextObjectFactory textObjectFactory;
 
@@ -41,14 +44,31 @@ public class LanguageDetection {
         }
     }
 
-
-    public LdLocale detectLanguage(String text) {
+    /**
+     *
+     * @param text
+     * @return
+     *      fr = french
+     *      en = english
+     *      ar = arabic
+     *      es = spanish
+     */
+    public OpenNLP.langOptions detectLanguage(String text) {
         TextObject textObject = this.textObjectFactory.forText(text);
         com.google.common.base.Optional<LdLocale> lang = this.languageDetector.detect(textObject);
         if (lang.isPresent()) {
-            return lang.get();
+            if (lang.get().getLanguage().equals("fr")){
+                return OpenNLP.langOptions.FRENCH;
+            }
+            else if (lang.get().getLanguage().equals("en")){
+                return OpenNLP.langOptions.ENGLISH;
+            }
+            else{
+                return null;
+            }
         }
-        return null;
+        //not recognize the language
+        return OpenNLP.langOptions.DEFAULT;
     }
 
 /*

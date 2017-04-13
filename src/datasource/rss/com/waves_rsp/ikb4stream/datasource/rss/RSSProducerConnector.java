@@ -31,6 +31,7 @@ import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import com.waves_rsp.ikb4stream.core.util.Geocoder;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,6 +96,7 @@ public class RSSProducerConnector implements IProducerConnector {
      */
     private final String[] urls;
 
+    private final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Public constructor to init variable from {@link RSSProducerConnector#PROPERTIES_MANAGER}
      *
@@ -153,8 +155,9 @@ public class RSSProducerConnector implements IProducerConnector {
                                 String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
                                 GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
                                 LatLong latLong = getLatLong(module, completeDesc, source);
+                                OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
                                 if (latLong != null) {
-                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source);
+                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
                                     dataProducer.push(event);
                                 }
                             });

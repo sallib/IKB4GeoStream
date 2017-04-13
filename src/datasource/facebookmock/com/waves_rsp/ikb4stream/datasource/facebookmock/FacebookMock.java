@@ -25,6 +25,8 @@ import com.waves_rsp.ikb4stream.core.datasource.model.IDataProducer;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +63,7 @@ public class FacebookMock implements IProducerConnectorMock {
      * @see FacebookMock#getEventFromJson(ObjectNode)
      */
     private static final String SOURCE = "Facebook";
-
+    private static final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Override default constructor
      */
@@ -134,7 +136,8 @@ public class FacebookMock implements IProducerConnectorMock {
         Date endDate = getDateFromJson(endNode);
         LatLong latLong = jsonToLatLong(objectNode);
         String description = objectNode.findValue("description").toString();
-        return new Event(latLong, startDate, endDate, description, SOURCE);
+        OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+        return new Event(latLong, startDate, endDate, description, SOURCE, lang);
     }
 
     /**

@@ -2,6 +2,7 @@ package com.waves_rsp.ikb4stream.scoring.owm;
 
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.junit.Test;
 import twitter4j.JSONException;
 
@@ -52,7 +53,7 @@ public class OWMScoreProcessorTest {
     @Test
     public void checkScore() throws JSONException {
         String description = "{\"main\": {\"temp\": 48}, \"weather\": [{\"main\": \"rain\", \"description\": \"Il pleut\"}]}";
-        Event event = new Event(latlong, date, date, description, source);
+        Event event = new Event(latlong, date, date, description, source, OpenNLP.langOptions.DEFAULT);
         Event clone = tsp.processScore(event);
         assert (clone.getScore() != -1);
     }

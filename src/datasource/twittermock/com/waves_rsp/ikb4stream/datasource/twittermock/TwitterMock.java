@@ -25,6 +25,8 @@ import com.waves_rsp.ikb4stream.core.datasource.model.IDataProducer;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,7 +60,7 @@ public class TwitterMock implements IProducerConnectorMock {
      * @see TwitterMock#getEventFromJson(ObjectNode)
      */
     private static final String SOURCE = "Twitter";
-
+    private static final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Override default constructor
      */
@@ -104,8 +106,9 @@ public class TwitterMock implements IProducerConnectorMock {
         JsonNode jsonCoordinates = jsonNode.findValue("coordinates");
         String description = objectNode.findValue("text").toString();
         LatLong latLong = jsonToLatLong(jsonCoordinates);
+       OpenNLP.langOptions lang =languageDetection.detectLanguage(description);
         try {
-            return new Event(latLong, startDate, endDate, description, SOURCE);
+            return new Event(latLong, startDate, endDate, description, SOURCE, lang);
         } catch (IllegalArgumentException | NullPointerException err) {
             LOGGER.error(err.getMessage());
             return null;

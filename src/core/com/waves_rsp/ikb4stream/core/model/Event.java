@@ -18,6 +18,8 @@
 
 package com.waves_rsp.ikb4stream.core.model;
 
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
@@ -74,6 +76,7 @@ public class Event {
      * @see Event#getEnd()
      */
     private final Date end;
+    private OpenNLP.langOptions lang;
 
     /**
      * Create an Event without score
@@ -86,12 +89,13 @@ public class Event {
      * @throws NullPointerException     if a param is null
      * @throws IllegalArgumentException if source is empty
      */
-    public Event(LatLong[] location, Date start, Date end, String description, String source) {
+    public Event(LatLong[] location, Date start, Date end, String description, String source, OpenNLP.langOptions lang) {
         Objects.requireNonNull(location);
         Objects.requireNonNull(start);
         Objects.requireNonNull(end);
         Objects.requireNonNull(description);
         Objects.requireNonNull(source);
+        Objects.requireNonNull(lang);
         if (source.isEmpty()) {
             throw new IllegalArgumentException("Source argument cannot be empty.");
         }
@@ -102,6 +106,7 @@ public class Event {
         this.start = start;
         this.end = end;
         this.description = description;
+        this.lang = lang;
         this.score = -1;
         this.source = source;
     }
@@ -118,12 +123,13 @@ public class Event {
      * @throws NullPointerException     If one params is null
      * @throws IllegalArgumentException If source is empty or score is not between 0 and 100
      */
-    public Event(LatLong[] location, Date start, Date end, String description, byte score, String source) {
+    public Event(LatLong[] location, Date start, Date end, String description, byte score, String source, OpenNLP.langOptions lang) {
         Objects.requireNonNull(location);
         Objects.requireNonNull(start);
         Objects.requireNonNull(end);
         Objects.requireNonNull(description);
         Objects.requireNonNull(source);
+        Objects.requireNonNull(lang);
         if (source.isEmpty()) {
             throw new IllegalArgumentException("Source argument cannot be empty.");
         }
@@ -139,6 +145,7 @@ public class Event {
         this.description = description;
         this.score = score;
         this.source = source;
+        this.lang = lang;
     }
 
     /**
@@ -152,8 +159,8 @@ public class Event {
      * @throws NullPointerException     If a param is null
      * @throws IllegalArgumentException If source is empty
      */
-    public Event(LatLong location, Date start, Date end, String description, String source) {
-        this(new LatLong[]{location}, start, end, description, source);
+    public Event(LatLong location, Date start, Date end, String description,  String source, OpenNLP.langOptions lang) {
+        this(new LatLong[]{location}, start, end, description, source, lang);
     }
 
     /**
@@ -168,8 +175,8 @@ public class Event {
      * @throws NullPointerException     If one params is null
      * @throws IllegalArgumentException If source is empty or score is not between 0 and 100
      */
-    public Event(LatLong location, Date start, Date end, String description, byte score, String source) {
-        this(new LatLong[]{location}, start, end, description, score, source);
+    public Event(LatLong location, Date start, Date end, String description, byte score, String source, OpenNLP.langOptions lang) {
+        this(new LatLong[]{location}, start, end, description, score, source, lang);
     }
 
     /**
@@ -232,6 +239,7 @@ public class Event {
         return score;
     }
 
+    public OpenNLP.langOptions getLang(){ return lang;}
     /**
      * Generated method to test if {@link Event} are same
      *

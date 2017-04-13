@@ -23,6 +23,8 @@ import com.waves_rsp.ikb4stream.core.datasource.model.IProducerConnector;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import twitter4j.*;
@@ -92,7 +94,7 @@ public class TwitterProducerConnector implements IProducerConnector {
      * @see TwitterProducerConnector#load(IDataProducer)
      */
     private final double[][] boundingBox;
-
+    private final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Instantiate the {@link TwitterProducerConnector} object with load properties
      *
@@ -227,11 +229,12 @@ public class TwitterProducerConnector implements IProducerConnector {
                 try {
                     jsonObject.append("description", description);
                     jsonObject.append("user_certified", user.isVerified());
+                    OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
                     Event event;
                     if (latLong.length == 1) {
-                        event = new Event(latLong[0], start, end, jsonObject.toString(), source);
+                        event = new Event(latLong[0], start, end, jsonObject.toString(), source, lang);
                     } else {
-                        event = new Event(latLong, start, end, jsonObject.toString(), source);
+                        event = new Event(latLong, start, end, jsonObject.toString(), source, lang);
                     }
                     this.dataProducer.push(event);
                 } catch (JSONException e) {

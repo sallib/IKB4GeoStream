@@ -25,6 +25,8 @@ import com.waves_rsp.ikb4stream.core.datasource.model.IProducerConnector;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,6 +100,8 @@ public class FacebookProducerConnector implements IProducerConnector {
      */
     private final int limit;
 
+    private final LanguageDetection languageDetection = new LanguageDetection();
+
     /**
      * Default constructor that init all members with {@link FacebookProducerConnector#PROPERTIES_MANAGER}
      *
@@ -155,7 +159,8 @@ public class FacebookProducerConnector implements IProducerConnector {
                 Date start = eventData.getStartTime();
                 Date end = eventData.getEndTime();
                 String description = eventData.getDescription();
-                com.waves_rsp.ikb4stream.core.model.Event event = new com.waves_rsp.ikb4stream.core.model.Event(latLong, start, end, description, source);
+                OpenNLP.langOptions lang = this.languageDetection.detectLanguage(description);
+                com.waves_rsp.ikb4stream.core.model.Event event = new com.waves_rsp.ikb4stream.core.model.Event(latLong, start, end, description, source, lang);
                 events.add(event);
                 long endTime = System.currentTimeMillis();
                 long result = endTime - startTime;

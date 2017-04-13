@@ -1,5 +1,6 @@
 package com.waves_rsp.ikb4stream.core.model;
 
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -24,7 +25,7 @@ public class EventTest {
         calendar.set(Calendar.DATE, 17);
         Date end = calendar.getTime();
 
-        new Event(latLong, start, end, "WaterPony", (byte) -1, "twitter");
+        new Event(latLong, start, end, "WaterPony", (byte) -1, "twitter", OpenNLP.langOptions.FRENCH);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -42,7 +43,7 @@ public class EventTest {
         calendar.set(Calendar.DATE, 17);
         Date end = calendar.getTime();
 
-        new Event(latLong, start, end, "Pool party", (byte) 101, "facebook");
+        new Event(latLong, start, end, "Pool party", (byte) 101, "facebook", OpenNLP.langOptions.ENGLISH);
     }
 
     @Test
@@ -60,7 +61,7 @@ public class EventTest {
         calendar.set(Calendar.DATE, 17);
         Date end = calendar.getTime();
 
-        Event event = new Event(latLong, start, end, "Pool party", "eventful");
+        Event event = new Event(latLong, start, end, "Pool party", "eventful", OpenNLP.langOptions.ENGLISH);
         assert (event.getScore() == -1);
     }
 
@@ -79,7 +80,7 @@ public class EventTest {
         calendar.set(Calendar.DATE, 17);
         Date end = calendar.getTime();
 
-        Event event = new Event(latLong, start, end, "WaterPony", (byte) 10, "twitter");
+        Event event = new Event(latLong, start, end, "WaterPony", (byte) 10, "twitter", OpenNLP.langOptions.DEFAULT);
         assert (event.getScore() == (byte) 10);
     }
 

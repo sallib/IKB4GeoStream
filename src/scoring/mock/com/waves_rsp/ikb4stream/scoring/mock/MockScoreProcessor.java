@@ -80,7 +80,7 @@ public class MockScoreProcessor implements IScoreProcessor {
         LOGGER.info("Score aléatoire: " + nombreAleatoire);
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
-        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), nombreAleatoire, event.getSource());
+        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), nombreAleatoire, event.getSource(), event.getLang());
     }
 
     /**
