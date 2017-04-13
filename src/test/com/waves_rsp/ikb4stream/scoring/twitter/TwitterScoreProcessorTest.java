@@ -2,6 +2,8 @@ package com.waves_rsp.ikb4stream.scoring.twitter;
 
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.LatLong;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.junit.Test;
 import twitter4j.JSONException;
 
@@ -13,7 +15,7 @@ public class TwitterScoreProcessorTest {
     private final Date date = Calendar.getInstance().getTime();
     private final String source = "Twitter";
     private final LatLong latlong = new LatLong(2, 3);
-
+    private final LanguageDetection languageDetection = new LanguageDetection();
     @Test(expected = NullPointerException.class)
     public void nullProcessScore() {
         tsp.processScore(null);
@@ -32,7 +34,8 @@ public class TwitterScoreProcessorTest {
     @Test
     public void calculScore() throws JSONException {
         String description = "{\"description\": \"Roger, il y a une fuite d'eau à Paris #eau\", \"user_certified\": true}";
-        Event event = new Event(latlong, date, date, description, source);
+        OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+        Event event = new Event(latlong, date, date, description, source, lang);
         assert (tsp.processScore(event).getScore() != -1);
     }
 }
