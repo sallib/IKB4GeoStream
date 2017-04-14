@@ -1,0 +1,176 @@
+{
+  "keyword": [
+    {
+      "word": "infrastructure",
+      "score": 10
+    },
+    {
+      "word": "hospital",
+      "score": 10
+    },
+    {
+      "word": "airport",
+      "score": 10
+    },
+    {
+      "word": "mine",
+      "score": 10
+    },
+    {
+      "word": "oil",
+      "score": 10
+    },
+    {
+      "word": "petroleum",
+      "score": 10
+    },
+    {
+      "word": "gas",
+      "score": 10
+    },
+    {
+      "word": "platform",
+      "score": 10
+    },
+    {
+      "word": "track",
+      "score": 5
+    },
+    {
+      "word": "road",
+      "score": 5
+    },
+    {
+      "word": "construction",
+      "score": 10
+    },
+    {
+      "word": "station",
+      "score": 5
+    },
+    {
+      "word": "train",
+      "score": 5
+    },
+    {
+      "word": "highway",
+      "score": 10
+    },
+    {
+      "word": "path",
+      "score": 5
+    },
+    {
+      "word": "city",
+      "score": 5
+    },
+    {
+      "word": "evolution",
+      "score": 2
+    },
+    {
+      "word": "camp",
+      "score": 10
+    },
+    {
+      "word": "refugee",
+      "score": 10
+    },
+    {
+      "word": "policy",
+      "score": 2
+    },
+    {
+      "word": "politic",
+      "score": 2
+    },
+    {
+      "word": "disaster",
+      "score": 10
+    },
+    {
+      "word": "agriculture",
+      "score": 5
+    },
+    {
+      "word": "farming",
+      "score": 5
+    },
+    {
+      "word": "powerhouse",
+      "score": 10
+    },
+    {
+      "word": "power",
+      "score": 10
+    },
+    {
+      "word": "nuclear",
+      "score": 10
+    },
+    {
+      "word": "uranium",
+      "score": 10
+    },
+    {
+      "word": "electricity",
+      "score": 10
+    },
+    {
+      "word": "solar",
+      "score": 5
+    },
+    {
+      "word": "thermic",
+      "score": 5
+    },
+    {
+      "word": "thermal",
+      "score": 5
+    },
+    {
+      "word": "refinery",
+      "score": 10
+    },
+    {
+      "word": "desalination",
+      "score": 10
+    },
+    {
+      "word": "military",
+      "score": 10
+    },
+    {
+      "word": "pipeline",
+      "score": 10
+    },
+    {
+      "word": "terminal",
+      "score": 10
+    },
+    {
+      "word": "funding",
+      "score": 10
+    },
+    {
+      "word": "bank",
+      "score": 5
+    },
+    {
+      "word": "islamic",
+      "score": 5
+    },
+    {
+      "word": "development",
+      "score": 5
+    },
+    {
+      "word": "african",
+      "score": 5
+    },
+    {
+      "word": "IMF",
+      "score": 10
+    }
+  ]
+}
