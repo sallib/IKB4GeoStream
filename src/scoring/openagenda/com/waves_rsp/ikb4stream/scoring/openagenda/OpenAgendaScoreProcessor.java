@@ -85,7 +85,7 @@ public class OpenAgendaScoreProcessor implements IScoreProcessor {
      */
     public OpenAgendaScoreProcessor() {
         try {
-            String filename = PROPERTIES_MANAGER.getProperty("openagenda.rules.file");
+            String filename = PROPERTIES_MANAGER.getProperty("openagenda.rules.fr.file");
             rulesMap = RulesReader.parseJSONRules(filename);
         } catch (IllegalArgumentException e) {
             LOGGER.error("Invalid property {} ", e);
@@ -115,7 +115,7 @@ public class OpenAgendaScoreProcessor implements IScoreProcessor {
             String title = jsonDescription.get("title").asText();
             String description = jsonDescription.get("description").asText();
             eventDesc = title + " " + description;
-            List<String> fbList = openNLP.applyNLPlemma(eventDesc);
+            List<String> fbList = openNLP.applyNLPlemma(eventDesc, event.getLang());
             for (String word : fbList) {
                 if (rulesMap.containsKey(word)) {
                     score += rulesMap.get(word);
