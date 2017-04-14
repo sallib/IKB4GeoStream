@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd IKB4GeoStream/
-
 ./gradlew clean ci
 
 echo "#####################################################################"
@@ -54,7 +52,7 @@ cd ../consumer/
 
 sudo docker build -t consumer:latest .
 
-cd ../../
+cd ../
 
 echo "################"
 echo "#  BUILD ENDS  #"
