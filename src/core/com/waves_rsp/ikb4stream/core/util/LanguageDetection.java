@@ -64,7 +64,7 @@ public class LanguageDetection {
                 return OpenNLP.langOptions.ENGLISH;
             }
             else{
-                return null;
+                return OpenNLP.langOptions.DEFAULT;
             }
         }
         //not recognize the language
