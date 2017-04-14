@@ -295,6 +295,7 @@ public class Event {
                 ", description='" + description + '\'' +
                 ", score=" + score +
                 ", source = " + source +
+                ", lang = " + lang +
                 '}';
     }
 
