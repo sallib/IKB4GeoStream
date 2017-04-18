@@ -83,8 +83,8 @@ public class EventScoreProcessor implements IScoreProcessor {
      */
     public EventScoreProcessor() {
         try {
-            String ruleFilename = PROPERTIES_MANAGER.getProperty("event.rules.file");
-            rulesMap = RulesReader.parseJSONRules(ruleFilename);
+            String ruleFilenameFR = PROPERTIES_MANAGER.getProperty("event.rules.fr.file");
+            rulesMap = RulesReader.parseJSONRules(ruleFilenameFR);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
