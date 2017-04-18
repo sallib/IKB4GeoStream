@@ -362,6 +362,7 @@ public class OpenNLP {
      */
     public List<String> applyNLPlemma(String post, langOptions lang) {
         Objects.requireNonNull(post);
+        LOGGER.info("Apply Lemmatizatation " + lang);
         return applyNLPlemma(post, lang, 1250);
     }
 
