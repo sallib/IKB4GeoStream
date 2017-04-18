@@ -43,8 +43,6 @@ apply from: 'gradle/communication_web.gradle'
 // datasource
 apply from: 'gradle/datasource_facebook.gradle'
 apply from: 'gradle/datasource_facebookmock.gradle'
-apply from: 'gradle/datasource_openagenda.gradle'
-apply from: 'gradle/datasource_openagendamock.gradle'
 apply from: 'gradle/datasource_owm.gradle'
 apply from: 'gradle/datasource_rss.gradle'
 apply from: 'gradle/datasource_twitter.gradle'
@@ -54,7 +52,6 @@ apply from: 'gradle/datasource_twittermock.gradle'
 // scoring
 apply from: 'gradle/scoring_event.gradle'
 apply from: 'gradle/scoring_mock.gradle'
-apply from: 'gradle/scoring_openagenda.gradle'
 apply from: 'gradle/scoring_owm.gradle'
 apply from: 'gradle/scoring_twitter.gradle'
 
@@ -90,14 +87,11 @@ sourceSets {
                        'src/datasource/twittermock',
                        'src/datasource/owm',
                        'src/datasource/facebook',
-                       'src/datasource/openagenda',
                        'src/communication/web',
                        'src/scoring/twitter',
                        'src/scoring/owm',
                        'src/scoring/mock',
                        'src/scoring/event',
-                       'src/scoring/openagenda',
-                       'src/datasource/openagendamock',
                        'src/datasource/facebookmock']
 
             compileClasspath +=
@@ -111,14 +105,10 @@ sourceSets {
                     datasourceTwitter.compileClasspath + datasourceTwitter.output +
                     datasourceFacebook.output + datasourceFacebook.compileClasspath +
                     datasourceOWM.output + datasourceOWM.compileClasspath +
-                    datasourceOpenAgenda.output + datasourceOpenAgenda.compileClasspath +
                     communicationWeb.output + communicationWeb.compileClasspath +
                     scoringOWM.compileClasspath + scoringOWM.output +
                     scoringTwitter.compileClasspath + scoringTwitter.output +
-                    scoringMock.compileClasspath + scoringMock.output +
-                    scoringEvent.compileClasspath + scoringEvent.output +
-                    scoringOpenAgenda.compileClasspath + scoringOpenAgenda.output +
-                    datasourceOpenAgendaMock.compileClasspath + datasourceOpenAgendaMock.output
+                    scoringMock.compileClasspath + scoringMock.output
 
             runtimeClasspath = output + compileClasspath + runtimeClasspath
         }
@@ -136,14 +126,12 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.datasourceTwitter.allJava +
             sourceSets.datasourceFacebook.allJava +
             sourceSets.datasourceOWM.allJava +
-            sourceSets.datasourceOpenAgenda.allJava +
             sourceSets.communicationWeb.allJava +
             sourceSets.scoringOWM.allJava +
             sourceSets.scoringTwitter.allJava +
             sourceSets.scoringMock.allJava +
-            sourceSets.scoringEvent.allJava +
-            sourceSets.scoringOpenAgenda.allJava +
-            sourceSets.datasourceOpenAgendaMock.allJava
+            sourceSets.scoringEvent.allJava
+
     classpath += sourceSets.core.compileClasspath +
             sourceSets.consumer.compileClasspath +
             sourceSets.producer.compileClasspath +
@@ -154,14 +142,11 @@ task generateJavadoc(type: Javadoc) {
             sourceSets.datasourceTwitter.compileClasspath +
             sourceSets.datasourceFacebook.compileClasspath +
             sourceSets.datasourceOWM.compileClasspath +
-            sourceSets.datasourceOpenAgenda.compileClasspath +
             sourceSets.communicationWeb.compileClasspath +
             sourceSets.scoringOWM.compileClasspath +
             sourceSets.scoringTwitter.compileClasspath +
             sourceSets.scoringMock.compileClasspath +
-            sourceSets.scoringEvent.compileClasspath +
-            sourceSets.scoringOpenAgenda.compileClasspath +
-            sourceSets.datasourceOpenAgendaMock.compileClasspath
+            sourceSets.scoringEvent.compileClasspath
     destinationDir = file("${buildDir}/docs/javadoc")
     options.memberLevel = JavadocMemberLevel.PRIVATE
     options.author = true
@@ -214,12 +199,9 @@ task packageAll(dependsOn: ['copyConfigProperties',
                             'packageTwitterJar',
                             'packageFacebookJar',
                             'packageOwmJar',
-                            'packageOpenAgendaJar',
-                            'packageOpenAgendaMockJar',
                             'packageCommunicationWebJar',
                             'packageEventScoringJar',
                             'packageTwitterScoringJar',
-                            'packageOpenAgendaScoringJar',
                             'packageTwitterMockJar',
                             'packageFacebookMockJar',
                             'packageOWMScoringJar',

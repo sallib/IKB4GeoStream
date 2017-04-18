@@ -22,7 +22,6 @@ import com.waves_rsp.ikb4stream.core.datasource.model.IScoreProcessor;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
-import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.RulesReader;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
@@ -74,22 +73,18 @@ public class EventScoreProcessor implements IScoreProcessor {
      *
      * @see EventScoreProcessor#processScore(Event)
      */
-    private final Map<String, Integer> rulesMapFr;
-    private final Map<String, Integer> rulesMapEn;
-    private final LanguageDetection languageDetection = new LanguageDetection();
+    private final Map<String, Integer> rulesMap;
+
     /**
-     * Default constructor to initialize {@link EventScoreProcessor#rulesMapFr} with a {@link PropertiesManager}
+     * Default constructor to initialize {@link EventScoreProcessor#rulesMap} with a {@link PropertiesManager}
      *
-     * @see EventScoreProcessor#rulesMapFr
-     * @see EventScoreProcessor#rulesMapEn
+     * @see EventScoreProcessor#rulesMap
      * @see EventScoreProcessor#PROPERTIES_MANAGER
      */
     public EventScoreProcessor() {
         try {
-            String ruleFilenameFr = PROPERTIES_MANAGER.getProperty("event.rules.fr.file");
-            String ruleFilenameEn = PROPERTIES_MANAGER.getProperty("event.rules.en.file");
-            rulesMapFr = RulesReader.parseJSONRules(ruleFilenameFr);
-            rulesMapEn = RulesReader.parseJSONRules(ruleFilenameEn);
+            String ruleFilename = PROPERTIES_MANAGER.getProperty("event.rules.file");
+            rulesMap = RulesReader.parseJSONRules(ruleFilename);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
@@ -102,8 +97,7 @@ public class EventScoreProcessor implements IScoreProcessor {
      * @param event an {@link Event} without {@link Event#score}
      * @return Event with a score after {@link OpenNLP} processing
      * @throws NullPointerException if event is null
-     * @see EventScoreProcessor#rulesMapFr
-     * @see EventScoreProcessor#rulesMapEn
+     * @see EventScoreProcessor#rulesMap
      * @see EventScoreProcessor#openNLP
      * @see EventScoreProcessor#MAX
      * @see Event
@@ -111,18 +105,9 @@ public class EventScoreProcessor implements IScoreProcessor {
     @Override
     public Event processScore(Event event) {
         Objects.requireNonNull(event);
-        Map<String, Integer> rulesMap;
-        OpenNLP.langOptions lang = event.getLang();
-        System.out.println("Language :  " + lang);
-        switch(lang){
-            case FRENCH: rulesMap = rulesMapFr;
-            case ENGLISH: rulesMap = rulesMapEn;
-            default: rulesMap = rulesMapEn;
-        }
         long start = System.currentTimeMillis();
         String content = event.getDescription();
-
-        List<String> eventList = openNLP.applyNLPlemma(content, lang);
+        List<String> eventList = openNLP.applyNLPlemma(content);
         byte score = 0;
         for (String word : eventList) {
             if (rulesMap.containsKey(word)) {
@@ -134,8 +119,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         }
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
-        System.out.println("********* SCORE : " + score + " *********************");
-        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(),lang);
+        return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(), event.getLang());
     }
 
     /**

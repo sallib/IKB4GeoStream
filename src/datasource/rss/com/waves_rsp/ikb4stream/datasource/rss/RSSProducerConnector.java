@@ -33,6 +33,7 @@ import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import com.waves_rsp.ikb4stream.core.util.Geocoder;
 import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
+import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP.nerOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -75,13 +76,13 @@ public class RSSProducerConnector implements IProducerConnector {
     /**
      * Single instance of {@link OpenNLP} per each Thread
      *
-     * @see RSSProducerConnector#geocodeRSS(String, String, OpenNLP.langOptions)
+     * @see RSSProducerConnector#geocodeRSS(String, String)
      */
     private final OpenNLP openNLP = OpenNLP.getOpenNLP(Thread.currentThread());
     /**
      * Source name of corresponding {@link Event}
      *
-     * @see RSSProducerConnector#geocodeRSS(String, String, OpenNLP.langOptions)
+     * @see RSSProducerConnector#geocodeRSS(String, String)
      * @see RSSProducerConnector#load(IDataProducer)
      */
     private final String[] sources;
@@ -154,8 +155,8 @@ public class RSSProducerConnector implements IProducerConnector {
                                 }
                                 String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
                                 GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
+                                LatLong latLong = getLatLong(module, completeDesc, source);
                                 OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
-                                LatLong latLong = getLatLong(module, completeDesc, source, lang);
                                 if (latLong != null) {
                                     Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
                                     dataProducer.push(event);
@@ -197,11 +198,11 @@ public class RSSProducerConnector implements IProducerConnector {
      * @return {@link LatLong} if found something or null
      * @see LatLong
      */
-    private LatLong getLatLong(GeoRSSModule module, String desc, String source, OpenNLP.langOptions lang) {
+    private LatLong getLatLong(GeoRSSModule module, String desc, String source) {
         if (module != null) {
             return new LatLong(module.getPosition().getLatitude(), module.getPosition().getLongitude());
         } else if (desc != null) {
-            return geocodeRSS(desc, source, lang);
+            return geocodeRSS(desc, source);
         }
         return null;
     }
@@ -229,10 +230,10 @@ public class RSSProducerConnector implements IProducerConnector {
      * @return a latLong coordinates
      * @see RSSProducerConnector#openNLP
      */
-    private LatLong geocodeRSS(String text, String source, OpenNLP.langOptions lang) {
+    private LatLong geocodeRSS(String text, String source) {
         long start = System.currentTimeMillis();
 
-        List<String> locations = openNLP.applyNLPner(text, OpenNLP.nerOptions.LOCATION, lang);
+        List<String> locations = openNLP.applyNLPner(text, nerOptions.LOCATION);
         if (!locations.isEmpty()) {
             long time = System.currentTimeMillis() - start;
             METRICS_LOGGER.log("time_geocode_" + source, time);
@@ -246,7 +247,7 @@ public class RSSProducerConnector implements IProducerConnector {
     public static void main(String[] args) {
         RSSProducerConnector rss = new RSSProducerConnector();
         Thread t = new Thread(() -> rss.load(event -> {
-           //DO NOTHING
+            //DO NOTHING
         }));
         t.start();
 
