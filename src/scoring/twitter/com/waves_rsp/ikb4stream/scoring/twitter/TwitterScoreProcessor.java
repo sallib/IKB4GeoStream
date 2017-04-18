@@ -76,22 +76,25 @@ public class TwitterScoreProcessor implements IScoreProcessor {
     /**
      *
      */
-    private final Map<String, Integer> rulesMap;
+    private final Map<String, Integer> rulesMapFR;
+    private final Map<String, Integer> rulesMapEN;
     /**
      *
      */
     private static final int COEFF_HASHTAG = 2;
 
     /**
-     * Default constructor to initialize {@link TwitterScoreProcessor#rulesMap} with a {@link PropertiesManager}
+     * Default constructor to initialize {@link TwitterScoreProcessor#rulesMapFR} with a {@link PropertiesManager}
      *
-     * @see TwitterScoreProcessor#rulesMap
+     * @see TwitterScoreProcessor#rulesMapFR
      * @see TwitterScoreProcessor#PROPERTIES_MANAGER
      */
     public TwitterScoreProcessor() {
         try {
-            String filenameFR = PROPERTIES_MANAGER.getProperty("twitter.rulesfr.file ");
-            rulesMap = RulesReader.parseJSONRules(filenameFR);
+            String filenameFR = PROPERTIES_MANAGER.getProperty("twitter.rules.fr.file");
+            String filenameEN = PROPERTIES_MANAGER.getProperty("twitter.rules.en.file");
+            rulesMapFR = RulesReader.parseJSONRules(filenameFR);
+            rulesMapEN = RulesReader.parseJSONRules(filenameEN);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
@@ -171,7 +174,7 @@ public class TwitterScoreProcessor implements IScoreProcessor {
             JSONObject jsonTweet = new JSONObject(event.getDescription());
             tweet = getParseDescription(jsonTweet);
             List<String> tweetMap = openNLP.applyNLPlemma(tweet, event.getLang());
-            score = scoreWords(score, tweetMap);
+            score = scoreWords(score, tweetMap, event.getLang());
             //Score x COEFF_VERIFY_ACCOUNT if the twitter is certified
             if (isCertified(jsonTweet)) {
                 score *= COEFF_VERIFY_ACCOUNT;
@@ -204,17 +207,29 @@ public class TwitterScoreProcessor implements IScoreProcessor {
     }
 
     /**
-     * Score a tweet depending {@link TwitterScoreProcessor#rulesMap}
+     * Score a tweet depending {@link TwitterScoreProcessor#rulesMapFR}
      *
      * @param score    Actual score of {@link Event}
      * @param tweetMap List of word of tweet
      * @return New score of {@link Event}
      * @throws NullPointerException if tweetMap is null
-     * @see TwitterScoreProcessor#rulesMap
+     * @see TwitterScoreProcessor#rulesMapFR
      */
-    private byte scoreWords(byte score, List<String> tweetMap) {
+    private byte scoreWords(byte score, List<String> tweetMap, OpenNLP.langOptions lang) {
         Objects.requireNonNull(tweetMap);
         byte scoreTmp = score;
+        Map<String, Integer> rulesMap;
+        switch (lang.toString()) {
+            case "FRENCH":
+                rulesMap = rulesMapFR;
+                break;
+            case "ENGLISH":
+                rulesMap = rulesMapEN;
+                break;
+            default:
+                rulesMap = rulesMapEN;
+                break;
+        }
         for (String word : tweetMap) {
             boolean isHashtag = isHashtag(word);
             if (isHashtag(word)) {

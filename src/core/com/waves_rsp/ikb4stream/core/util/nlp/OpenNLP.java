@@ -136,7 +136,7 @@ public class OpenNLP {
             nameFinderLocEN = new NameFinderME(LoaderNLP.getEnTokenNameFinderModelLoc());
             nameFinderPersEN = new NameFinderME(LoaderNLP.getEnTokenNameFinderModelPers());
             InputStream inputStreamEN = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.dictionaries.path"));
-            lemmatizerEN= new SimpleLemmatizer(inputStreamEN);
+            lemmatizerEN = new SimpleLemmatizer(inputStreamEN);
             inputStreamEN.close();
         } catch (IllegalArgumentException | IOException e) {
             LOGGER.error(e.getMessage());
@@ -182,8 +182,19 @@ public class OpenNLP {
     private String[] detectSentences(String text, langOptions lang) {
         Objects.requireNonNull(text);
         Objects.requireNonNull(lang);
-
-        return detectorFR.sentDetect(text);
+        String[] sentences;
+        switch (lang.toString()) {
+            case "FRENCH":
+                sentences = detectorFR.sentDetect(text);
+                break;
+            case "ENGLISH":
+                sentences = detectorEN.sentDetect(text);
+                break;
+            default:
+                sentences = detectorEN.sentDetect(text);
+                break;
+        }
+        return sentences;
     }
 
     /**
@@ -197,7 +208,19 @@ public class OpenNLP {
     private String[] learnableTokenize(String text, langOptions lang) {
         Objects.requireNonNull(text);
         Objects.requireNonNull(lang);
-        return tokenizerFR.tokenize(text);
+        String[] tokens;
+        switch (lang.toString()) {
+            case "FRENCH":
+                tokens = tokenizerFR.tokenize(text);
+                break;
+            case "ENGLISH":
+                tokens = tokenizerEN.tokenize(text);
+                break;
+            default:
+                tokens = tokenizerEN.tokenize(text);
+                break;
+        }
+        return tokens;
     }
 
     /**
@@ -211,7 +234,19 @@ public class OpenNLP {
     private String[] posTagging(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
         Objects.requireNonNull(lang);
-        return taggerFR.tag(tokens);
+        String[] pos;
+        switch (lang.toString()) {
+            case "FRENCH":
+                pos = taggerFR.tag(tokens);
+                break;
+            case "ENGLISH":
+                pos = taggerEN.tag(tokens);
+                break;
+            default:
+                pos = taggerEN.tag(tokens);
+                break;
+        }
+        return pos;
     }
 
     /**
@@ -225,7 +260,19 @@ public class OpenNLP {
     private Span[] findOrganizationName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
         Objects.requireNonNull(lang);
-        return nameFinderOrgFR.find(tokens);
+        Span[] org;
+        switch (lang.toString()) {
+            case "FRENCH":
+                org = nameFinderOrgFR.find(tokens);
+                break;
+            case "ENGLISH":
+                org = nameFinderOrgEN.find(tokens);
+                break;
+            default:
+                org = nameFinderOrgEN.find(tokens);
+                break;
+        }
+        return org;
     }
 
     /**
@@ -239,7 +286,19 @@ public class OpenNLP {
     private Span[] findLocationName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
         Objects.requireNonNull(lang);
-        return nameFinderLocFR.find(tokens);
+        Span[] loc;
+        switch (lang.toString()) {
+            case "FRENCH":
+                loc = nameFinderLocFR.find(tokens);
+                break;
+            case "ENGLISH":
+                loc = nameFinderLocEN.find(tokens);
+                break;
+            default:
+                loc = nameFinderLocEN.find(tokens);
+                break;
+        }
+        return loc;
     }
 
     /**
@@ -253,7 +312,19 @@ public class OpenNLP {
     private Span[] findPersonName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
         Objects.requireNonNull(lang);
-        return nameFinderPersFR.find(tokens);
+        Span[] person;
+        switch (lang.toString()) {
+            case "FRENCH":
+                person = nameFinderPersFR.find(tokens);
+                break;
+            case "ENGLISH":
+                person = nameFinderPersEN.find(tokens);
+                break;
+            default:
+                person = nameFinderPersEN.find(tokens);
+                break;
+        }
+        return person;
     }
 
     /**
@@ -282,7 +353,19 @@ public class OpenNLP {
                     //if the POStag start with V, we just keep the tag V for simplify the lemmatization with the dictionnary
                     tags[i] = "V";
                 }
-                lemmatizedTokens.put(lemmatizerFR.lemmatize(learnableTokens[i], tags[i]), tags[i]);
+                switch (lang.toString()) {
+                    case "FRENCH":
+                        lemmatizedTokens.put(lemmatizerFR.lemmatize(learnableTokens[i], tags[i]), tags[i]);
+                        break;
+                    case "ENGLISH":
+                        lemmatizedTokens.put(lemmatizerEN.lemmatize(learnableTokens[i], tags[i]), tags[i]);
+                        break;
+                    default:
+                        lemmatizedTokens.put(lemmatizerFR.lemmatize(learnableTokens[i], tags[i]), tags[i]);
+                        break;
+                }
+
+
             }
         }
         return lemmatizedTokens;
@@ -328,11 +411,6 @@ public class OpenNLP {
     public List<String> applyNLPlemma(String post, langOptions lang) {
         Objects.requireNonNull(post);
         Objects.requireNonNull(lang);
-        switch (lang.toString())  {
-            case "FRENCH" : LOGGER.info("\n################### " + lang.toString() + " (french) ################### \n"); break;
-            case "ENGLISH" : LOGGER.info("\n################### " + lang.toString() + " (english) ################### \n"); break;
-            default: LOGGER.info("\n################### " + lang.toString() + " (default) ################### \n"); break;
-        }
 
         return applyNLPlemma(post, lang, 1250);
     }

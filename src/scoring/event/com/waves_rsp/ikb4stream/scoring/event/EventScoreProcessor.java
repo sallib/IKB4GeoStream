@@ -73,18 +73,21 @@ public class EventScoreProcessor implements IScoreProcessor {
      *
      * @see EventScoreProcessor#processScore(Event)
      */
-    private final Map<String, Integer> rulesMap;
+    private final Map<String, Integer> rulesMapFR;
+    private final Map<String, Integer> rulesMapEN;
 
     /**
-     * Default constructor to initialize {@link EventScoreProcessor#rulesMap} with a {@link PropertiesManager}
+     * Default constructor to initialize {@link EventScoreProcessor#rulesMapFR} with a {@link PropertiesManager}
      *
-     * @see EventScoreProcessor#rulesMap
+     * @see EventScoreProcessor#rulesMapFR
      * @see EventScoreProcessor#PROPERTIES_MANAGER
      */
     public EventScoreProcessor() {
         try {
             String ruleFilenameFR = PROPERTIES_MANAGER.getProperty("event.rules.fr.file");
-            rulesMap = RulesReader.parseJSONRules(ruleFilenameFR);
+            String ruleFilenameEN = PROPERTIES_MANAGER.getProperty("event.rules.en.file");
+            rulesMapFR = RulesReader.parseJSONRules(ruleFilenameFR);
+            rulesMapEN = RulesReader.parseJSONRules(ruleFilenameEN);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
@@ -97,7 +100,7 @@ public class EventScoreProcessor implements IScoreProcessor {
      * @param event an {@link Event} without {@link Event#score}
      * @return Event with a score after {@link OpenNLP} processing
      * @throws NullPointerException if event is null
-     * @see EventScoreProcessor#rulesMap
+     * @see EventScoreProcessor#rulesMapFR
      * @see EventScoreProcessor#openNLP
      * @see EventScoreProcessor#MAX
      * @see Event
@@ -106,6 +109,18 @@ public class EventScoreProcessor implements IScoreProcessor {
     public Event processScore(Event event) {
         Objects.requireNonNull(event);
         long start = System.currentTimeMillis();
+        Map<String, Integer> rulesMap;
+        switch (event.getLang().toString()) {
+            case "FRENCH":
+                rulesMap = rulesMapFR;
+                break;
+            case "ENGLISH":
+                rulesMap = rulesMapEN;
+                break;
+            default:
+                rulesMap = rulesMapEN;
+                break;
+        }
         String content = event.getDescription();
         List<String> eventList = openNLP.applyNLPlemma(content, event.getLang());
         byte score = 0;

@@ -159,7 +159,11 @@ public class FacebookProducerConnector implements IProducerConnector {
                 Date start = eventData.getStartTime();
                 Date end = eventData.getEndTime();
                 String description = eventData.getDescription();
-                OpenNLP.langOptions lang = this.languageDetection.detectLanguage(description);
+                String tmpPost = description;
+                if (tmpPost.length() > 1250) {
+                    tmpPost = description.substring(0, 1250);
+                }
+                OpenNLP.langOptions lang = this.languageDetection.detectLanguage(tmpPost);
                 com.waves_rsp.ikb4stream.core.model.Event event = new com.waves_rsp.ikb4stream.core.model.Event(latLong, start, end, description, source, lang);
                 events.add(event);
                 long endTime = System.currentTimeMillis();
