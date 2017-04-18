@@ -96,7 +96,7 @@ public class RSSProducerConnector implements IProducerConnector {
      */
     private final String[] urls;
 
-    //private final LanguageDetection languageDetection = new LanguageDetection();
+    private final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Public constructor to init variable from {@link RSSProducerConnector#PROPERTIES_MANAGER}
      *
@@ -154,10 +154,10 @@ public class RSSProducerConnector implements IProducerConnector {
                                 }
                                 String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
                                 GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
-                               // OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
-                                LatLong latLong = getLatLong(module, completeDesc, source, OpenNLP.langOptions.FRENCH);
+                                OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+                                LatLong latLong = getLatLong(module, completeDesc, source, lang);
                                 if (latLong != null) {
-                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source, OpenNLP.langOptions.FRENCH);
+                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
                                     dataProducer.push(event);
                                 }
                             });

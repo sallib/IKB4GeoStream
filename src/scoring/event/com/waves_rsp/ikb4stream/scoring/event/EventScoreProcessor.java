@@ -113,7 +113,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         Objects.requireNonNull(event);
         Map<String, Integer> rulesMap;
         OpenNLP.langOptions lang = event.getLang();
-        LOGGER.info("Language :  " + lang);
+        System.out.println("Language :  " + lang);
         switch(lang){
             case FRENCH: rulesMap = rulesMapFr;
             case ENGLISH: rulesMap = rulesMapEn;
@@ -134,7 +134,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         }
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
-        LOGGER.info("********* SCORE : " + score + " *********************");
+        System.out.println("********* SCORE : " + score + " *********************");
         return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(),lang);
     }
 
