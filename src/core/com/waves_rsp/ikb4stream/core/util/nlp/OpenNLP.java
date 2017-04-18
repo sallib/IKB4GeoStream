@@ -329,9 +329,9 @@ public class OpenNLP {
         Objects.requireNonNull(post);
         Objects.requireNonNull(lang);
         switch (lang)  {
-            case FRENCH: LOGGER.info("\n################### " + lang.toString() + " (french) ################### \n");
-            case ENGLISH: LOGGER.info("\n################### " + lang.toString() + " (english) ################### \n");
-            default: LOGGER.info("\n################### " + lang.toString() + " (default) ################### \n");
+            case FRENCH: LOGGER.info("\n################### " + lang.toString() + " (french) ################### \n"); break;
+            case ENGLISH: LOGGER.info("\n################### " + lang.toString() + " (english) ################### \n"); break;
+            default: LOGGER.info("\n################### " + lang.toString() + " (default) ################### \n"); break;
         }
 
         return applyNLPlemma(post, lang, 1250);
