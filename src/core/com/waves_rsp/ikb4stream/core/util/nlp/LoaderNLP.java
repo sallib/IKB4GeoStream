@@ -37,6 +37,7 @@ import java.io.InputStream;
  * @version 1.0
  */
 class LoaderNLP {
+
     /**
      * Properties of this class
      *
@@ -44,47 +45,55 @@ class LoaderNLP {
      * @see PropertiesManager#getProperty(String)
      * @see PropertiesManager#getInstance(Class)
      */
-    private static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance(LoaderNLP.class);
+    static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance(LoaderNLP.class);
     /**
      * Logger used to log all information in this class
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoaderNLP.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(LoaderNLP.class);
+
     /**
      * Load model to apply person name finder
      *
-     * @see LoaderNLP#getTokenNameFinderModelPers()
+     * @see LoaderNLP#getFrTokenNameFinderModelPers()
      */
-    private static final TokenNameFinderModel TOKEN_NAME_FINDER_MODEL_PERS;
+    static final TokenNameFinderModel FR_TOKEN_NAME_FINDER_MODEL_PERS;
+    static final TokenNameFinderModel EN_TOKEN_NAME_FINDER_MODEL_PERS;
     /**
      * Load model to apply organization name finder
      *
-     * @see LoaderNLP#getTokenNameFinderModelOrg()
+     * @see LoaderNLP#getFrTokenNameFinderModelOrg()
      */
-    private static final TokenNameFinderModel TOKEN_NAME_FINDER_MODEL_ORG;
+    static final TokenNameFinderModel FR_TOKEN_NAME_FINDER_MODEL_ORG;
+    static final TokenNameFinderModel EN_TOKEN_NAME_FINDER_MODEL_ORG;
     /**
      * Load model to apply localisation name finder
      *
-     * @see LoaderNLP#getTokenNameFinderModelLoc()
+     * @see LoaderNLP#getFrTokenNameFinderModelLoc()
      */
-    private static final TokenNameFinderModel TOKEN_NAME_FINDER_MODEL_LOC;
+    static final TokenNameFinderModel FR_TOKEN_NAME_FINDER_MODEL_LOC;
+    static final TokenNameFinderModel EN_TOKEN_NAME_FINDER_MODEL_LOC;
     /**
      * Load model to apply tokenization
      *
-     * @see LoaderNLP#getTokenizerModel()
+     * @see LoaderNLP#getFrTokenizerModel()
      */
-    private static final TokenizerModel TOKENIZER_MODEL;
+    static final TokenizerModel FR_TOKENIZER_MODEL;
+    static final TokenizerModel EN_TOKENIZER_MODEL;
     /**
      * Load model to apply sentence detection
      *
-     * @see LoaderNLP#getSentenceModel()
+     * @see LoaderNLP#getFrSentenceModel()
      */
-    private static final SentenceModel SENTENCE_MODEL;
+    static final SentenceModel FR_SENTENCE_MODEL;
+    static final SentenceModel EN_SENTENCE_MODEL;
     /**
      * Load model to apply part-of-speech tagger
      *
-     * @see LoaderNLP#getPosModel()
+     * @see LoaderNLP#getFrPosModel()
      */
-    private static final POSModel POS_MODEL;
+    static final POSModel FR_POS_MODEL;
+    static final POSModel EN_POS_MODEL;
+
 
     /**
      * Private constructor to block instantiation
@@ -94,89 +103,124 @@ class LoaderNLP {
 
     }
 
+    /**
+     * Get model to apply person name finder
+     *
+     * @return {@link LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_PERS}
+     * @see LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_PERS
+     */
+    static TokenNameFinderModel getFrTokenNameFinderModelPers() {
+        return FR_TOKEN_NAME_FINDER_MODEL_PERS;
+    }
+    static TokenNameFinderModel getEnTokenNameFinderModelPers() {return EN_TOKEN_NAME_FINDER_MODEL_PERS;}
+
+    /**
+     * Get model to apply organization name finder
+     *
+     * @return {@link LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_ORG}
+     * @see LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_ORG
+     */
+    static TokenNameFinderModel getFrTokenNameFinderModelOrg() {
+        return FR_TOKEN_NAME_FINDER_MODEL_ORG;
+    }
+    static TokenNameFinderModel getEnTokenNameFinderModelOrg() {return EN_TOKEN_NAME_FINDER_MODEL_ORG;}
+
+    /**
+     * Get model to apply location name finder
+     *
+     * @return {@link LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_LOC}
+     * @see LoaderNLP#FR_TOKEN_NAME_FINDER_MODEL_LOC
+     */
+    static TokenNameFinderModel getFrTokenNameFinderModelLoc() {
+        return FR_TOKEN_NAME_FINDER_MODEL_LOC;
+    }
+    static TokenNameFinderModel getEnTokenNameFinderModelLoc() {
+        return EN_TOKEN_NAME_FINDER_MODEL_LOC;
+    }
+    /**
+     * Get model to apply tokenization
+     *
+     * @return {@link LoaderNLP#FR_TOKENIZER_MODEL}
+     * @see LoaderNLP#FR_TOKENIZER_MODEL
+     */
+    static TokenizerModel getFrTokenizerModel() {
+        return FR_TOKENIZER_MODEL;
+    }
+    static TokenizerModel getEnTokenizerModel() {
+        return EN_TOKENIZER_MODEL;
+    }
+
+    /**
+     * Get model to apply sentence detection
+     *
+     * @return {@link LoaderNLP#FR_SENTENCE_MODEL}
+     * @see LoaderNLP#FR_SENTENCE_MODEL
+     */
+    static SentenceModel getFrSentenceModel() {
+        return FR_SENTENCE_MODEL;
+    }
+    static SentenceModel getEnSentenceModel() {
+        return EN_SENTENCE_MODEL;
+    }
+    /**
+     * Get model to apply part-of-speech tagger
+     *
+     * @return {@link LoaderNLP#FR_POS_MODEL}
+     * @see LoaderNLP#FR_POS_MODEL
+     */
+    static POSModel getFrPosModel() {return FR_POS_MODEL;}
+    static POSModel getEnPosModel() {
+        return EN_POS_MODEL;
+    }
+
     static {
         try {
+
+            //FRENCH
             InputStream fileFrSentBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.sentence"));
-            SENTENCE_MODEL = new SentenceModel(fileFrSentBin);
+            FR_SENTENCE_MODEL = new SentenceModel(fileFrSentBin);
             fileFrSentBin.close();
             InputStream fileFrTokenBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.tokenizer"));
-            TOKENIZER_MODEL = new TokenizerModel(fileFrTokenBin);
+            FR_TOKENIZER_MODEL = new TokenizerModel(fileFrTokenBin);
             fileFrTokenBin.close();
             InputStream fileFrPosMaxent2Bin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.posmodel"));
-            POS_MODEL = new POSModel(fileFrPosMaxent2Bin);
+            FR_POS_MODEL = new POSModel(fileFrPosMaxent2Bin);
             fileFrPosMaxent2Bin.close();
             InputStream frNerOrganizationBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.tokenname.organization"));
-            TOKEN_NAME_FINDER_MODEL_ORG = new TokenNameFinderModel(frNerOrganizationBin);
+            FR_TOKEN_NAME_FINDER_MODEL_ORG = new TokenNameFinderModel(frNerOrganizationBin);
             frNerOrganizationBin.close();
             InputStream fileFrNerLocationBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.tokenname.location"));
-            TOKEN_NAME_FINDER_MODEL_LOC = new TokenNameFinderModel(fileFrNerLocationBin);
+            FR_TOKEN_NAME_FINDER_MODEL_LOC = new TokenNameFinderModel(fileFrNerLocationBin);
             fileFrNerLocationBin.close();
-            InputStream fileNerPersonBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.tokenname.person"));
-            TOKEN_NAME_FINDER_MODEL_PERS = new TokenNameFinderModel(fileNerPersonBin);
-            fileNerPersonBin.close();
+            InputStream fileFrNerPersonBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.tokenname.person"));
+            FR_TOKEN_NAME_FINDER_MODEL_PERS = new TokenNameFinderModel(fileFrNerPersonBin);
+            fileFrNerPersonBin.close();
+
+
+            //ENGLISH
+            InputStream fileEnSentBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.sentence"));
+            EN_SENTENCE_MODEL = new SentenceModel(fileEnSentBin);
+            fileEnSentBin.close();
+            InputStream fileEnTokenBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.tokenizer"));
+            EN_TOKENIZER_MODEL = new TokenizerModel(fileEnTokenBin);
+            fileEnTokenBin.close();
+            InputStream fileEnPosMaxent2Bin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.posmodel"));
+            EN_POS_MODEL = new POSModel(fileEnPosMaxent2Bin);
+            fileEnPosMaxent2Bin.close();
+            InputStream enNerOrganizationBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.tokenname.organization"));
+            EN_TOKEN_NAME_FINDER_MODEL_ORG = new TokenNameFinderModel(enNerOrganizationBin);
+            enNerOrganizationBin.close();
+            InputStream fileEnNerLocationBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.tokenname.location"));
+            EN_TOKEN_NAME_FINDER_MODEL_LOC = new TokenNameFinderModel(fileEnNerLocationBin);
+            fileEnNerLocationBin.close();
+            InputStream fileEnNerPersonBin = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.tokenname.person"));
+            EN_TOKEN_NAME_FINDER_MODEL_PERS = new TokenNameFinderModel(fileEnNerPersonBin);
+            fileEnNerPersonBin.close();
         } catch (IllegalArgumentException | IOException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e);
         }
     }
 
-    /**
-     * Get model to apply person name finder
-     *
-     * @return {@link LoaderNLP#TOKEN_NAME_FINDER_MODEL_PERS}
-     * @see LoaderNLP#TOKEN_NAME_FINDER_MODEL_PERS
-     */
-    static TokenNameFinderModel getTokenNameFinderModelPers() {
-        return TOKEN_NAME_FINDER_MODEL_PERS;
-    }
 
-    /**
-     * Get model to apply organization name finder
-     *
-     * @return {@link LoaderNLP#TOKEN_NAME_FINDER_MODEL_ORG}
-     * @see LoaderNLP#TOKEN_NAME_FINDER_MODEL_ORG
-     */
-    static TokenNameFinderModel getTokenNameFinderModelOrg() {
-        return TOKEN_NAME_FINDER_MODEL_ORG;
-    }
-
-    /**
-     * Get model to apply location name finder
-     *
-     * @return {@link LoaderNLP#TOKEN_NAME_FINDER_MODEL_LOC}
-     * @see LoaderNLP#TOKEN_NAME_FINDER_MODEL_LOC
-     */
-    static TokenNameFinderModel getTokenNameFinderModelLoc() {
-        return TOKEN_NAME_FINDER_MODEL_LOC;
-    }
-
-    /**
-     * Get model to apply tokenization
-     *
-     * @return {@link LoaderNLP#TOKENIZER_MODEL}
-     * @see LoaderNLP#TOKENIZER_MODEL
-     */
-    static TokenizerModel getTokenizerModel() {
-        return TOKENIZER_MODEL;
-    }
-
-    /**
-     * Get model to apply sentence detection
-     *
-     * @return {@link LoaderNLP#SENTENCE_MODEL}
-     * @see LoaderNLP#SENTENCE_MODEL
-     */
-    static SentenceModel getSentenceModel() {
-        return SENTENCE_MODEL;
-    }
-
-    /**
-     * Get model to apply part-of-speech tagger
-     *
-     * @return {@link LoaderNLP#POS_MODEL}
-     * @see LoaderNLP#POS_MODEL
-     */
-    static POSModel getPosModel() {
-        return POS_MODEL;
-    }
 }

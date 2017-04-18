@@ -66,43 +66,43 @@ public class OpenNLP {
      *
      * @see OpenNLP#lemmatize(String)
      */
-    private final DictionaryLemmatizer lemmatizer;
+    private final DictionaryLemmatizer lemmatizerFR;
     /**
      * Use to do sentence detection
      *
      * @see OpenNLP#detectSentences(String)
      */
-    private final SentenceDetectorME detector;
+    private final SentenceDetectorME detectorFR;
     /**
      * Use to apply person name finder
      *
      * @see OpenNLP#findPersonName(String[])
      */
-    private final NameFinderME nameFinderPers;
+    private final NameFinderME nameFinderPersFR;
     /**
      * Use to apply organization name finder
      *
      * @see OpenNLP#findOrganizationName(String[])
      */
-    private final NameFinderME nameFinderOrg;
+    private final NameFinderME nameFinderOrgFR;
     /**
      * Use to apply location name finder
      *
      * @see OpenNLP#findLocationName(String[])
      */
-    private final NameFinderME nameFinderLoc;
+    private final NameFinderME nameFinderLocFR;
     /**
      * Use to apply tokenization
      *
      * @see OpenNLP#learnableTokenize(String)
      */
-    private final Tokenizer tokenizer;
+    private final Tokenizer tokenizerFR;
     /**
      * Use to apply part-of-speech tagger
      *
      * @see OpenNLP#posTagging(String[])
      */
-    private final POSTaggerME tagger;
+    private final POSTaggerME taggerFR;
 
     /**
      * Private constructor to allow only one {@link OpenNLP} for each Thread
@@ -111,14 +111,14 @@ public class OpenNLP {
      */
     private OpenNLP() {
         try {
-            detector = new SentenceDetectorME(LoaderNLP.getSentenceModel());
-            tokenizer = new TokenizerME(LoaderNLP.getTokenizerModel());
-            tagger = new POSTaggerME(LoaderNLP.getPosModel());
-            nameFinderOrg = new NameFinderME(LoaderNLP.getTokenNameFinderModelOrg());
-            nameFinderLoc = new NameFinderME(LoaderNLP.getTokenNameFinderModelLoc());
-            nameFinderPers = new NameFinderME(LoaderNLP.getTokenNameFinderModelPers());
+            detectorFR = new SentenceDetectorME(LoaderNLP.getFrSentenceModel());
+            tokenizerFR = new TokenizerME(LoaderNLP.getFrTokenizerModel());
+            taggerFR = new POSTaggerME(LoaderNLP.getFrPosModel());
+            nameFinderOrgFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelOrg());
+            nameFinderLocFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelLoc());
+            nameFinderPersFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelPers());
             InputStream inputStream = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.dictionaries.path"));
-            lemmatizer = new SimpleLemmatizer(inputStream);
+            lemmatizerFR = new SimpleLemmatizer(inputStream);
             inputStream.close();
         } catch (IllegalArgumentException | IOException e) {
             LOGGER.error(e.getMessage());
@@ -159,11 +159,11 @@ public class OpenNLP {
      * @param text to analyze
      * @return an array of sentences
      * @throws NullPointerException if text is null
-     * @see OpenNLP#detector
+     * @see OpenNLP#detectorFR
      */
     private String[] detectSentences(String text) {
         Objects.requireNonNull(text);
-        return detector.sentDetect(text);
+        return detectorFR.sentDetect(text);
     }
 
     /**
@@ -172,11 +172,11 @@ public class OpenNLP {
      * @param text to tokenize
      * @return an array of words
      * @throws NullPointerException if text is null
-     * @see OpenNLP#tokenizer
+     * @see OpenNLP#tokenizerFR
      */
     private String[] learnableTokenize(String text) {
         Objects.requireNonNull(text);
-        return tokenizer.tokenize(text);
+        return tokenizerFR.tokenize(text);
     }
 
     /**
@@ -185,11 +185,11 @@ public class OpenNLP {
      * @param tokens is a tokenize text
      * @return an array of posTag
      * @throws NullPointerException if tokens is null
-     * @see OpenNLP#tagger
+     * @see OpenNLP#taggerFR
      */
     private String[] posTagging(String[] tokens) {
         Objects.requireNonNull(tokens);
-        return tagger.tag(tokens);
+        return taggerFR.tag(tokens);
     }
 
     /**
@@ -198,11 +198,11 @@ public class OpenNLP {
      * @param tokens are an array of string to analyze
      * @return an array of entity detected as an organization
      * @throws NullPointerException if tokens is null
-     * @see OpenNLP#nameFinderOrg
+     * @see OpenNLP#nameFinderOrgFR
      */
     private Span[] findOrganizationName(String[] tokens) {
         Objects.requireNonNull(tokens);
-        return nameFinderOrg.find(tokens);
+        return nameFinderOrgFR.find(tokens);
     }
 
     /**
@@ -211,11 +211,11 @@ public class OpenNLP {
      * @param tokens are an array of string to analyze
      * @return an array of entity detected as a location
      * @throws NullPointerException if tokens is null
-     * @see OpenNLP#nameFinderLoc
+     * @see OpenNLP#nameFinderLocFR
      */
     private Span[] findLocationName(String[] tokens) {
         Objects.requireNonNull(tokens);
-        return nameFinderLoc.find(tokens);
+        return nameFinderLocFR.find(tokens);
     }
 
     /**
@@ -224,11 +224,11 @@ public class OpenNLP {
      * @param tokens are an array of string to analyze
      * @return an array of entity detected as a personnality
      * @throws NullPointerException if tokens is null
-     * @see OpenNLP#nameFinderPers
+     * @see OpenNLP#nameFinderPersFR
      */
     private Span[] findPersonName(String[] tokens) {
         Objects.requireNonNull(tokens);
-        return nameFinderPers.find(tokens);
+        return nameFinderPersFR.find(tokens);
     }
 
     /**
@@ -237,7 +237,7 @@ public class OpenNLP {
      * @param text to lemmatize
      * @return Map of each lemmatize word with the POStag associate
      * @throws NullPointerException if text is null
-     * @see OpenNLP#lemmatizer
+     * @see OpenNLP#lemmatizerFR
      */
     private Map<String, String> lemmatize(String text) {
         Objects.requireNonNull(text);
@@ -256,7 +256,7 @@ public class OpenNLP {
                     //if the POStag start with V, we just keep the tag V for simplify the lemmatization with the dictionnary
                     tags[i] = "V";
                 }
-                lemmatizedTokens.put(lemmatizer.lemmatize(learnableTokens[i], tags[i]), tags[i]);
+                lemmatizedTokens.put(lemmatizerFR.lemmatize(learnableTokens[i], tags[i]), tags[i]);
             }
         }
         return lemmatizedTokens;
@@ -270,8 +270,9 @@ public class OpenNLP {
      * @return list of selected words.
      * @throws NullPointerException if post is null
      */
-    public List<String> applyNLPlemma(String post, int limit) {
+    public List<String> applyNLPlemma(String post, langOptions lang, int limit) {
         Objects.requireNonNull(post);
+        Objects.requireNonNull(lang);
         String tmpPost = post;
         if (tmpPost.length() > limit) {
             tmpPost = post.substring(0, limit);
@@ -298,9 +299,10 @@ public class OpenNLP {
      * @return list of selected words.
      * @throws NullPointerException if post is null
      */
-    public List<String> applyNLPlemma(String post) {
+    public List<String> applyNLPlemma(String post, langOptions lang) {
         Objects.requireNonNull(post);
-        return applyNLPlemma(post, 1250);
+        Objects.requireNonNull(lang);
+        return applyNLPlemma(post, lang, 1250);
     }
 
     /**

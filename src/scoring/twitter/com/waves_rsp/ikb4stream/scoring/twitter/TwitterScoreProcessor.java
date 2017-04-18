@@ -170,7 +170,7 @@ public class TwitterScoreProcessor implements IScoreProcessor {
         try {
             JSONObject jsonTweet = new JSONObject(event.getDescription());
             tweet = getParseDescription(jsonTweet);
-            List<String> tweetMap = openNLP.applyNLPlemma(tweet);
+            List<String> tweetMap = openNLP.applyNLPlemma(tweet, event.getLang());
             score = scoreWords(score, tweetMap);
             //Score x COEFF_VERIFY_ACCOUNT if the twitter is certified
             if (isCertified(jsonTweet)) {
