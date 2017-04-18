@@ -244,6 +244,7 @@ public class TwitterScoreProcessor implements IScoreProcessor {
                 }
             }
         }
+        LOGGER.info("\n----> SCORE : " + scoreTmp +"\n");
         return scoreTmp;
     }
 }

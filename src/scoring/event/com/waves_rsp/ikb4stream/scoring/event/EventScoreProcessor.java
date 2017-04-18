@@ -88,6 +88,7 @@ public class EventScoreProcessor implements IScoreProcessor {
             String ruleFilenameEN = PROPERTIES_MANAGER.getProperty("event.rules.en.file");
             rulesMapFR = RulesReader.parseJSONRules(ruleFilenameFR);
             rulesMapEN = RulesReader.parseJSONRules(ruleFilenameEN);
+            LOGGER.info("\n *** EventScoreProcessor is instanciate ***\n");
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
@@ -110,14 +111,18 @@ public class EventScoreProcessor implements IScoreProcessor {
         Objects.requireNonNull(event);
         long start = System.currentTimeMillis();
         Map<String, Integer> rulesMap;
+        LOGGER.info("\n processScore Running...\n");
         switch (event.getLang().toString()) {
             case "FRENCH":
+                LOGGER.info("\n----> FRENCH\n");
                 rulesMap = rulesMapFR;
                 break;
             case "ENGLISH":
+                LOGGER.info("\n----> ENGLISH\n");
                 rulesMap = rulesMapEN;
                 break;
             default:
+                LOGGER.info("\n----> DEFAULT\n");
                 rulesMap = rulesMapEN;
                 break;
         }

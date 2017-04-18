@@ -134,7 +134,7 @@ public class RSSProducerConnector implements IProducerConnector {
         final Date[] lastTime = {Date.from(Instant.now())};
         while (!Thread.currentThread().isInterrupted()) {
             for (int i = 0; i < rssCount; i++) {
-                //System.out.println("\n*********************************************\n" + "*************" + sources[i] +"\n*********************************************\n" );
+                LOGGER.info("\n*********************************************\n" + "*************" + sources[i] +"\n*********************************************\n" );
                 first[0] = true;
                 try {
                     URL url = new URL(urls[i]);
@@ -158,6 +158,7 @@ public class RSSProducerConnector implements IProducerConnector {
                                 OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
                                 LatLong latLong = getLatLong(module, completeDesc, source, lang);
                                 if (latLong != null) {
+                                    LOGGER.info("\n*** PUSH EVENT " + source +"\n" );
                                     Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
                                     dataProducer.push(event);
                                 }
