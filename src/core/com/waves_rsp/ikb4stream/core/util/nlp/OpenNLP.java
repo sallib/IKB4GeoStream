@@ -64,45 +64,52 @@ public class OpenNLP {
     /**
      * Load lemmatizer model
      *
-     * @see OpenNLP#lemmatize(String)
+     * @see OpenNLP#lemmatize(String, langOptions)
      */
     private final DictionaryLemmatizer lemmatizerFR;
+    private final DictionaryLemmatizer lemmatizerEN;
     /**
      * Use to do sentence detection
      *
-     * @see OpenNLP#detectSentences(String)
+     * @see OpenNLP#detectSentences(String, langOptions)
      */
     private final SentenceDetectorME detectorFR;
+    private final SentenceDetectorME detectorEN;
     /**
      * Use to apply person name finder
      *
-     * @see OpenNLP#findPersonName(String[])
+     * @see OpenNLP#findPersonName(String[], langOptions)
      */
     private final NameFinderME nameFinderPersFR;
+    private final NameFinderME nameFinderPersEN;
     /**
      * Use to apply organization name finder
      *
-     * @see OpenNLP#findOrganizationName(String[])
+     * @see OpenNLP#findOrganizationName(String[], langOptions)
      */
     private final NameFinderME nameFinderOrgFR;
+    private final NameFinderME nameFinderOrgEN;
     /**
      * Use to apply location name finder
      *
-     * @see OpenNLP#findLocationName(String[])
+     * @see OpenNLP#findLocationName(String[], langOptions)
      */
     private final NameFinderME nameFinderLocFR;
+    private final NameFinderME nameFinderLocEN;
     /**
      * Use to apply tokenization
      *
-     * @see OpenNLP#learnableTokenize(String)
+     * @see OpenNLP#learnableTokenize(String, langOptions)
      */
     private final Tokenizer tokenizerFR;
+    private final Tokenizer tokenizerEN;
     /**
      * Use to apply part-of-speech tagger
      *
-     * @see OpenNLP#posTagging(String[])
+     * @see OpenNLP#posTagging(String[], langOptions)
      */
     private final POSTaggerME taggerFR;
+    private final POSTaggerME taggerEN;
 
     /**
      * Private constructor to allow only one {@link OpenNLP} for each Thread
@@ -111,15 +118,26 @@ public class OpenNLP {
      */
     private OpenNLP() {
         try {
+            //FRENCH
             detectorFR = new SentenceDetectorME(LoaderNLP.getFrSentenceModel());
             tokenizerFR = new TokenizerME(LoaderNLP.getFrTokenizerModel());
             taggerFR = new POSTaggerME(LoaderNLP.getFrPosModel());
             nameFinderOrgFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelOrg());
             nameFinderLocFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelLoc());
             nameFinderPersFR = new NameFinderME(LoaderNLP.getFrTokenNameFinderModelPers());
-            InputStream inputStream = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.dictionaries.path"));
-            lemmatizerFR = new SimpleLemmatizer(inputStream);
-            inputStream.close();
+            InputStream inputStreamFR = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.fr.dictionaries.path"));
+            lemmatizerFR = new SimpleLemmatizer(inputStreamFR);
+            inputStreamFR.close();
+            //ENGLISH
+            detectorEN = new SentenceDetectorME(LoaderNLP.getEnSentenceModel());
+            tokenizerEN = new TokenizerME(LoaderNLP.getEnTokenizerModel());
+            taggerEN = new POSTaggerME(LoaderNLP.getEnPosModel());
+            nameFinderOrgEN = new NameFinderME(LoaderNLP.getEnTokenNameFinderModelOrg());
+            nameFinderLocEN = new NameFinderME(LoaderNLP.getEnTokenNameFinderModelLoc());
+            nameFinderPersEN = new NameFinderME(LoaderNLP.getEnTokenNameFinderModelPers());
+            InputStream inputStreamEN = new FileInputStream(PROPERTIES_MANAGER.getProperty("nlp.en.dictionaries.path"));
+            lemmatizerEN= new SimpleLemmatizer(inputStreamEN);
+            inputStreamEN.close();
         } catch (IllegalArgumentException | IOException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e);
@@ -161,8 +179,10 @@ public class OpenNLP {
      * @throws NullPointerException if text is null
      * @see OpenNLP#detectorFR
      */
-    private String[] detectSentences(String text) {
+    private String[] detectSentences(String text, langOptions lang) {
         Objects.requireNonNull(text);
+        Objects.requireNonNull(lang);
+
         return detectorFR.sentDetect(text);
     }
 
@@ -174,8 +194,9 @@ public class OpenNLP {
      * @throws NullPointerException if text is null
      * @see OpenNLP#tokenizerFR
      */
-    private String[] learnableTokenize(String text) {
+    private String[] learnableTokenize(String text, langOptions lang) {
         Objects.requireNonNull(text);
+        Objects.requireNonNull(lang);
         return tokenizerFR.tokenize(text);
     }
 
@@ -187,8 +208,9 @@ public class OpenNLP {
      * @throws NullPointerException if tokens is null
      * @see OpenNLP#taggerFR
      */
-    private String[] posTagging(String[] tokens) {
+    private String[] posTagging(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
+        Objects.requireNonNull(lang);
         return taggerFR.tag(tokens);
     }
 
@@ -200,8 +222,9 @@ public class OpenNLP {
      * @throws NullPointerException if tokens is null
      * @see OpenNLP#nameFinderOrgFR
      */
-    private Span[] findOrganizationName(String[] tokens) {
+    private Span[] findOrganizationName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
+        Objects.requireNonNull(lang);
         return nameFinderOrgFR.find(tokens);
     }
 
@@ -213,8 +236,9 @@ public class OpenNLP {
      * @throws NullPointerException if tokens is null
      * @see OpenNLP#nameFinderLocFR
      */
-    private Span[] findLocationName(String[] tokens) {
+    private Span[] findLocationName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
+        Objects.requireNonNull(lang);
         return nameFinderLocFR.find(tokens);
     }
 
@@ -226,8 +250,9 @@ public class OpenNLP {
      * @throws NullPointerException if tokens is null
      * @see OpenNLP#nameFinderPersFR
      */
-    private Span[] findPersonName(String[] tokens) {
+    private Span[] findPersonName(String[] tokens, langOptions lang) {
         Objects.requireNonNull(tokens);
+        Objects.requireNonNull(lang);
         return nameFinderPersFR.find(tokens);
     }
 
@@ -239,17 +264,18 @@ public class OpenNLP {
      * @throws NullPointerException if text is null
      * @see OpenNLP#lemmatizerFR
      */
-    private Map<String, String> lemmatize(String text) {
+    private Map<String, String> lemmatize(String text, langOptions lang) {
         Objects.requireNonNull(text);
+        Objects.requireNonNull(lang);
         Map<String, String> lemmatizedTokens = new HashMap<>();
         // Split tweet text content in sentences
-        String[] sentences = detectSentences(text);
+        String[] sentences = detectSentences(text, lang);
         // For each sentence, tokenize and tag before lemmatizing
         for (String sentence : sentences) {
             // Split each sentence in tokens
-            String[] learnableTokens = learnableTokenize(sentence);
+            String[] learnableTokens = learnableTokenize(sentence, lang);
             // Get tag for each token
-            String[] tags = posTagging(learnableTokens);
+            String[] tags = posTagging(learnableTokens, lang);
             // Get lemmatize form of each token
             for (int i = 0; i < learnableTokens.length; i++) {
                 if (tags[i].startsWith("V") && tags[i].length() > 1) {
@@ -271,7 +297,6 @@ public class OpenNLP {
      * @throws NullPointerException if post is null
      */
     public List<String> applyNLPlemma(String post, langOptions lang, int limit) {
-        LOGGER.info("LANGUE : " + lang);
         Objects.requireNonNull(post);
         Objects.requireNonNull(lang);
         String tmpPost = post;
@@ -280,7 +305,7 @@ public class OpenNLP {
         }
         Map<String, String> input;
         List<String> output = new ArrayList<>();
-        input = lemmatize(tmpPost);
+        input = lemmatize(tmpPost, lang);
         input.forEach((w, pos) -> {
             if (w.startsWith("#")) {
                 output.add(w);
@@ -303,6 +328,12 @@ public class OpenNLP {
     public List<String> applyNLPlemma(String post, langOptions lang) {
         Objects.requireNonNull(post);
         Objects.requireNonNull(lang);
+        switch (lang)  {
+            case FRENCH: LOGGER.info("\n################### " + lang.toString() + " (french) ################### \n");
+            case ENGLISH: LOGGER.info("\n################### " + lang.toString() + " (english) ################### \n");
+            default: LOGGER.info("\n################### " + lang.toString() + " (default) ################### \n");
+        }
+
         return applyNLPlemma(post, lang, 1250);
     }
 
@@ -314,23 +345,24 @@ public class OpenNLP {
      * @return List of selected words by NER
      * @throws NullPointerException if post or ner is null
      */
-    public List<String> applyNLPner(String post, nerOptions ner) {
+    public List<String> applyNLPner(String post, nerOptions ner, langOptions lang) {
         Objects.requireNonNull(post);
         Objects.requireNonNull(ner);
+        Objects.requireNonNull(lang);
         List<String> words = new ArrayList<>();
         Span[] spans;
-        String[] sentences = detectSentences(post);
+        String[] sentences = detectSentences(post, lang);
         for (String sentence : sentences) {
-            String[] learnableTokens = learnableTokenize(sentence);
+            String[] learnableTokens = learnableTokenize(sentence, lang);
             switch (ner.toString()) {
                 case "LOCATION":
-                    spans = findLocationName(learnableTokens);
+                    spans = findLocationName(learnableTokens, lang);
                     break;
                 case "ORGANIZATION":
-                    spans = findOrganizationName(learnableTokens);
+                    spans = findOrganizationName(learnableTokens, lang);
                     break;
                 case "PERSON":
-                    spans = findPersonName(learnableTokens);
+                    spans = findPersonName(learnableTokens, lang);
                     break;
                 default:
                     LOGGER.warn("Bad NER option.\n use : 'LOCATION', 'PERSON' or 'ORGANIZATION'");
