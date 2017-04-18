@@ -90,7 +90,7 @@ public class TwitterScoreProcessor implements IScoreProcessor {
      */
     public TwitterScoreProcessor() {
         try {
-            String filenameFR = PROPERTIES_MANAGER.getProperty("twitter.rules.fr.file ");
+            String filenameFR = PROPERTIES_MANAGER.getProperty("twitter.rulesfr.file ");
             rulesMap = RulesReader.parseJSONRules(filenameFR);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
