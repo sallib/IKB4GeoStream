@@ -107,7 +107,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         Objects.requireNonNull(event);
         long start = System.currentTimeMillis();
         String content = event.getDescription();
-        List<String> eventList = openNLP.applyNLPlemma(content);
+        List<String> eventList = openNLP.applyNLPlemma(content, event.getLang());
         byte score = 0;
         for (String word : eventList) {
             if (rulesMap.containsKey(word)) {

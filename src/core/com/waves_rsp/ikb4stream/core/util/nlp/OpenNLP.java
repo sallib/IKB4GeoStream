@@ -271,6 +271,7 @@ public class OpenNLP {
      * @throws NullPointerException if post is null
      */
     public List<String> applyNLPlemma(String post, langOptions lang, int limit) {
+        LOGGER.info("LANGUE : " + lang);
         Objects.requireNonNull(post);
         Objects.requireNonNull(lang);
         String tmpPost = post;
