@@ -95,6 +95,8 @@ public class TwitterProducerConnector implements IProducerConnector {
      */
     private final double[][] boundingBox;
 
+    private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
+
     /**
      * Instantiate the {@link TwitterProducerConnector} object with load properties
      *

@@ -15,7 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * https://github.com/optimaize/language-detector
@@ -27,8 +30,9 @@ public class LanguageDetection {
     private static final Logger LOGGER = LoggerFactory.getLogger(LanguageDetection.class);
     private final LanguageDetector languageDetector;
     private final TextObjectFactory textObjectFactory;
+    private static final Map<Thread, LanguageDetection> INSTANCE_LANGUAGE = new HashMap<>();
 
-    public LanguageDetection() {
+    private LanguageDetection() {
         try {
             //load all languages:
             List<LanguageProfile> languageProfiles = new LanguageProfileReader().readAllBuiltIn();
@@ -43,6 +47,12 @@ public class LanguageDetection {
             throw new IllegalStateException(e);
         }
     }
+
+    public static LanguageDetection getLanguageDetection(Thread thread) {
+        Objects.requireNonNull(thread);
+        return INSTANCE_LANGUAGE.computeIfAbsent(thread, t -> new LanguageDetection());
+    }
+
 
     /**
      * @param text

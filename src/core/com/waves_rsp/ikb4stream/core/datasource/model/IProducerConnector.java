@@ -41,5 +41,5 @@ public interface IProducerConnector {
      */
     boolean isActive();
 
-   LanguageDetection languageDetection = new LanguageDetection();
+
 }

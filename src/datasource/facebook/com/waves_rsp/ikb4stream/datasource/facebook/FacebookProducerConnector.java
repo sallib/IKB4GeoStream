@@ -100,7 +100,7 @@ public class FacebookProducerConnector implements IProducerConnector {
      */
     private final int limit;
     private final int interval;
-
+    private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
 
     /**
      * Default constructor that init all members with {@link FacebookProducerConnector#PROPERTIES_MANAGER}
