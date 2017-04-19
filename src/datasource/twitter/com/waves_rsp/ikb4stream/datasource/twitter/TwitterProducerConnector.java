@@ -94,7 +94,7 @@ public class TwitterProducerConnector implements IProducerConnector {
      * @see TwitterProducerConnector#load(IDataProducer)
      */
     private final double[][] boundingBox;
-    private final LanguageDetection languageDetection = new LanguageDetection();
+
     /**
      * Instantiate the {@link TwitterProducerConnector} object with load properties
      *
