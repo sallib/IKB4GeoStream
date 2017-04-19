@@ -133,9 +133,11 @@ public class RSSProducerConnector implements IProducerConnector {
         final int rssCount = countSources();
         final boolean[] first = {true};
         final Date[] lastTime = {Date.from(Instant.now())};
+        System.out.println("sleeping time : " + (this.interval/1000)/60);
         while (!Thread.currentThread().isInterrupted()) {
             for (int i = 0; i < rssCount; i++) {
-                LOGGER.info("\n*********************************************\n" + "*************" + sources[i] +"\n*********************************************\n" );
+                LOGGER.info("\n*********************************************\n" + "*************" + sources[i] +  i  +"\n*********************************************\n" );
+                LOGGER.info("Il y a " + rssCount + " sources\n");
                 first[0] = true;
                 try {
                     URL url = new URL(urls[i]);
@@ -179,6 +181,14 @@ public class RSSProducerConnector implements IProducerConnector {
                     throw new IllegalStateException("Invalid configuration");
                 } catch (IOException | FeedException e) {
                     LOGGER.error("Can't parse RSS [] ", e);
+                    if (i == this.sources.length -1) {
+                        LOGGER.info("*** RSS loading is finish for this interval. Next time in " + ((this.interval/1000)/60)/60 + " hours ***\n");
+                        try {
+                            Thread.sleep(interval);
+                        } catch (InterruptedException e1) {
+                            Thread.currentThread().interrupt();
+                        }
+                    }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
@@ -248,6 +258,16 @@ public class RSSProducerConnector implements IProducerConnector {
         }
         LOGGER.info("Can't find location");
         return new LatLong(0,0);
+    }
+
+
+    public static void main(String[] args){
+        RSSProducerConnector rss = new RSSProducerConnector();
+
+        Thread t = new Thread(() -> rss.load(event -> {
+
+        }));
+        t.start();
     }
 
 }
