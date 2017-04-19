@@ -21,7 +21,9 @@ package com.waves_rsp.ikb4stream.scoring.event;
 import com.waves_rsp.ikb4stream.core.datasource.model.IScoreProcessor;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.Event;
+import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.RulesReader;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import org.slf4j.Logger;
@@ -159,4 +161,20 @@ public class EventScoreProcessor implements IScoreProcessor {
         }
         return sources;
     }
+/*
+    public static void main(String[] args) {
+        LanguageDetection languageDetection = new LanguageDetection();
+        Date date = Calendar.getInstance().getTime();
+        String source = "RSS";
+        LatLong latlong = new LatLong(2, 3);
+        EventScoreProcessor tsp = new EventScoreProcessor();
+        String descriptionFR = "Roger, il y a un nouvel hôpital prêt de la centrale nucléaire";
+        String descriptionEN = "Hi there, new hospital near the nuclear infrastructure";
+        String descriptionES = "Hola ! Hay una nueva planta de energía nuclear";
+        OpenNLP.langOptions lang = languageDetection.detectLanguage(descriptionEN);
+        Event event = new Event(latlong, date, date, descriptionEN, source, lang);
+        Event record = tsp.processScore(event);
+        System.out.println(record);
+    }
+    */
 }
