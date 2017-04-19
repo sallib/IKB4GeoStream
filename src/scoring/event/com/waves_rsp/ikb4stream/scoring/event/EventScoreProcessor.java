@@ -139,6 +139,7 @@ public class EventScoreProcessor implements IScoreProcessor {
         if (score > MAX) {
             score = MAX;
         }
+        LOGGER.info("\n----> "+ event.getSource()+"\n");
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
         return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(), event.getLang());
