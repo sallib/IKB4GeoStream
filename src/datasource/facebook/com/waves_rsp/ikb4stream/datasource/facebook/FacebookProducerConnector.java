@@ -211,6 +211,7 @@ public class FacebookProducerConnector implements IProducerConnector {
             try {
                 List<com.waves_rsp.ikb4stream.core.model.Event> events = searchWordFromGeolocation(word, limit, lat, lon);
                 events.forEach(dataProducer::push);
+                LOGGER.info("*** Facebook loading is finish for this interval. Next time in " + ((this.interval/1000)/60)/60 + " hours *** \n");
                 Thread.sleep(this.interval);
             } catch (InterruptedException e) {
                 LOGGER.error(e.getMessage());
