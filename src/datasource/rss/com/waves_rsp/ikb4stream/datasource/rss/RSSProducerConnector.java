@@ -161,7 +161,6 @@ public class RSSProducerConnector implements IProducerConnector {
                                 OpenNLP.langOptions lang = languageDetection.detectLanguage(tmpPost);
                                 LatLong latLong = getLatLong(module, completeDesc, source, lang);
                                 if (latLong != null) {
-                                    LOGGER.info("\n*** PUSH EVENT " + source +"\n" );
                                     Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
                                     dataProducer.push(event);
                                 }
@@ -170,6 +169,7 @@ public class RSSProducerConnector implements IProducerConnector {
                     long time = System.currentTimeMillis() - start;
                     METRICS_LOGGER.log("time_process_" + source, time);
                     if (i == this.sources.length -1) {
+                        LOGGER.info("*** RSS loading is finish for this interval. Next time in " + ((this.interval/1000)/60)/60 + " hours ***\n");
                         Thread.sleep(interval);
                     }
                 } catch (MalformedURLException e) {
