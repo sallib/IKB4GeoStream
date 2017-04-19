@@ -155,7 +155,11 @@ public class RSSProducerConnector implements IProducerConnector {
                                 }
                                 String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
                                 GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
-                                OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
+                                String tmpPost = description;
+                                if (tmpPost.length() > 1250) {
+                                    tmpPost = description.substring(0, 1250);
+                                }
+                                OpenNLP.langOptions lang = languageDetection.detectLanguage(tmpPost);
                                 LatLong latLong = getLatLong(module, completeDesc, source, lang);
                                 if (latLong != null) {
                                     LOGGER.info("\n*** PUSH EVENT " + source +"\n" );
