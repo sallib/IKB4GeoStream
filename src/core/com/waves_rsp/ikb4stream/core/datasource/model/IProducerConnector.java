@@ -18,6 +18,8 @@
 
 package com.waves_rsp.ikb4stream.core.datasource.model;
 
+import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
+
 /**
  * Interface to implement if you want to use your class as module of producer
  *
@@ -38,4 +40,6 @@ public interface IProducerConnector {
      * @return true if we should launch this module
      */
     boolean isActive();
+
+   LanguageDetection languageDetection = new LanguageDetection();
 }

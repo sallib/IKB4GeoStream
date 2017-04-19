@@ -39,31 +39,27 @@ public class LanguageDetection {
             //create a text object factory
             textObjectFactory = CommonTextObjectFactories.forDetectingOnLargeText();
         } catch (IOException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Language detection failed " + e.getMessage());
             throw new IllegalStateException(e);
         }
     }
 
     /**
-     *
      * @param text
-     * @return
-     *      fr = french
-     *      en = english
-     *      ar = arabic
-     *      es = spanish
+     * @return fr = french
+     * en = english
+     * ar = arabic
+     * es = spanish
      */
     public OpenNLP.langOptions detectLanguage(String text) {
         TextObject textObject = this.textObjectFactory.forText(text);
         com.google.common.base.Optional<LdLocale> lang = this.languageDetector.detect(textObject);
         if (lang.isPresent()) {
-            if (lang.get().getLanguage().equals("fr")){
+            if (lang.get().getLanguage().equals("fr")) {
                 return OpenNLP.langOptions.FRENCH;
-            }
-            else if (lang.get().getLanguage().equals("en")){
+            } else if (lang.get().getLanguage().equals("en")) {
                 return OpenNLP.langOptions.ENGLISH;
-            }
-            else{
+            } else {
                 return OpenNLP.langOptions.DEFAULT;
             }
         }
@@ -71,14 +67,4 @@ public class LanguageDetection {
         return OpenNLP.langOptions.DEFAULT;
     }
 
-/*
-    public static void main(String[] args) {
-        String text = "Bonjour, je m'appelle Sandy.";
-        LanguageDetection languageDetection = new LanguageDetection();
-        LdLocale lang = languageDetection.detectLanguage(text);
-        if (lang != null)
-            lang.getLanguage();
-        System.out.println(lang);
-    }
-    */
 }

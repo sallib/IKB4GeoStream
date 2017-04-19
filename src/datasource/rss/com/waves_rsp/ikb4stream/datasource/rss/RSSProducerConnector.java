@@ -97,7 +97,6 @@ public class RSSProducerConnector implements IProducerConnector {
      */
     private final String[] urls;
 
-    private final LanguageDetection languageDetection = new LanguageDetection();
     /**
      * Public constructor to init variable from {@link RSSProducerConnector#PROPERTIES_MANAGER}
      *
