@@ -99,7 +99,7 @@ public class FacebookProducerConnector implements IProducerConnector {
      * @see FacebookProducerConnector#load(IDataProducer)
      */
     private final int limit;
-
+    private final int interval;
 
 
     /**
@@ -121,6 +121,7 @@ public class FacebookProducerConnector implements IProducerConnector {
             this.limit = Integer.valueOf(PROPERTIES_MANAGER.getProperty("FacebookProducerConnector.limit"));
             this.lat = Double.valueOf(PROPERTIES_MANAGER.getProperty("FacebookProducerConnector.latitude"));
             this.lon = Double.valueOf(PROPERTIES_MANAGER.getProperty("FacebookProducerConnector.longitude"));
+            this.interval = Integer.parseInt(PROPERTIES_MANAGER.getProperty("FacebookProducerConnector.interval"));
         } catch (IllegalArgumentException e) {
             LOGGER.error("Invalid configuration {} ", e);
             throw new IllegalStateException("Invalid configuration");
@@ -210,7 +211,7 @@ public class FacebookProducerConnector implements IProducerConnector {
             try {
                 List<com.waves_rsp.ikb4stream.core.model.Event> events = searchWordFromGeolocation(word, limit, lat, lon);
                 events.forEach(dataProducer::push);
-                Thread.sleep(20000);
+                Thread.sleep(this.interval);
             } catch (InterruptedException e) {
                 LOGGER.error(e.getMessage());
             } finally {
