@@ -100,7 +100,7 @@ public class FacebookProducerConnector implements IProducerConnector {
      */
     private final int limit;
 
-    private final LanguageDetection languageDetection = new LanguageDetection();
+
 
     /**
      * Default constructor that init all members with {@link FacebookProducerConnector#PROPERTIES_MANAGER}
