@@ -98,7 +98,7 @@ public class OWMProducerConnector implements IProducerConnector {
      * @see OWMProducerConnector#load(IDataProducer)
      */
     private final String source;
-    private final LanguageDetection languageDetection = new LanguageDetection();
+
 
     /**
      * Instantiate the {@link OWMProducerConnector} object with load properties
@@ -149,8 +149,7 @@ public class OWMProducerConnector implements IProducerConnector {
             LatLong latLong = new LatLong(Double.valueOf(jn.path("coord").path("lat").toString()), Double.valueOf(jn.path("coord").path("lon").toString()));
             Date start = new Date(Long.valueOf(jn.path("dt").toString()) * 1000);
             Date end = new Date(start.getTime() + requestInterval - 1000);
-            OpenNLP.langOptions lang = languageDetection.detectLanguage(description);
-            return new Event(latLong, start, end, description, this.source, lang);
+            return new Event(latLong, start, end, description, this.source, OpenNLP.langOptions.FRENCH);
         } catch (NumberFormatException e) {
             LOGGER.warn("value of() failed: {}", e.getMessage());
             return null;

@@ -60,7 +60,7 @@ public class TwitterMock implements IProducerConnectorMock {
      * @see TwitterMock#getEventFromJson(ObjectNode)
      */
     private static final String SOURCE = "Twitter";
-    private static final LanguageDetection languageDetection = new LanguageDetection();
+    private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
     /**
      * Override default constructor
      */

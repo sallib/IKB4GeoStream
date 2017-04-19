@@ -63,7 +63,7 @@ public class FacebookMock implements IProducerConnectorMock {
      * @see FacebookMock#getEventFromJson(ObjectNode)
      */
     private static final String SOURCE = "Facebook";
-    private static final LanguageDetection languageDetection = new LanguageDetection();
+    private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
     /**
      * Override default constructor
      */

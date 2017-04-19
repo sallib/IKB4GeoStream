@@ -15,7 +15,7 @@ public class TwitterScoreProcessorTest {
     private final Date date = Calendar.getInstance().getTime();
     private final String source = "Twitter";
     private final LatLong latlong = new LatLong(2, 3);
-    private final LanguageDetection languageDetection = new LanguageDetection();
+    private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
     @Test(expected = NullPointerException.class)
     public void nullProcessScore() {
         tsp.processScore(null);
