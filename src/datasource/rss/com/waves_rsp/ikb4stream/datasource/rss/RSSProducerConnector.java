@@ -245,13 +245,4 @@ public class RSSProducerConnector implements IProducerConnector {
         return new LatLong(0,0);
     }
 
-    public static void main(String[] args) {
-        RSSProducerConnector rss = new RSSProducerConnector();
-        Thread t = new Thread(() -> rss.load(event -> {
-            //DO NOTHING
-        }));
-        t.start();
-
-    }
-
 }

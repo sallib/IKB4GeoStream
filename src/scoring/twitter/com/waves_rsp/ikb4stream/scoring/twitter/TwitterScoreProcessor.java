@@ -246,25 +246,8 @@ public class TwitterScoreProcessor implements IScoreProcessor {
                 }
             }
         }
-        LOGGER.info("\n----> SCORE : " + scoreTmp + "\n");
         return scoreTmp;
     }
-
-/*
-    public static void main(String[] args) {
-        LanguageDetection languageDetection = new LanguageDetection();
-        Date date = Calendar.getInstance().getTime();
-        String source = "Twitter";
-        LatLong latlong = new LatLong(2, 3);
-        TwitterScoreProcessor tsp = new TwitterScoreProcessor();
-        String descriptionFR = "{\"description\": \"Roger, il y a un nouvel hôpital prêt de la centrale nucléaire #politique\", \"user_certified\": true}";
-        String descriptionEN = "{\"description\": \"Hi therre, new hospital near the nuclear infrastructure  #politic \", \"user_certified\": true}";
-        String descriptionES = "{\"description\": \"Hola ! Hay una nueva planta de energía nuclear  #politico \", \"user_certified\": true}";
-        OpenNLP.langOptions lang = languageDetection.detectLanguage(descriptionES);
-        Event event = new Event(latlong, date, date, descriptionES, source, lang);
-        Event record = tsp.processScore(event);
-        System.out.println(record);
-    }
-    */
+    
 }
 

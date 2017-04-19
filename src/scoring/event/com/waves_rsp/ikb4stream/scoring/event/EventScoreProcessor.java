@@ -90,7 +90,6 @@ public class EventScoreProcessor implements IScoreProcessor {
             String ruleFilenameEN = PROPERTIES_MANAGER.getProperty("event.rules.en.file");
             rulesMapFR = RulesReader.parseJSONRules(ruleFilenameFR);
             rulesMapEN = RulesReader.parseJSONRules(ruleFilenameEN);
-            LOGGER.info("\n *** EventScoreProcessor is instanciate ***\n");
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e.getMessage());
@@ -113,18 +112,14 @@ public class EventScoreProcessor implements IScoreProcessor {
         Objects.requireNonNull(event);
         long start = System.currentTimeMillis();
         Map<String, Integer> rulesMap;
-        LOGGER.info("\n processScore Running...\n");
         switch (event.getLang().toString()) {
             case "FRENCH":
-                LOGGER.info("\n----> FRENCH\n");
                 rulesMap = rulesMapFR;
                 break;
             case "ENGLISH":
-                LOGGER.info("\n----> ENGLISH\n");
                 rulesMap = rulesMapEN;
                 break;
             default:
-                LOGGER.info("\n----> DEFAULT\n");
                 rulesMap = rulesMapEN;
                 break;
         }
@@ -139,7 +134,6 @@ public class EventScoreProcessor implements IScoreProcessor {
         if (score > MAX) {
             score = MAX;
         }
-        LOGGER.info("\n----> "+ event.getSource()+"\n");
         long time = System.currentTimeMillis() - start;
         METRICS_LOGGER.log("time_scoring_" + event.getSource(), time);
         return new Event(event.getLocation(), event.getStart(), event.getEnd(), event.getDescription(), score, event.getSource(), event.getLang());
@@ -162,20 +156,4 @@ public class EventScoreProcessor implements IScoreProcessor {
         }
         return sources;
     }
-/*
-    public static void main(String[] args) {
-        LanguageDetection languageDetection = new LanguageDetection();
-        Date date = Calendar.getInstance().getTime();
-        String source = "RSS";
-        LatLong latlong = new LatLong(2, 3);
-        EventScoreProcessor tsp = new EventScoreProcessor();
-        String descriptionFR = "Roger, il y a un nouvel hôpital prêt de la centrale nucléaire";
-        String descriptionEN = "Hi there, new hospital near the nuclear infrastructure";
-        String descriptionES = "Hola ! Hay una nueva planta de energía nuclear";
-        OpenNLP.langOptions lang = languageDetection.detectLanguage(descriptionEN);
-        Event event = new Event(latlong, date, date, descriptionEN, source, lang);
-        Event record = tsp.processScore(event);
-        System.out.println(record);
-    }
-    */
 }
