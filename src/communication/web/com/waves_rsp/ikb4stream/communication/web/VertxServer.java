@@ -149,7 +149,7 @@ public class VertxServer extends AbstractVerticle {
         Date end = new Date(jsonRequest.getLong("end"));
         String search = jsonRequest.getString("search");
         String location = jsonRequest.getString("location");
-        if (location.isEmpty()) {
+        if (location.isEmpty() || location == "") {
             return new Request(start, end, search, Date.from(Instant.now()));
         } else {
             Geocoder geocoder = Geocoder.geocode(location);
