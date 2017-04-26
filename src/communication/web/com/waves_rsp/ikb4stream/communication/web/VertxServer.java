@@ -148,20 +148,24 @@ public class VertxServer extends AbstractVerticle {
         Date start = new Date(jsonRequest.getLong("start"));
         Date end = new Date(jsonRequest.getLong("end"));
         String search = jsonRequest.getString("search");
-        //Geocoder geocoder = Geocoder.geocode(address);
-        /*if (geocoder.getLatLong() == null) {
-            LOGGER.warn("Can't geocode this address {}", address);
-            return null;
+        String location = jsonRequest.getString("location");
+        if (location.isEmpty()) {
+            return new Request(start, end, search, Date.from(Instant.now()));
+        } else {
+            Geocoder geocoder = Geocoder.geocode(location);
+            if (geocoder.getLatLong() == null) {
+                LOGGER.warn("Can't geocode this address {}", location);
+                return null;
+            }
+            return new Request(start, end, search, new BoundingBox(geocoder.getBbox()), Date.from(Instant.now()));
         }
-        return new Request(start, end, new BoundingBox(geocoder.getBbox()), Date.from(Instant.now()));
-        */
-        return new Request(start, end, search, Date.from(Instant.now()));
+
     }
 
     /**
      * Retrieve an event from database
      *
-     * @param request {@link Request} the user web request
+     * @param request                {@link Request} the user web request
      * @param databaseReaderCallback {@link DatabaseReaderCallback} called when request finished
      * @see VertxServer#databaseReader
      */
