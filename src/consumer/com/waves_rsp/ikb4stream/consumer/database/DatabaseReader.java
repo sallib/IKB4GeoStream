@@ -147,13 +147,17 @@ public class DatabaseReader implements IDatabaseReader {
      */
     @Override
     public void getEvent(Request request, DatabaseReaderCallback callback) {
+        /*
         List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
                 .map(l -> new Position(l.getLongitude(), l.getLatitude()))
                 .collect(Collectors.toList());
+                */
         final long start = System.currentTimeMillis();
+
         this.mongoCollection
                 .find(and(
                        // geoIntersects("location", new Polygon(polygon)),
+                        text(request.getSearch()),
                         lte("start", request.getEnd().getTime()),
                         gte("end", request.getStart().getTime())
                 ))

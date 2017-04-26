@@ -223,6 +223,8 @@ public class RSSProducerConnector implements IProducerConnector {
         return null;
     }
 
+
+
     /**
      * Check if this jar is active
      *

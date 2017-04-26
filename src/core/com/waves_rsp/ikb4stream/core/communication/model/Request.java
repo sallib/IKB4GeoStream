@@ -39,30 +39,31 @@ public class Request {
     /**
      * {@link BoundingBox} of Event to get
      */
-    private final BoundingBox boundingBox;
+    //private final BoundingBox boundingBox;
     /**
      * The reception date of the request
      */
     private final Date requestReception;
-
+    private final String search;
     /**
      * The Request class constructor
      *
      * @param start            is the starting date of an anomaly
      * @param end              is the end date of an anomaly
-     * @param boundingBox      coordinates
+     * @param search           word
      * @param requestReception is the reception date of the request
      * @throws NullPointerException if one of params is null
      */
-    public Request(Date start, Date end, BoundingBox boundingBox, Date requestReception) {
+    public Request(Date start, Date end, String search, Date requestReception) {
         Objects.requireNonNull(start);
         Objects.requireNonNull(end);
-        Objects.requireNonNull(boundingBox);
+        Objects.requireNonNull(search);
         Objects.requireNonNull(requestReception);
 
         this.start = start;
         this.end = end;
-        this.boundingBox = boundingBox;
+     //   this.boundingBox = boundingBox;
+        this.search = search;
         this.requestReception = requestReception;
     }
 
@@ -87,22 +88,22 @@ public class Request {
     }
 
     /**
-     * Get {@link BoundingBox} of Request
+     * Get search word of Request
      *
-     * @return the coordinates of the {@link BoundingBox}
-     * @see Request#boundingBox
+     * @return the word request
+     * @see Request#search
      */
-    public BoundingBox getBoundingBox() {
-        return boundingBox;
-    }
 
+    public String getSearch(){
+        return search;
+    }
     /**
      * Represent that object in string
      *
      * @return String that represents this {@link Request}
      * @see Request#start
      * @see Request#end
-     * @see Request#boundingBox
+     * @see Request#search
      * @see Request#requestReception
      */
     @Override
@@ -110,7 +111,7 @@ public class Request {
         return "Request{" +
                 "start=" + start +
                 ", end=" + end +
-                ", boundingBox=" + boundingBox +
+                ", search=" + search +
                 ", requestReception=" + requestReception +
                 '}';
     }

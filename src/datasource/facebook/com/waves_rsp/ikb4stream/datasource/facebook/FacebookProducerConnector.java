@@ -150,7 +150,7 @@ public class FacebookProducerConnector implements IProducerConnector {
         Connection<Event> publicSearch = facebookClient.fetchConnection("search", Event.class,
                 Parameter.with("q", word),
                 Parameter.with("type", "event"),
-                Parameter.with("limit", limit),
+              //  Parameter.with("limit", limit),
                 Parameter.with("place&center", latitude + "," + longitude));
         publicSearch.getData().forEach(eventData -> {
             if (isValidEvent(eventData)) {
