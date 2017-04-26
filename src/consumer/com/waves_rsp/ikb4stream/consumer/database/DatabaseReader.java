@@ -18,10 +18,13 @@
 
 package com.waves_rsp.ikb4stream.consumer.database;
 
+import com.mongodb.async.SingleResultCallback;
 import com.mongodb.async.client.MongoClient;
 import com.mongodb.async.client.MongoClients;
 import com.mongodb.async.client.MongoCollection;
 import com.mongodb.async.client.MongoDatabase;
+import com.mongodb.client.model.Indexes;
+import com.mongodb.client.model.TextSearchOptions;
 import com.mongodb.client.model.geojson.Polygon;
 import com.mongodb.client.model.geojson.Position;
 import com.waves_rsp.ikb4stream.core.communication.DatabaseReaderCallback;
@@ -102,6 +105,8 @@ public class DatabaseReader implements IDatabaseReader {
             final MongoClient mongoClient = MongoClients.create(PROPERTIES_MANAGER.getProperty("database.host"));
             final MongoDatabase mongoDatabase = mongoClient.getDatabase(PROPERTIES_MANAGER.getProperty("database.datasource"));
             this.mongoCollection = mongoDatabase.getCollection(PROPERTIES_MANAGER.getProperty("database.collection"));
+
+            this.mongoCollection.createIndex(Indexes.text("description"), callbackWhenFinished);
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
             throw new IllegalStateException(e);
@@ -153,11 +158,12 @@ public class DatabaseReader implements IDatabaseReader {
                 .collect(Collectors.toList());
                 */
         final long start = System.currentTimeMillis();
-        String[] searchList = request.getSearch().split(",");
+
         this.mongoCollection
                 .find(and(
                        // geoIntersects("location", new Polygon(polygon)),
-                        all("description", Arrays.asList(searchList)),
+                       // all("description", Arrays.asList(searchList)),
+                        text( request.getSearch(),new TextSearchOptions().caseSensitive(false)),
                         lte("start", request.getEnd().getTime()),
                         gte("end", request.getStart().getTime())
                 ))
@@ -172,4 +178,11 @@ public class DatabaseReader implements IDatabaseReader {
                             );
                         });
     }
+
+    SingleResultCallback<String> callbackWhenFinished = new SingleResultCallback<String>() {
+        @Override
+        public void onResult(final String result, final Throwable t) {
+            LOGGER.info("Indexes description of events finish !");
+        }
+    };
 }
