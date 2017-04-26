@@ -176,25 +176,30 @@ public class DatabaseReader implements IDatabaseReader {
     private Bson createFilter(Request request) {
         Objects.requireNonNull(request);
 
-        List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
-                .map(l -> new Position(l.getLongitude(), l.getLatitude()))
-                .collect(Collectors.toList());
-
         Bson filterSearch = text(request.getSearch(), new TextSearchOptions().caseSensitive(false));
         Bson filterStartDate = lte("start", request.getEnd().getTime());
         Bson filterEndDate = gte("end", request.getStart().getTime());
-        Bson filterGeo = geoIntersects("location", new Polygon(polygon));
-
-        if (request.getSearch().isEmpty() && request.getBoundingBox() == null) {
+        Bson filterGeo = getFilterGeo(request);
+        if (request.getSearch().isEmpty() && filterGeo == null) {
             return and(filterStartDate, filterEndDate);
         } else if (request.getSearch().isEmpty()) {
             return and(filterStartDate, filterEndDate, filterGeo);
-        }else if (request.getBoundingBox() == null){
+        }else if (filterGeo == null){
             return and(filterStartDate, filterEndDate, filterSearch);
         } else {
             return and(filterStartDate, filterEndDate, filterSearch, filterGeo);
         }
 
+    }
+
+    private Bson getFilterGeo(Request request){
+        if (request.getBoundingBox() != null) {
+            List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
+                    .map(l -> new Position(l.getLongitude(), l.getLatitude()))
+                    .collect(Collectors.toList());
+            return geoIntersects("location", new Polygon(polygon));
+        }
+        return null;
     }
 
     SingleResultCallback<String> callbackWhenFinished = new SingleResultCallback<String>() {
