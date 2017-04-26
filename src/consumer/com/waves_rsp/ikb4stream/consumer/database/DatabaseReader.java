@@ -157,7 +157,6 @@ public class DatabaseReader implements IDatabaseReader {
         this.mongoCollection
                 .find(and(
                        // geoIntersects("location", new Polygon(polygon)),
-                        text(request.getSearch()),
                         lte("start", request.getEnd().getTime()),
                         gte("end", request.getStart().getTime())
                 ))
