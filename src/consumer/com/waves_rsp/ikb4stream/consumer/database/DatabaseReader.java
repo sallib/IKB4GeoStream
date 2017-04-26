@@ -33,12 +33,15 @@ import com.waves_rsp.ikb4stream.core.communication.model.Request;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.*;
@@ -152,21 +155,11 @@ public class DatabaseReader implements IDatabaseReader {
      */
     @Override
     public void getEvent(Request request, DatabaseReaderCallback callback) {
-        /*
-        List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
-                .map(l -> new Position(l.getLongitude(), l.getLatitude()))
-                .collect(Collectors.toList());
-                */
         final long start = System.currentTimeMillis();
 
+        Bson filter = createFilter(request);
         this.mongoCollection
-                .find(and(
-                       // geoIntersects("location", new Polygon(polygon)),
-                       // all("description", Arrays.asList(searchList)),
-                        text( request.getSearch(),new TextSearchOptions().caseSensitive(false)),
-                        lte("start", request.getEnd().getTime()),
-                        gte("end", request.getStart().getTime())
-                ))
+                .find(filter)
                 .limit(limit)
                 .into(new ArrayList<Document>(),
                         (result, t) -> {
@@ -177,6 +170,31 @@ public class DatabaseReader implements IDatabaseReader {
                                     "[" + result.stream().map(Document::toJson).collect(Collectors.joining(", ")) + "]"
                             );
                         });
+    }
+
+
+    private Bson createFilter(Request request) {
+        Objects.requireNonNull(request);
+
+        List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
+                .map(l -> new Position(l.getLongitude(), l.getLatitude()))
+                .collect(Collectors.toList());
+
+        Bson filterSearch = text(request.getSearch(), new TextSearchOptions().caseSensitive(false));
+        Bson filterStartDate = lte("start", request.getEnd().getTime());
+        Bson filterEndDate = gte("end", request.getStart().getTime());
+        Bson filterGeo = geoIntersects("location", new Polygon(polygon));
+
+        if (request.getSearch().isEmpty() && request.getBoundingBox() == null) {
+            return and(filterStartDate, filterEndDate);
+        } else if (request.getSearch().isEmpty()) {
+            return and(filterStartDate, filterEndDate, filterGeo);
+        }else if (request.getBoundingBox() == null){
+            return and(filterStartDate, filterEndDate, filterSearch);
+        } else {
+            return and(filterStartDate, filterEndDate, filterSearch, filterGeo);
+        }
+
     }
 
     SingleResultCallback<String> callbackWhenFinished = new SingleResultCallback<String>() {

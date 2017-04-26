@@ -18,6 +18,11 @@
 
 package com.waves_rsp.ikb4stream.core.communication.model;
 
+import com.waves_rsp.ikb4stream.core.model.LatLong;
+import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -39,12 +44,28 @@ public class Request {
     /**
      * {@link BoundingBox} of Event to get
      */
-    //private final BoundingBox boundingBox;
+    private final BoundingBox boundingBox;
     /**
      * The reception date of the request
      */
     private final Date requestReception;
     private final String search;
+
+
+    /**
+     * Logger used to log all information in this module
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(Request.class);
+
+    /**
+     * Properties of this class
+     *
+     * @see PropertiesManager
+     * @see PropertiesManager#getProperty(String)
+     * @see PropertiesManager#getInstance(Class)
+     */
+    private static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance(Request.class);
+
     /**
      * The Request class constructor
      *
@@ -54,17 +75,26 @@ public class Request {
      * @param requestReception is the reception date of the request
      * @throws NullPointerException if one of params is null
      */
-    public Request(Date start, Date end, String search, Date requestReception) {
+    public Request(Date start, Date end, String search, BoundingBox boundingBox, Date requestReception) {
         Objects.requireNonNull(start);
         Objects.requireNonNull(end);
         Objects.requireNonNull(search);
+        Objects.requireNonNull(boundingBox);
         Objects.requireNonNull(requestReception);
 
         this.start = start;
         this.end = end;
-     //   this.boundingBox = boundingBox;
+        this.boundingBox = boundingBox;
         this.search = search;
         this.requestReception = requestReception;
+    }
+
+    public Request(Date start, Date end, String search, Date requestReception) {
+            this.start = start;
+            this.end = end;
+            this.boundingBox = null;
+            this.search = search;
+            this.requestReception = requestReception;
     }
 
     /**
@@ -88,13 +118,24 @@ public class Request {
     }
 
     /**
+     * Get BoundingBox
+     *
+     * @return the bbox
+     * @see Request#@BoundingBox
+     */
+
+    public BoundingBox getBoundingBox() {
+        return this.boundingBox;
+    }
+
+    /**
      * Get search word of Request
      *
      * @return the word request
      * @see Request#search
      */
 
-    public String getSearch(){
+    public String getSearch() {
         return search;
     }
     /**
