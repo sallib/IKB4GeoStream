@@ -171,6 +171,54 @@
     {
       "word": "IMF",
       "score": 10
+    },
+    {
+      "word": "dam",
+      "score": 10
+    },
+    {
+      "word": "asphalting",
+      "score": 10
+    },
+    {
+      "word": "cholera",
+      "score": 10
+    },
+    {
+      "word": "cement",
+      "score": 10
+    },
+    {
+      "word": "plant",
+      "score": 5
+    },
+    {
+      "word": "diamond",
+      "score": 10
+    },
+    {
+      "word": "iron",
+      "score": 10
+    },
+    {
+      "word": "flood",
+      "score": 10
+    },
+    {
+      "word": "gold",
+      "score": 10
+    },
+    {
+      "word": "bridge",
+      "score": 10
+    },
+    {
+      "word": "harbor",
+      "score": 10
+    },
+    {
+      "word": "factory",
+      "score": 10
     }
   ]
 }
