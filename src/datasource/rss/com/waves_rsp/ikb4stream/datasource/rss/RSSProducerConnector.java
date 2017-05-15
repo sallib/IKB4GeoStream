@@ -40,11 +40,11 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Get data flow from RSS
@@ -99,6 +99,8 @@ public class RSSProducerConnector implements IProducerConnector {
 
     private final LanguageDetection languageDetection = LanguageDetection.getLanguageDetection(Thread.currentThread());
 
+    private final Date lastLoading;
+    private final DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss ZZZ yyyy", Locale.ENGLISH);
     /**
      * Public constructor to init variable from {@link RSSProducerConnector#PROPERTIES_MANAGER}
      *
@@ -111,8 +113,9 @@ public class RSSProducerConnector implements IProducerConnector {
         try {
             this.sources = PROPERTIES_MANAGER.getProperty("RSSProducerConnector.source").split(",");
             this.interval = Integer.parseInt(PROPERTIES_MANAGER.getProperty("RSSProducerConnector.interval"));
+            this.lastLoading = df.parse(PROPERTIES_MANAGER.getProperty("RSSProducerConnector.lastLoading"));
             this.urls = PROPERTIES_MANAGER.getProperty("RSSProducerConnector.url").split(",");
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | ParseException e) {
             LOGGER.error("Invalid configuration [] ", e);
             throw new IllegalStateException("Invalid configuration");
         }
@@ -135,9 +138,11 @@ public class RSSProducerConnector implements IProducerConnector {
         final Date[] lastTime = {Date.from(Instant.now())};
         System.out.println("sleeping time : " + (this.interval/1000)/60);
         while (!Thread.currentThread().isInterrupted()) {
+            LOGGER.info("BEFORE : LastLoading property : " + PROPERTIES_MANAGER.getProperty("RSSProducerConnector.lastLoading") + "\n");
+            PROPERTIES_MANAGER.setProperty("RSSProducerConnector.lastLoading", String.valueOf(Date.from(Instant.now())));
+            LOGGER.info("AFTER : LastLoading property : " + PROPERTIES_MANAGER.getProperty("RSSProducerConnector.lastLoading") + "\n");
             for (int i = 0; i < rssCount; i++) {
                 LOGGER.info("\n*********************************************\n" + "*************" + sources[i] +  i  +"\n*********************************************\n" );
-                LOGGER.info("Il y a " + rssCount + " sources\n");
                 first[0] = true;
                 try {
                     URL url = new URL(urls[i]);
@@ -152,23 +157,25 @@ public class RSSProducerConnector implements IProducerConnector {
                             .forEach(entry -> {
                                 lastTime[0] = currentTime;
                                 Date startDate = (entry.getPublishedDate() != null) ? entry.getPublishedDate() : currentTime;
-                                String description ="";
-                                if (entry.getDescription() != null) {
-                                    description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
-                                }
-                                String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
-                                GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
-                                String tmpPost = description;
-                                if (tmpPost.length() > 1250) {
-                                    tmpPost = description.substring(0, 1250);
-                                }
-                                OpenNLP.langOptions lang = languageDetection.detectLanguage(tmpPost);
-                                LatLong latLong = getLatLong(module, completeDesc, source, lang);
-                                if (latLong != null) {
-                                    Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
-                                    dataProducer.push(event);
-                                }
-                            });
+                                //check that RSS is not already in database
+                                if (startDate.after(lastLoading) ) {
+                                    String description = "";
+                                    if (entry.getDescription() != null) {
+                                        description = (entry.getDescription().getValue() != null) ? entry.getDescription().getValue() : "";
+                                    }
+                                    String completeDesc = entry.getTitle() + "\\n" + description + "\\nVoir plus: " + entry.getLink();
+                                    GeoRSSModule module = GeoRSSUtils.getGeoRSS(entry);
+                                    String tmpPost = description;
+                                    if (tmpPost.length() > 1250) {
+                                        tmpPost = description.substring(0, 1250);
+                                    }
+                                    OpenNLP.langOptions lang = languageDetection.detectLanguage(tmpPost);
+                                    LatLong latLong = getLatLong(module, completeDesc, source, lang);
+                                    if (latLong != null) {
+                                        Event event = new Event(latLong, startDate, currentTime, completeDesc, source, lang);
+                                        dataProducer.push(event);
+                                    }
+                                }});
                     first[0] = false;
                     long time = System.currentTimeMillis() - start;
                     METRICS_LOGGER.log("time_process_" + source, time);
@@ -264,6 +271,7 @@ public class RSSProducerConnector implements IProducerConnector {
 
 
     public static void main(String[] args){
+        System.out.println(Date.from(Instant.now()));
         RSSProducerConnector rss = new RSSProducerConnector();
 
         Thread t = new Thread(() -> rss.load(event -> {

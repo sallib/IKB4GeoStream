@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -58,6 +59,7 @@ public class PropertiesManager {
      * @see PropertiesManager#getProperty(String)
      */
     private final Properties config = new Properties();
+    private final Path configLocation;
 
     /**
      * Singleton {@link PropertiesManager}
@@ -67,8 +69,8 @@ public class PropertiesManager {
      */
     private PropertiesManager(String path) {
         Objects.requireNonNull(path);
-        Path configLocation = Paths.get(path);
-        try (InputStream stream = Files.newInputStream(configLocation)) {
+        this.configLocation = Paths.get(path);
+        try (InputStream stream = Files.newInputStream(this.configLocation)) {
             config.load(stream);
         } catch (IOException e) {
             LOGGER.error(e.getMessage());
@@ -143,4 +145,24 @@ public class PropertiesManager {
         }
         return value;
     }
+
+    /**
+     * Set property
+     *
+     * @param property Property to set from configuration file
+     * @param key      Key value to set
+     * @see PropertiesManager#config
+     */
+    public void setProperty(String key, String property) {
+        Objects.requireNonNull(property);
+        Objects.requireNonNull(key);
+        config.setProperty(key, property);
+        try (OutputStream stream = Files.newOutputStream(this.configLocation)) {
+            config.store(stream, property);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+        }
+
+    }
+
 }
