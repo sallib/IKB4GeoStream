@@ -1,6 +1,398 @@
 {
   "keyword": [
     {
+      "word": "Abu Dhabi",
+      "score": "10"
+    },
+    {
+      "word": "Aden",
+      "score": "10"
+    },
+    {
+      "word": "Al Ain",
+      "score": "10"
+    },
+    {
+      "word": "Amman",
+      "score": "10"
+    },
+    {
+      "word": "Ansongo",
+      "score": "10"
+    },
+    {
+      "word": "Ar Rutbah",
+      "score": "10"
+    },
+    {
+      "word": "Arak",
+      "score": "10"
+    },
+    {
+      "word": "Assamaka",
+      "score": "10"
+    },
+    {
+      "word": "Atar",
+      "score": "10"
+    },
+    {
+      "word": "Baa",
+      "score": "10"
+    },
+    {
+      "word": "Bagdad",
+      "score": "10"
+    },
+    {
+      "word": "Bandar Abbas",
+      "score": "10"
+    },
+    {
+      "word": "Benghazi",
+      "score": "10"
+    },
+    {
+      "word": "Bilma",
+      "score": "10"
+    },
+    {
+      "word": "Bossanga",
+      "score": "10"
+    },
+    {
+      "word": "Brazzaville",
+      "score": "10"
+    },
+    {
+      "word": "Dahuk",
+      "score": "10"
+    },
+    {
+      "word": "Djanet",
+      "score": "10"
+    },
+    {
+      "word": "Dubai",
+      "score": "10"
+    },
+    {
+      "word": "El Khalil",
+      "score": "10"
+    },
+    {
+      "word": "El Oued",
+      "score": "10"
+    },
+    {
+      "word": "Freetown",
+      "score": "10"
+    },
+    {
+      "word": "Garoua",
+      "score": "10"
+    },
+    {
+      "word": "Gaziantep",
+      "score": "10"
+    },
+    {
+      "word": "Kameshli",
+      "score": "10"
+    },
+    {
+      "word": "Kano",
+      "score": "10"
+    },
+    {
+      "word": "Katsina",
+      "score": "10"
+    },
+    {
+      "word": "Kayes",
+      "score": "10"
+    },
+    {
+      "word": "Lawdar",
+      "score": "10"
+    },
+    {
+      "word": "Maan",
+      "score": "10"
+    },
+    {
+      "word": "Maradi",
+      "score": "10"
+    },
+    {
+      "word": "word",
+      "score": "score"
+    },
+    {
+      "word": "Marib",
+      "score": "10"
+    },
+    {
+      "word": "Misrata",
+      "score": "10"
+    },
+    {
+      "word": "Mokolo",
+      "score": "10"
+    },
+    {
+      "word": "Mopti",
+      "score": "10"
+    },
+    {
+      "word": "Mossoul",
+      "score": "10"
+    },
+    {
+      "word": "N'Guigmi",
+      "score": "10"
+    },
+    {
+      "word": "Ras Al Khaimah",
+      "score": "10"
+    },
+    {
+      "word": "Reyanli",
+      "score": "10"
+    },
+    {
+      "word": "Sa'dah",
+      "score": "10"
+    },
+    {
+      "word": "Salalah",
+      "score": "10"
+    },
+    {
+      "word": "Sanaa",
+      "score": "10"
+    },
+    {
+      "word": "Sanliurfa",
+      "score": "10"
+    },
+    {
+      "word": "Sayun",
+      "score": "10"
+    },
+    {
+      "word": "Taizz",
+      "score": "10"
+    },
+    {
+      "word": "Tamanhint",
+      "score": "10"
+    },
+    {
+      "word": "Tarim",
+      "score": "10"
+    },
+    {
+      "word": "Tripoli",
+      "score": "10"
+    },
+    {
+      "word": "Umm al Quwain",
+      "score": "10"
+    },
+    {
+      "word": "Zakho",
+      "score": "10"
+    },
+    {
+      "word": "Zinder",
+      "score": "10"
+    },
+    {
+      "word": "Algérie",
+      "score": "10"
+    },
+    {
+      "word": "Angola",
+      "score": "10"
+    },
+    {
+      "word": "Arabie Saoudite",
+      "score": "10"
+    },
+    {
+      "word": "Bahrain",
+      "score": "10"
+    },
+    {
+      "word": "Bénin",
+      "score": "10"
+    },
+    {
+      "word": "Burundi",
+      "score": "10"
+    },
+    {
+      "word": "Cameroun",
+      "score": "10"
+    },
+    {
+      "word": "Congo",
+      "score": "10"
+    },
+    {
+      "word": "Côtes d'ivoire",
+      "score": "10"
+    },
+    {
+      "word": "Djibouti",
+      "score": "10"
+    },
+    {
+      "word": "Egypte",
+      "score": "10"
+    },
+    {
+      "word": "Emirats Arabes Unis",
+      "score": "10"
+    },
+    {
+      "word": "Erythrée",
+      "score": "10"
+    },
+    {
+      "word": "Ethiopie",
+      "score": "10"
+    },
+    {
+      "word": "Gambie",
+      "score": "10"
+    },
+    {
+      "word": "Ghana",
+      "score": "10"
+    },
+    {
+      "word": "Guinée",
+      "score": "10"
+    },
+    {
+      "word": "Guinée Bissau",
+      "score": "10"
+    },
+    {
+      "word": "Guinée Equatoriale",
+      "score": "10"
+    },
+    {
+      "word": "Irak",
+      "score": "10"
+    },
+    {
+      "word": "Iran",
+      "score": "10"
+    },
+    {
+      "word": "Israel",
+      "score": "10"
+    },
+    {
+      "word": "Jordanie",
+      "score": "10"
+    },
+    {
+      "word": "Liban",
+      "score": "10"
+    },
+    {
+      "word": "Libéria",
+      "score": "10"
+    },
+    {
+      "word": "Libye",
+      "score": "10"
+    },
+    {
+      "word": "Madagascar",
+      "score": "10"
+    },
+    {
+      "word": "Mali",
+      "score": "10"
+    },
+    {
+      "word": "Mauritanie",
+      "score": "10"
+    },
+    {
+      "word": "Niger",
+      "score": "10"
+    },
+    {
+      "word": "Nigéria",
+      "score": "10"
+    },
+    {
+      "word": "Oman",
+      "score": "10"
+    },
+    {
+      "word": "Qatar",
+      "score": "10"
+    },
+    {
+      "word": "République centrafricaine",
+      "score": "10"
+    },
+    {
+      "word": "Rwanda",
+      "score": "10"
+    },
+    {
+      "word": "Sao Tome",
+      "score": "10"
+    },
+    {
+      "word": "Sénégal",
+      "score": "10"
+    },
+    {
+      "word": "Sierra Léone",
+      "score": "10"
+    },
+    {
+      "word": "Somalie",
+      "score": "10"
+    },
+    {
+      "word": "Soudan",
+      "score": "10"
+    },
+    {
+      "word": "Soudan du Sud",
+      "score": "10"
+    },
+    {
+      "word": "Syrie",
+      "score": "10"
+    },
+    {
+      "word": "Tchad",
+      "score": "10"
+    },
+    {
+      "word": "Togo",
+      "score": "10"
+    },
+    {
+      "word": "Tunisie",
+      "score": "10"
+    },
+    {
+      "word": "Yemen",
+      "score": "10"
+    },
+    {
       "word": "infrastructure",
       "score": 10
     },
