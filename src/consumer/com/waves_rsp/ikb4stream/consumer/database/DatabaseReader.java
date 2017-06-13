@@ -176,7 +176,7 @@ public class DatabaseReader implements IDatabaseReader {
     public void deleteEvent(String id){
         StringBuilder sb = new StringBuilder();
         sb.append("ObjectId(").append('"').append(id).append('"').append(")");
-        this.mongoCollection.find(eq("_id", sb.toString()));
+        this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
         //this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
   }
 
