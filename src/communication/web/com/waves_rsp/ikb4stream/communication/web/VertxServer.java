@@ -102,11 +102,11 @@ public class VertxServer extends AbstractVerticle {
 
 
     private void getObjectToDelete(RoutingContext rc){
-        Request request;
+        String objectID;
         try {
-            LOGGER.info("Received web request: {}", rc.getBodyAsJson());
-            request = parseRequest(rc.getBodyAsJson());
-            if (request == null) {
+            LOGGER.info("Received web request: {}", rc.getBodyAsString());
+            objectID = rc.getBodyAsString();
+            if (objectID == null) {
                 rc.response()
                         .setStatusCode(400)
                         .putHeader("Content-type", "application/json;charset:utf-8")
@@ -119,10 +119,10 @@ public class VertxServer extends AbstractVerticle {
             rc.fail(400);
             return;
         }
-        LOGGER.info("Request : {}", request);
+        LOGGER.info("Request : {}", objectID);
         LOGGER.info("rc= {}", rc);
 
-        System.out.println(request);
+
     }
     /**
      * Reads a request from a routing context, and attach the response to it. It requests the database
