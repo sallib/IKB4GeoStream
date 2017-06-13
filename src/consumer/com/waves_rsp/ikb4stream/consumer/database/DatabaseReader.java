@@ -180,12 +180,7 @@ public class DatabaseReader implements IDatabaseReader {
         LOGGER.info("DELETE EVENT " + sb.toString() );
         this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
 
-
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append( "{ ").append('"').append("$oid").append('"').append(" : ").append('"').append(id).append('"').append(" }");
-        LOGGER.info("DELETE EVENT " + sb2.toString() );
-        this.mongoCollection.find(eq("_id", sb2.toString())).first(printDocument);
-        //this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
+        this.mongoCollection.deleteOne(eq("_id", sb.toString()), (result, t) -> LOGGER.info(String.valueOf(result.getDeletedCount())));
   }
 
     private Bson createFilter(Request request) {
@@ -220,7 +215,7 @@ public class DatabaseReader implements IDatabaseReader {
     SingleResultCallback<String> callbackWhenFinished = new SingleResultCallback<String>() {
         @Override
         public void onResult(final String result, final Throwable t) {
-            LOGGER.info("Indexes description of events finish !  " + result);
+            LOGGER.info("Indexes description of events finished !  " + result);
         }
     };
 
