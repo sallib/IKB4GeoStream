@@ -174,8 +174,10 @@ public class DatabaseReader implements IDatabaseReader {
 
     @Override
     public void deleteEvent(String id){
-        this.mongoCollection.find(eq("i", 71)).first(printDocument);
-        this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
+        StringBuilder sb = new StringBuilder();
+        sb.append("ObjectId(").append('"').append(id).append('"').append(")");
+        this.mongoCollection.find(eq("_id", sb.toString()));
+        //this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
   }
 
     private Bson createFilter(Request request) {
