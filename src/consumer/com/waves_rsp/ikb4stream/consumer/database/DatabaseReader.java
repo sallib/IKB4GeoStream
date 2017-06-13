@@ -178,6 +178,11 @@ public class DatabaseReader implements IDatabaseReader {
         StringBuilder sb = new StringBuilder();
         sb.append("ObjectId(").append('"').append(id).append('"').append(")");
         this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
+
+
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append( "{ ").append('"').append("$oid").append('"').append(" : ").append('"').append(id).append('"').append(" }");
+        this.mongoCollection.find(eq("_id", sb2.toString())).first(printDocument);
         //this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
   }
 
