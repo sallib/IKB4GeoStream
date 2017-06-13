@@ -173,6 +173,7 @@ public class DatabaseReader implements IDatabaseReader {
                         });
     }
 
+    @Override
     public void deleteEvent(String id){
         this.mongoCollection.find(eq("_id", id)).first(printDocument);
 /*
