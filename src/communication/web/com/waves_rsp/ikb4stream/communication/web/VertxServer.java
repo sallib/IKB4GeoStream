@@ -80,6 +80,10 @@ public class VertxServer extends AbstractVerticle {
         router.route("/anomaly*").handler(BodyHandler.create()); // enable reading of request's body
         router.get("/anomaly").handler(this::getAnomalies);
         router.post("/anomaly").handler(this::getAnomalies);
+
+        router.route("/delete*").handler(BodyHandler.create()); // enable reading of request's body
+        router.get("/delete").handler(this::getObjectToDelete);
+        router.post("/delete").handler(this::getObjectToDelete);
         vertx
                 .createHttpServer()
                 .requestHandler(router::accept)
@@ -96,6 +100,30 @@ public class VertxServer extends AbstractVerticle {
         LOGGER.info("VertxServer started");
     }
 
+
+    private void getObjectToDelete(RoutingContext rc){
+        Request request;
+        try {
+            LOGGER.info("Received web request: {}", rc.getBodyAsJson());
+            request = parseRequest(rc.getBodyAsJson());
+            if (request == null) {
+                rc.response()
+                        .setStatusCode(400)
+                        .putHeader("Content-type", "application/json;charset:utf-8")
+                        .end("{\"error\": \"Invalid address\"}");
+                return;
+            }
+        } catch (DecodeException | NullPointerException e) {
+            LOGGER.info("Received an invalid format request : {} ", e.getMessage());
+            LOGGER.debug("DecodeException: {}", e);
+            rc.fail(400);
+            return;
+        }
+        LOGGER.info("Request : {}", request);
+        LOGGER.info("rc= {}", rc);
+
+        System.out.println(request);
+    }
     /**
      * Reads a request from a routing context, and attach the response to it. It requests the database
      * with DatabaseReader.
