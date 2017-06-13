@@ -219,7 +219,7 @@ public class DatabaseReader implements IDatabaseReader {
     SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
         @Override
         public void onResult(final Document document, final Throwable t) {
-            System.out.println(document.toJson());
+            LOGGER.info(document.toJson());
         }
     };
 }
