@@ -121,7 +121,7 @@ public class VertxServer extends AbstractVerticle {
         }
         LOGGER.info("Request : {}", objectID);
         LOGGER.info("rc= {}", rc);
-
+        rc.response();
 
     }
     /**
