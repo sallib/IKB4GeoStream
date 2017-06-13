@@ -174,14 +174,16 @@ public class DatabaseReader implements IDatabaseReader {
 
     @Override
     public void deleteEvent(String id){
-        LOGGER.info("DELETE EVENT");
+
         StringBuilder sb = new StringBuilder();
         sb.append("ObjectId(").append('"').append(id).append('"').append(")");
+        LOGGER.info("DELETE EVENT " + sb.toString() );
         this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
 
 
         StringBuilder sb2 = new StringBuilder();
         sb2.append( "{ ").append('"').append("$oid").append('"').append(" : ").append('"').append(id).append('"').append(" }");
+        LOGGER.info("DELETE EVENT " + sb2.toString() );
         this.mongoCollection.find(eq("_id", sb2.toString())).first(printDocument);
         //this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
   }
@@ -225,6 +227,7 @@ public class DatabaseReader implements IDatabaseReader {
     SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
         @Override
         public void onResult(final Document document, final Throwable t) {
+
             LOGGER.info(document.toJson());
         }
     };
