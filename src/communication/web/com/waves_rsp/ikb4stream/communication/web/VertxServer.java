@@ -19,8 +19,9 @@
 package com.waves_rsp.ikb4stream.communication.web;
 
 import com.waves_rsp.ikb4stream.core.communication.DatabaseReaderCallback;
-import com.waves_rsp.ikb4stream.core.communication.IDatabaseReader;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReaderB;
 import com.waves_rsp.ikb4stream.core.communication.model.BoundingBox;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReader;
 import com.waves_rsp.ikb4stream.core.communication.model.Request;
 import com.waves_rsp.ikb4stream.core.util.Geocoder;
 import io.vertx.core.AbstractVerticle;
@@ -53,7 +54,7 @@ public class VertxServer extends AbstractVerticle {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(VertxServer.class);
     /**
-     * {@link IDatabaseReader} object to read data from database
+     * {@link IDatabaseReaderB} object to read data from database
      *
      * @see VertxServer#getEvent(Request, DatabaseReaderCallback)
      */
@@ -82,8 +83,8 @@ public class VertxServer extends AbstractVerticle {
         router.post("/anomaly").handler(this::getAnomalies);
 
         router.route("/delete*").handler(BodyHandler.create()); // enable reading of request's body
-        router.get("/delete").handler(this::deleteEvent);
-        router.post("/delete").handler(this::deleteEvent);
+        router.get("/delete").handler(this::deleteEventById);
+        router.post("/delete").handler(this::deleteEventById);
         vertx
                 .createHttpServer()
                 .requestHandler(router::accept)
@@ -101,7 +102,7 @@ public class VertxServer extends AbstractVerticle {
     }
 
 
-    private void deleteEvent(RoutingContext rc){
+    private void deleteEventById(RoutingContext rc){
         String objectID;
         try {
             LOGGER.info("Received web request: {}", rc.getBodyAsString());
