@@ -35,4 +35,6 @@ public interface IDatabaseReader {
      * @param callback {@link DatabaseReaderCallback} Callback use after response of request
      */
     void getEvent(Request request, DatabaseReaderCallback callback);
+
+    void deleteEvent(String id);
 }

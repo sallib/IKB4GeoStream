@@ -82,8 +82,8 @@ public class VertxServer extends AbstractVerticle {
         router.post("/anomaly").handler(this::getAnomalies);
 
         router.route("/delete*").handler(BodyHandler.create()); // enable reading of request's body
-        router.get("/delete").handler(this::getObjectToDelete);
-        router.post("/delete").handler(this::getObjectToDelete);
+        router.get("/delete").handler(this::deleteEvent);
+        router.post("/delete").handler(this::deleteEvent);
         vertx
                 .createHttpServer()
                 .requestHandler(router::accept)
@@ -101,7 +101,7 @@ public class VertxServer extends AbstractVerticle {
     }
 
 
-    private void getObjectToDelete(RoutingContext rc){
+    private void deleteEvent(RoutingContext rc){
         String objectID;
         try {
             LOGGER.info("Received web request: {}", rc.getBodyAsString());
@@ -121,6 +121,7 @@ public class VertxServer extends AbstractVerticle {
         }
         LOGGER.info("Request : {}", objectID);
         LOGGER.info("rc= {}", rc);
+        databaseReader.deleteEvent(objectID);
         rc.response();
 
     }

@@ -27,6 +27,7 @@ import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.TextSearchOptions;
 import com.mongodb.client.model.geojson.Polygon;
 import com.mongodb.client.model.geojson.Position;
+import com.mongodb.client.result.DeleteResult;
 import com.waves_rsp.ikb4stream.core.communication.DatabaseReaderCallback;
 import com.waves_rsp.ikb4stream.core.communication.IDatabaseReader;
 import com.waves_rsp.ikb4stream.core.communication.model.Request;
@@ -172,6 +173,16 @@ public class DatabaseReader implements IDatabaseReader {
                         });
     }
 
+    public void deleteEvent(String id){
+        this.mongoCollection.find(eq("_id", id)).first(printDocument);
+/*
+        this.mongoCollection.deleteOne(eq("_id", id), new SingleResultCallback<DeleteResult>() {
+            @Override
+            public void onResult(final DeleteResult result, final Throwable t) {
+                System.out.println(result.getDeletedCount());
+            }
+        });
+  */  }
 
     private Bson createFilter(Request request) {
         Objects.requireNonNull(request);
@@ -206,6 +217,13 @@ public class DatabaseReader implements IDatabaseReader {
         @Override
         public void onResult(final String result, final Throwable t) {
             LOGGER.info("Indexes description of events finish !");
+        }
+    };
+
+    SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
+        @Override
+        public void onResult(final Document document, final Throwable t) {
+            LOGGER.info("DELETE THAT  : " + document.toJson());
         }
     };
 }
