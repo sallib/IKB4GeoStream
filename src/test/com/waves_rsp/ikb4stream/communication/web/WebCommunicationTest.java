@@ -13,11 +13,11 @@ public class WebCommunicationTest {
         webCommunication = new WebCommunication();
     }
 
-    @Test
+    /*@Test
     public void testStart() {
         webCommunication.start((request, callback) -> callback.onResult(null, "{}"));
     }
-
+*/
     @Test(expected = NullPointerException.class)
     public void testStartNull() {
         webCommunication.start(null);

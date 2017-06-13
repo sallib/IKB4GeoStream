@@ -16,8 +16,10 @@
  *
  */
 
-package com.waves_rsp.ikb4stream.core.communication;
+package com.waves_rsp.ikb4stream.core.communication.model;
 
+import com.waves_rsp.ikb4stream.core.communication.DatabaseReaderCallback;
+import com.waves_rsp.ikb4stream.core.communication.ICommunication;
 import com.waves_rsp.ikb4stream.core.communication.model.Request;
 
 /**
@@ -26,8 +28,9 @@ import com.waves_rsp.ikb4stream.core.communication.model.Request;
  * @author ikb4stream
  * @version 1.0
  */
+
 @FunctionalInterface
-public interface IDatabaseReader {
+public interface IDatabaseReaderB {
     /**
      * Get Event based on {@link Request}
      *
@@ -36,5 +39,6 @@ public interface IDatabaseReader {
      */
     void getEvent(Request request, DatabaseReaderCallback callback);
 
-    void deleteEvent(String id);
+
 }
+

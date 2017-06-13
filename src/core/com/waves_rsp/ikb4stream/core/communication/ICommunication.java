@@ -18,6 +18,9 @@
 
 package com.waves_rsp.ikb4stream.core.communication;
 
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReader;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReaderB;
+
 /**
  * Interface to implement if you want to use your class as module of communication
  *

@@ -27,15 +27,14 @@ import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.TextSearchOptions;
 import com.mongodb.client.model.geojson.Polygon;
 import com.mongodb.client.model.geojson.Position;
-import com.mongodb.client.result.DeleteResult;
 import com.waves_rsp.ikb4stream.core.communication.DatabaseReaderCallback;
-import com.waves_rsp.ikb4stream.core.communication.IDatabaseReader;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReaderB;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReader;
 import com.waves_rsp.ikb4stream.core.communication.model.Request;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +51,7 @@ import static com.mongodb.client.model.Filters.*;
  *
  * @author ikb4stream
  * @version 1.0
- * @see com.waves_rsp.ikb4stream.core.communication.IDatabaseReader
+ * @see IDatabaseReaderB
  */
 public class DatabaseReader implements IDatabaseReader {
     /**
@@ -175,15 +174,9 @@ public class DatabaseReader implements IDatabaseReader {
 
     @Override
     public void deleteEvent(String id){
-        this.mongoCollection.find(eq("_id", id)).first(printDocument);
-/*
-        this.mongoCollection.deleteOne(eq("_id", id), new SingleResultCallback<DeleteResult>() {
-            @Override
-            public void onResult(final DeleteResult result, final Throwable t) {
-                System.out.println(result.getDeletedCount());
-            }
-        });
-  */  }
+        this.mongoCollection.find(eq("i", 71)).first(printDocument);
+        this.mongoCollection.deleteOne(eq("_id", id), (result, t) -> System.out.println(result.getDeletedCount()));
+  }
 
     private Bson createFilter(Request request) {
         Objects.requireNonNull(request);
@@ -217,14 +210,14 @@ public class DatabaseReader implements IDatabaseReader {
     SingleResultCallback<String> callbackWhenFinished = new SingleResultCallback<String>() {
         @Override
         public void onResult(final String result, final Throwable t) {
-            LOGGER.info("Indexes description of events finish !");
+            LOGGER.info("Indexes description of events finish !  " + result);
         }
     };
 
     SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
         @Override
         public void onResult(final Document document, final Throwable t) {
-            LOGGER.info("DELETE THAT  : " + document.toJson());
+            System.out.println(document.toJson());
         }
     };
 }

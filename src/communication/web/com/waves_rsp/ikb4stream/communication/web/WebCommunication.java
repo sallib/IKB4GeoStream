@@ -19,7 +19,7 @@
 package com.waves_rsp.ikb4stream.communication.web;
 
 import com.waves_rsp.ikb4stream.core.communication.ICommunication;
-import com.waves_rsp.ikb4stream.core.communication.IDatabaseReader;
+import com.waves_rsp.ikb4stream.core.communication.model.IDatabaseReader;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
