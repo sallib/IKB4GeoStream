@@ -174,6 +174,7 @@ public class DatabaseReader implements IDatabaseReader {
 
     @Override
     public void deleteEvent(String id){
+        LOGGER.info("DELETE EVENT");
         StringBuilder sb = new StringBuilder();
         sb.append("ObjectId(").append('"').append(id).append('"').append(")");
         this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
