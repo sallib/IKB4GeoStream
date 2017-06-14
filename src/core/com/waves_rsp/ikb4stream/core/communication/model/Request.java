@@ -50,7 +50,7 @@ public class Request {
      */
     private final Date requestReception;
     private final String search;
-
+    private final String source;
 
     /**
      * Logger used to log all information in this module
@@ -75,10 +75,11 @@ public class Request {
      * @param requestReception is the reception date of the request
      * @throws NullPointerException if one of params is null
      */
-    public Request(Date start, Date end, String search, BoundingBox boundingBox, Date requestReception) {
+    public Request(Date start, Date end, String search, String source, BoundingBox boundingBox, Date requestReception) {
         Objects.requireNonNull(start);
         Objects.requireNonNull(end);
         Objects.requireNonNull(search);
+        Objects.requireNonNull(source);
         Objects.requireNonNull(boundingBox);
         Objects.requireNonNull(requestReception);
 
@@ -86,14 +87,16 @@ public class Request {
         this.end = end;
         this.boundingBox = boundingBox;
         this.search = search;
+        this.source = source;
         this.requestReception = requestReception;
     }
 
-    public Request(Date start, Date end, String search, Date requestReception) {
+    public Request(Date start, Date end, String search, String source, Date requestReception) {
             this.start = start;
             this.end = end;
             this.boundingBox = null;
             this.search = search;
+            this.source = source;
             this.requestReception = requestReception;
     }
 
@@ -137,6 +140,17 @@ public class Request {
 
     public String getSearch() {
         return search;
+    }
+
+    /**
+     * Get source of Request
+     *
+     * @return the source request
+     * @see Request#source
+     */
+
+    public String getSource() {
+        return source;
     }
     /**
      * Represent that object in string

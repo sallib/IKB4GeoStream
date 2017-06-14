@@ -175,14 +175,6 @@ public class DatabaseReader implements IDatabaseReader {
 
     @Override
     public void deleteEvent(String id) {
-/*
-        StringBuilder sb = new StringBuilder();
-        sb.append("ObjectId(").append('"').append(id).append('"').append(")");
-        LOGGER.info("DELETE EVENT " + sb.toString());
-        this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
-
-        this.mongoCollection.deleteOne(eq("_id", sb.toString()), (result, t) -> LOGGER.info(String.valueOf(result.getDeletedCount()) + " " + result.toString()));
-        */
         ObjectId idToCompare = new ObjectId(id);
         this.mongoCollection.deleteOne(eq("_id", idToCompare), (result, t) -> LOGGER.info("Nombre d'objets supprimés : " +String.valueOf(result.getDeletedCount()) + " " + result.toString()));
     }
