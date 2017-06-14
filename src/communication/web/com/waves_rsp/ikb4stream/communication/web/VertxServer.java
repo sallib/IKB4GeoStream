@@ -179,15 +179,16 @@ public class VertxServer extends AbstractVerticle {
         Date end = new Date(jsonRequest.getLong("end"));
         String search = jsonRequest.getString("search");
         String location = jsonRequest.getString("location");
+        String source = jsonRequest.getString("source");
         if (location.isEmpty() || location == "") {
-            return new Request(start, end, search, Date.from(Instant.now()));
+            return new Request(start, end, search, source, Date.from(Instant.now()));
         } else {
             Geocoder geocoder = Geocoder.geocode(location);
             if (geocoder.getLatLong() == null) {
                 LOGGER.warn("Can't geocode this address {}", location);
                 return null;
             }
-            return new Request(start, end, search, new BoundingBox(geocoder.getBbox()), Date.from(Instant.now()));
+            return new Request(start, end, search, source, new BoundingBox(geocoder.getBbox()), Date.from(Instant.now()));
         }
 
     }
