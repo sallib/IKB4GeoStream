@@ -173,15 +173,17 @@ public class DatabaseReader implements IDatabaseReader {
     }
 
     @Override
-    public void deleteEvent(String id){
-
+    public void deleteEvent(String id) {
+/*
         StringBuilder sb = new StringBuilder();
         sb.append("ObjectId(").append('"').append(id).append('"').append(")");
-        LOGGER.info("DELETE EVENT " + sb.toString() );
+        LOGGER.info("DELETE EVENT " + sb.toString());
         this.mongoCollection.find(eq("_id", sb.toString())).first(printDocument);
 
-        this.mongoCollection.deleteOne(eq("_id", sb.toString()), (result, t) -> LOGGER.info(String.valueOf(result.getDeletedCount())));
-  }
+        this.mongoCollection.deleteOne(eq("_id", sb.toString()), (result, t) -> LOGGER.info(String.valueOf(result.getDeletedCount()) + " " + result.toString()));
+        */
+        this.mongoCollection.deleteOne(eq("description", id), (result, t) -> LOGGER.info("Nombre d'objets supprimés : " +String.valueOf(result.getDeletedCount()) + " " + result.toString()));
+    }
 
     private Bson createFilter(Request request) {
         Objects.requireNonNull(request);
@@ -194,7 +196,7 @@ public class DatabaseReader implements IDatabaseReader {
             return and(filterStartDate, filterEndDate);
         } else if (request.getSearch().isEmpty()) {
             return and(filterStartDate, filterEndDate, filterGeo);
-        }else if (filterGeo == null){
+        } else if (filterGeo == null) {
             return and(filterStartDate, filterEndDate, filterSearch);
         } else {
             return and(filterStartDate, filterEndDate, filterSearch, filterGeo);
@@ -202,7 +204,7 @@ public class DatabaseReader implements IDatabaseReader {
 
     }
 
-    private Bson getFilterGeo(Request request){
+    private Bson getFilterGeo(Request request) {
         if (request.getBoundingBox() != null) {
             List<Position> polygon = Arrays.stream(request.getBoundingBox().getLatLongs())
                     .map(l -> new Position(l.getLongitude(), l.getLatitude()))
@@ -226,4 +228,5 @@ public class DatabaseReader implements IDatabaseReader {
             LOGGER.info(document.toJson());
         }
     };
+
 }
