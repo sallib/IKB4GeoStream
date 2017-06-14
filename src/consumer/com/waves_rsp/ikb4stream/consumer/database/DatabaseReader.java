@@ -35,6 +35,7 @@ import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -182,7 +183,8 @@ public class DatabaseReader implements IDatabaseReader {
 
         this.mongoCollection.deleteOne(eq("_id", sb.toString()), (result, t) -> LOGGER.info(String.valueOf(result.getDeletedCount()) + " " + result.toString()));
         */
-        this.mongoCollection.deleteOne(eq("description", id), (result, t) -> LOGGER.info("Nombre d'objets supprimés : " +String.valueOf(result.getDeletedCount()) + " " + result.toString()));
+        ObjectId idToCompare = new ObjectId(id);
+        this.mongoCollection.deleteOne(eq("_id", idToCompare), (result, t) -> LOGGER.info("Nombre d'objets supprimés : " +String.valueOf(result.getDeletedCount()) + " " + result.toString()));
     }
 
     private Bson createFilter(Request request) {
