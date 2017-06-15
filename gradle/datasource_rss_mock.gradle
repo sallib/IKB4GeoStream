@@ -24,7 +24,7 @@ sourceSets {
     }
 }
 
-task packageRssJar(type: Jar, description: 'Package the RSS Jar') {
+task packageRssJar(type: Jar, description: 'Package the RSS Mock Jar') {
     archiveName = "resources/datasource/rss/ikb4stream-$version-datasource-rssmock.jar"
     manifest {
         attributes 'Module-Class': 'com.waves_rsp.ikb4stream.datasource.rssmock.RSSMock'
