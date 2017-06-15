@@ -149,7 +149,6 @@ public class EventScoreProcessor implements IScoreProcessor {
     public List<String> getSources() {
         List<String> sources = new ArrayList<>();
         try {
-            RSSMock rssMock = new RSSMock();
             String allSources = PROPERTIES_MANAGER.getProperty("event.scoring.sources");
             sources.addAll(Arrays.asList(allSources.split(",")));
             //Add automatically all mock RSS sources.
