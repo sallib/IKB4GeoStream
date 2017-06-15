@@ -155,6 +155,11 @@ public class RSSMock implements IProducerConnector {
         return new LatLong(0, 0);
     }
 
+    public List<String> getRSSMockSources(){
+        List<String> sources = new ArrayList<>();
+        mockfiles.forEach(f-> sources.add("MOCK_" + f.getName()));
+        return sources;
+    }
     public boolean isActive() {
         try {
             return Boolean.valueOf(PROPERTIES_MANAGER.getProperty("RSSMock.enable"));
