@@ -16,7 +16,7 @@
  */
 
 sourceSets {
-    datasourceRSS {
+    datasourceRSSmock {
         java {
             srcDirs = ['src/core', 'src/datasource/rssmock']
             compileClasspath += core.compileClasspath + core.output
@@ -25,7 +25,7 @@ sourceSets {
 }
 
 task packageRssmockJar(type: Jar, description: 'Package the RSS Mock Jar') {
-    archiveName = "resources/datasource/rss/ikb4stream-$version-datasource-rssmock.jar"
+    archiveName = "resources/datasource/rssmock/ikb4stream-$version-datasource-rssmock.jar"
     manifest {
         attributes 'Module-Class': 'com.waves_rsp.ikb4stream.datasource.rssmock.RSSMock'
     }
