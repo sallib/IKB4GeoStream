@@ -1,0 +1,1639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:dcterms="http://purl.org/dc/terms/">
+   <id>http://www.bbc.com/afrique/region/index.xml</id>
+   <title>BBCAfrique.com | Afrique</title>
+   <updated>2016-07-05T05:56:11+00:00</updated>
+   <link rel="self" href="http://www.bbc.com/afrique/region/index.xml"/>
+   <author>
+      <name>BBC Afrique</name>
+      <email>afrique@bbc.co.uk</email>
+      <uri>http://www.bbcafrique.com</uri>
+   </author>
+   <generator>http://www.bbcafrique.com</generator>
+   <category xml:lang="fr" term="afrique" label="afrique"/>
+   <category xml:lang="fr" term="region" label="Afrique"/>
+   <logo>http://www.bbc.co.uk/afrique/images/gel/rss_logo.gif</logo>
+   <rights>Copyright BBC</rights>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-05:/afrique/region/2016/07/160705_benyamin_africa</id>
+      <dc:identifier>/afrique/region/2016/07/160705_benyamin_africa</dc:identifier>
+      <updated>2016-07-05T05:51:01+00:00</updated>
+      <published>2016-07-05T05:46:25+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">"Bibi" charme l'Afrique</title>
+      <summary xml:lang="fr">Benjamin Netanyahu tente de développer des relations économiques et diplomatiques dans la région.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160705_benyamin_africa"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2016/05/160520_israel"
+            title="story">
+         <dc:title>Israël : démission du ministre de la Défense</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2016/07/160703_wiesel-mort"
+            title="story">
+         <dc:title>Elie Wiesel est mort </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_netanyahu_afrique"
+            title="story">
+         <dc:title>Benjamin Netanyahu en visite en Afrique </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2015/05/150504_israel_jewish_egyptian"
+            title="story">
+         <dc:title>Israël renoue avec les Juifs éthiopiens</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704170841_netanyahu_museveni_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-05:/afrique/region/2016/07/160704_saudi_attacks</id>
+      <dc:identifier>/afrique/region/2016/07/160704_saudi_attacks</dc:identifier>
+      <updated>2016-07-05T02:23:39+00:00</updated>
+      <published>2016-07-05T02:14:53+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Attentat-suicide à Médine</title>
+      <summary xml:lang="fr">L'Arabie Saoudite a été frappée à son tour par un attentat-suicide. Le bilan s'élève à 4 morts.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_saudi_attacks"
+            title="story">
+         <media:content/>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_yen_ayoum</id>
+      <dc:identifier>/afrique/region/2016/07/160704_yen_ayoum</dc:identifier>
+      <updated>2016-07-04T23:25:48+00:00</updated>
+      <published>2016-07-04T23:20:46+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Biya gracie Lydienne Yen-Eyoum</title>
+      <summary xml:lang="fr">Le président camerounais Paul Biya a décidé de gracier Maitre Lydienne Yen-Eyoum, lundi soir. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_yen_ayoum"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160624_justice-zuma"
+            title="story">
+         <dc:title>Justice : un revers pour Jacob Zuma </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160623_ghana-corruption"
+            title="story">
+         <dc:title>Ghana : Mahama accusé de corruption</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160613_niger-education"
+            title="story">
+         <dc:title>Le Niger traque ses enseignants fictifs</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160604_nigeria"
+            title="story">
+         <dc:title>Nigeria : de l'argent détourné récupéré </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/14/150814094931_biya_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/14/150814094930_biya_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_mauritanie_amnesty</id>
+      <dc:identifier>/afrique/region/2016/07/160704_mauritanie_amnesty</dc:identifier>
+      <updated>2016-07-04T18:23:09+00:00</updated>
+      <published>2016-07-04T18:15:45+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Mauritanie: 9 anti-esclavagistes arrêtés</title>
+      <summary xml:lang="fr">Amnesty International a appelé lundi la Mauritanie à "révéler le lieu de détention des neuf militants anti-esclavagistes arrêtés la semaine dernière.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_mauritanie_amnesty"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_mauritanie-arrests"
+            title="story">
+         <dc:title>Mauritanie : des anti-esclavagistes arrêtés </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160518_mauritania_slavery"
+            title="story">
+         <dc:title>Mauritanie : 2 antiesclavagistes libérés</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160517_mauritania_slavery_freedom"
+            title="story">
+         <dc:title>Mauritanie : Biram bientôt libre</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/08/21/150821095636_ould_abeid_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/08/21/150821095635_ould_abeid_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_angola-activistes</id>
+      <dc:identifier>/afrique/region/2016/07/160704_angola-activistes</dc:identifier>
+      <updated>2016-07-04T16:43:56+00:00</updated>
+      <published>2016-07-04T16:39:10+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Angola : des activistes libérés </title>
+      <summary xml:lang="fr">Dix-sept activistes angolais, dont le rappeur Luarty da Silva Beirao, ont été libérés ce lundi après un an de détention.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_angola-activistes"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/10/151017_angola-beirao"
+            title="story">
+         <dc:title>Angola : le rappeur Beirao hospitalisé  </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/03/160328_angola_activites"
+            title="story">
+         <dc:title>Angola : 17 activistes condamnés</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2016/02/160220_usa-justice-woodfox"
+            title="story">
+         <dc:title>Un détenu libéré après 43 ans de prison</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/10/13/151013231152_angola_rapper_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_twitter-nigeria</id>
+      <dc:identifier>/afrique/region/2016/07/160704_twitter-nigeria</dc:identifier>
+      <updated>2016-07-04T14:55:18+00:00</updated>
+      <published>2016-07-04T14:51:44+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Twitter suspend les Vengeurs du Delta</title>
+      <summary xml:lang="fr">Le réseau social a suspendu le compte des Vengeurs du Delta du Niger, une milice qui mène des attaques sur les installations pétrolières, dans le sud du Nigeria. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_twitter-nigeria"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_nigeria"
+            title="story">
+         <dc:title>Des attaques au Delta du Niger </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160608_nigeria-vengeurs"
+            title="story">
+         <dc:title>Nigeria : les NDA refusent le dialogue</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160602_buhari_delta"
+            title="story">
+         <dc:title>Delta du Niger : Buhari annule sa visite</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205303_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_france_rwanda</id>
+      <dc:identifier>/afrique/region/2016/07/160704_france_rwanda</dc:identifier>
+      <updated>2016-07-04T14:35:25+00:00</updated>
+      <published>2016-07-04T14:28:38+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">La prison à vie requise contre deux Rwandais</title>
+      <summary xml:lang="fr">La justice français a requis lundi la réclusion à perpétuité à l'encontre de deux anciens bourgmestres rwandais, jugés pour leur participation présumée au génocide de 1994 au Rwanda.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_france_rwanda"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2014/02/140204_epoux-gauthier-rwanda-genocide"
+            title="story">
+         <dc:title>Rwanda: un combat pour la justice</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/06/150605_france_genocide_twagira"
+            title="story">
+         <dc:title>Génocide : un prévenu en liberté</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2014/04/140405_france-rwanda"
+            title="story">
+         <dc:title>Rwanda: Paris boude les commémorations du génocide  </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/05/10/160510100543_genocide_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/05/10/160510100543_genocide_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_ouganda_netanyahu</id>
+      <dc:identifier>/afrique/region/2016/07/160704_ouganda_netanyahu</dc:identifier>
+      <updated>2016-07-04T12:54:25+00:00</updated>
+      <published>2016-07-04T12:11:41+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Benjamin Netanyahu en Ouganda</title>
+      <summary xml:lang="fr">Le Premier ministre israélien commence sa tournée en Afrique sub-saharienne par l'Ouganda, afin de commémorer la mort de son frère</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_ouganda_netanyahu"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_netanyahu_afrique"
+            title="story">
+         <dc:title>Benjamin Netanyahu en visite en Afrique </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2015/11/151119_little_africa_israel"
+            title="story">
+         <dc:title>Un quartier africain en Israël</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2016/07/04/160704123244_netanyahu_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_kenya-protest</id>
+      <dc:identifier>/afrique/region/2016/07/160704_kenya-protest</dc:identifier>
+      <updated>2016-07-04T09:08:47+00:00</updated>
+      <published>2016-07-04T08:55:54+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Kenya : manifestations contre la police </title>
+      <summary xml:lang="fr">Des organisations de la société civile kényane protestent ce lundi contre la mort d’un avocat imputée à des policiers.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_kenya-protest"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160701_kenya-avocat"
+            title="story">
+         <dc:title>Kenya : arrestations après la mort d’un avocat</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160620_kenya"
+            title="story">
+         <dc:title>Cinq policiers tués au Kenya </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160605_kenya-police"
+            title="story">
+         <dc:title>Kenya : la Police menace l’opposition </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704090541_kenya_protest_against_police_killings_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-04:/afrique/region/2016/07/160704_egyptair123</id>
+      <dc:identifier>/afrique/region/2016/07/160704_egyptair123</dc:identifier>
+      <updated>2016-07-04T03:09:45+00:00</updated>
+      <published>2016-07-04T02:31:37+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Vol MS804 : des restes humains</title>
+      <summary xml:lang="fr">La commission d'enquête dirigée par l'Egypte a annoncé dimanche avoir récupéré de nouveaux restes humains repérés sur le lieu du crash en Méditerranée de l'Airbus A320 d’Egyptair.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160704_egyptair123"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="Les équipes de recherches ont découvert de nouveaux restes humains du vol MS804 (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160601_egyptair_signal"
+            title="story">
+         <dc:title>Crash EgyptAir : signal d’une boîte noire</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="Les équipes de recherches ont découvert de nouveaux restes humains du vol MS804 (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160617_egyptair"
+            title="story">
+         <dc:title>Deuxième boîte noire d'Egypt Air retrouvée</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="Les équipes de recherches ont découvert de nouveaux restes humains du vol MS804 (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160616_egypt_air"
+            title="story">
+         <dc:title>L'épave du vol Egypt Air "trouvée"</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="Les équipes de recherches ont découvert de nouveaux restes humains du vol MS804 (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/04/160704022850__egyptair_debris_304x171_egyptianarmedforces_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-03:/afrique/region/2016/07/160703_senegal-mendicite</id>
+      <dc:identifier>/afrique/region/2016/07/160703_senegal-mendicite</dc:identifier>
+      <updated>2016-07-03T19:48:59+00:00</updated>
+      <published>2016-07-03T19:40:40+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Sénégal : les chiffres de la mendicité</title>
+      <summary xml:lang="fr">La mendicité à Dakar rapporte 5,4 milliards de francs CFA par an, selon une agence de l’ONU.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_senegal-mendicite"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/07/150728_senegal"
+            title="story">
+         <dc:title>Sénégal : polémique sur le sort des enfants talibés</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_senegal-enfants"
+            title="story">
+         <dc:title>Sénégal : retrait des enfants de la rue</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/07/150730_chad_beggars"
+            title="story">
+         <dc:title>La mendicité interdite à N’Djamena</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703194831_begging_streets_senegal_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-03:/afrique/region/2016/07/160703_nigeria</id>
+      <dc:identifier>/afrique/region/2016/07/160703_nigeria</dc:identifier>
+      <updated>2016-07-03T15:32:46+00:00</updated>
+      <published>2016-07-03T15:27:41+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Des attaques au Delta du Niger </title>
+      <summary xml:lang="fr">Les Vengeurs du Delta du Niger ont revendiqué de nouvelles attaques sur des installations pétrolières, dans le sud du Nigeria. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_nigeria"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160613_nigeria_delta"
+            title="story">
+         <dc:title>Le MEND pour la paix dans le delta</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160608_nigeria-vengeurs"
+            title="story">
+         <dc:title>Nigeria : les NDA refusent le dialogue</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160602_buhari_delta"
+            title="story">
+         <dc:title>Delta du Niger : Buhari annule sa visite</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/06/03/160603205319_niger_delta_avengers_304x171_bbc_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-03:/afrique/region/2016/07/160703_nigeria-auto</id>
+      <dc:identifier>/afrique/region/2016/07/160703_nigeria-auto</dc:identifier>
+      <updated>2016-07-03T12:28:52+00:00</updated>
+      <published>2016-07-03T12:13:29+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Un tracteur "made in" Nigeria</title>
+      <summary xml:lang="fr">Un ingénieur nigérian vient de lancer une marque de tracteur. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_nigeria-auto"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/07/150715_claude_grunitzky"
+            title="story">
+         <dc:title>Des inventions "made in Africa"</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160520_rwanda_tech"
+            title="story">
+         <dc:title>Technologie: Pourquoi le Rwanda attire</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160622_tunisie_hub"
+            title="story">
+         <dc:title>La Tunisie, nouvel hub technologique</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/03/160703122059_nigerian_tractor_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-03:/afrique/region/2016/07/160703_netanyahu_afrique</id>
+      <dc:identifier>/afrique/region/2016/07/160703_netanyahu_afrique</dc:identifier>
+      <updated>2016-07-03T07:57:05+00:00</updated>
+      <published>2016-07-03T07:53:10+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Benjamin Netanyahu en visite en Afrique </title>
+      <summary xml:lang="fr">Le Premier ministre israélien Benjamin Netanyahu prépare sa première visite officielle en Afrique. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160703_netanyahu_afrique"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2016/05/160520_israel"
+            title="story">
+         <dc:title>Israël : démission du ministre de la Défense</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2015/10/151015_israel_tsahal"
+            title="story">
+         <dc:title>Poursuite des violences à Jérusalem</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2015/10/151008_israel"
+            title="story">
+         <dc:title>Israël : des députés défient Netanyahu</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/03/160103064123_benjamin_netanyahu_304x171_getty_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-02:/afrique/region/2016/07/160702_rdc-combats</id>
+      <dc:identifier>/afrique/region/2016/07/160702_rdc-combats</dc:identifier>
+      <updated>2016-07-02T19:04:56+00:00</updated>
+      <published>2016-07-02T18:53:49+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Des combats en RDC </title>
+      <summary xml:lang="fr">De violents combats ont opposé l’armée congolaise à des miliciens Maï-Maï, vendredi, dans l’est de la RDC. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_rdc-combats"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/03/150319_drc_fight"
+            title="story">
+         <dc:title>RDC : violents combats dans l'est </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160628_rdc_genocide"
+            title="story">
+         <dc:title>RDC : un procès pour génocide</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160629_rdc"
+            title="story">
+         <dc:title>RDC: recensement électoral fin juillet</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2010/11/10/101110133853_drc_army_304x171_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-02:/afrique/region/2016/07/160702_zika-guinee--bissau</id>
+      <dc:identifier>/afrique/region/2016/07/160702_zika-guinee--bissau</dc:identifier>
+      <updated>2016-07-02T18:19:55+00:00</updated>
+      <published>2016-07-02T18:10:25+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Zika touche la Guinée-Bissau</title>
+      <summary xml:lang="fr">Les autorités bissau-guinéennes ont déclaré ce samedi avoir enregistré trois cas de Zika dans le pays. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_zika-guinee--bissau"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160625_zika_praia"
+            title="story">
+         <dc:title>11 bébés atteints de Zika à Praia</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/monde/2016/06/160613_zika_oms"
+            title="story">
+         <dc:title>Zika : réunion de l'OMS</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160528_jo-zika-oms"
+            title="story">
+         <dc:title>L’OMS contre un report des JO </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702181617_virus_zika_mosquito_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-02:/afrique/region/2016/07/160702_mauritanie-arrests</id>
+      <dc:identifier>/afrique/region/2016/07/160702_mauritanie-arrests</dc:identifier>
+      <updated>2016-07-02T15:35:49+00:00</updated>
+      <published>2016-07-02T15:32:22+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Mauritanie : des anti-esclavagistes arrêtés </title>
+      <summary xml:lang="fr">Plusieurs personnes, dont cinq militants anti-esclavagistes, ont été arrêtées jeudi et vendredi dans la capitale mauritanienne.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_mauritanie-arrests"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160518_mauritania_slavery"
+            title="story">
+         <dc:title>Mauritanie : 2 antiesclavagistes libérés</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/03/160306_mauritanie-esclavage"
+            title="story">
+         <dc:title>Mauritanie : une journée anti-esclavage</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160517_mauritania_slavery_freedom"
+            title="story">
+         <dc:title>Mauritanie : Biram bientôt libre</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/01/04/160104153249_mauritanie_police_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-02:/afrique/region/2016/07/160702_senegal-enfants</id>
+      <dc:identifier>/afrique/region/2016/07/160702_senegal-enfants</dc:identifier>
+      <updated>2016-07-02T11:14:53+00:00</updated>
+      <published>2016-07-02T11:06:45+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">Sénégal : retrait des enfants de la rue</title>
+      <summary xml:lang="fr">Le gouvernement sénégalais veut éradiquer les cas d'exploitation des enfants "talibés", à la fin du Ramadan, le mois du jeûne musulman.</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_senegal-enfants"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2015/07/150728_senegal"
+            title="story">
+         <dc:title>Sénégal : polémique sur le sort des enfants talibés</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2014/07/140717_uganda_street_children"
+            title="story">
+         <dc:title>Ouganda : les laissés-pour-compte</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160617_child_street"
+            title="story">
+         <dc:title>Kenya: un enfant des rues dirige le trafic</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2016/07/02/160702111959_street_children_304x171_nocredit_nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-02:/afrique/region/2016/07/160702_wau_soudan</id>
+      <dc:identifier>/afrique/region/2016/07/160702_wau_soudan</dc:identifier>
+      <updated>2016-07-02T06:38:21+00:00</updated>
+      <published>2016-07-02T05:48:45+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">L’Onu condamne les tuéries de Wau</title>
+      <summary xml:lang="fr">Réuni vendredi à New York, le Conseil de sécurité de l’Onu a condamné les affrontements meurtriers survenus le 24 juin à Wau, au Soudan du Sud. </summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160702_wau_soudan"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="L'Onu s'est dit préoccupé par les violences signalées le 24 juin à Wau, au Soudan du sud (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160628_south-sudan"
+            title="story">
+         <dc:title>Des heurts meurtriers au Soudan du Sud </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="L'Onu s'est dit préoccupé par les violences signalées le 24 juin à Wau, au Soudan du sud (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160522_soudan-onu"
+            title="story">
+         <dc:title>L’ONU se fâche contre le Soudan</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="L'Onu s'est dit préoccupé par les violences signalées le 24 juin à Wau, au Soudan du sud (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/04/160401_riek_machar"
+            title="story">
+         <dc:title>Riek Machar et ses troupes à Juba</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt="L'Onu s'est dit préoccupé par les violences signalées le 24 juin à Wau, au Soudan du sud (Photo d'archives)"
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2014/05/09/140509171305_soudan_du_sud_juba_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+   <entry>
+      <id>tag:www.bbcafrique.com,2016-07-01:/afrique/region/2016/07/160701_centrafrique_abus</id>
+      <dc:identifier>/afrique/region/2016/07/160701_centrafrique_abus</dc:identifier>
+      <updated>2016-07-01T19:11:47+00:00</updated>
+      <published>2016-07-01T19:00:51+00:00</published>
+      <category xml:lang="fr" term="afrique" label="afrique"/>
+      <category xml:lang="fr" term="africa" label="Afrique"/>
+      <title xml:lang="fr">RCA : les casques bleus de nouveau visés</title>
+      <summary xml:lang="fr">Les Nations unies ont annoncé vendredi l’ouverture d’une enquête sur deux nouveaux cas d'agressions sexuelles présumées de mineurs par des Casques bleus en Centrafrique (MINUSCA).</summary>
+      <link rel="alternate"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/07/160701_centrafrique_abus"
+            title="story">
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/05/160518_un_rape"
+            title="story">
+         <dc:title>RCA : l’Onu veut prevenir les cas de viols</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/04/160331_car"
+            title="story">
+         <dc:title>RCA : la France va enquêter sur les abus</dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+      <link rel="related"
+            type="text/html"
+            href="http://www.bbc.com/afrique/region/2016/06/160607_hrw"
+            title="story">
+         <dc:title>RCA : HRW accuse l'armée congolaise </dc:title>
+         <media:content>
+            <media:thumbnail url="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"
+                             width="106"
+                             height="60">
+               <img alt=""
+                    width="106"
+                    height="60"
+                    src="http://ichef.bbci.co.uk/news/ws/106/amz/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_304x171__nocredit.jpg"/>
+            </media:thumbnail>
+            <media:thumbnail url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"
+                             width="144"
+                             height="81">
+               <img alt=""
+                    width="144"
+                    height="81"
+                    src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/12/22/151222144243_centrafrique_elections_144x81__nocredit.jpg"/>
+            </media:thumbnail>
+         </media:content>
+      </link>
+   </entry>
+</feed>
