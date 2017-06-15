@@ -7,6 +7,6 @@ public class RequestTest {
 
     @Test(expected = NullPointerException.class)
     public void nullRequest() {
-        new Request(null, null, null, null);
+        new Request(null, null, null, null,null);
     }
 }
