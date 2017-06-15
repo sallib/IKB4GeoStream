@@ -1,4 +1,4 @@
-package rssmock;
+package com.waves_rsp.ikb4stream.datasource.rssmock;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.rometools.modules.georss.GeoRSSModule;
@@ -7,7 +7,6 @@ import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
-import com.waves_rsp.ikb4stream.core.datasource.IProducerConnectorMock;
 import com.waves_rsp.ikb4stream.core.datasource.model.IDataProducer;
 import com.waves_rsp.ikb4stream.core.datasource.model.IProducerConnector;
 import com.waves_rsp.ikb4stream.core.model.Event;
@@ -16,8 +15,6 @@ import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import com.waves_rsp.ikb4stream.core.util.Geocoder;
 import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
-import com.waves_rsp.ikb4stream.datasource.rss.RSSProducerConnector;
-import com.waves_rsp.ikb4stream.datasource.twittermock.TwitterMock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,7 +47,7 @@ public class RSSMock implements IProducerConnector {
     /**
      * Single instance of {@link OpenNLP} per each Thread
      *
-     * @see RSSProducerConnector#geocodeRSS(String, String, OpenNLP.langOptions)
+     * @see RSSMock#geocodeRSS(String, String, OpenNLP.langOptions)
      */
     private final OpenNLP openNLP = OpenNLP.getOpenNLP(Thread.currentThread());
 
@@ -143,7 +140,7 @@ public class RSSMock implements IProducerConnector {
      *
      * @param text to analyze, source
      * @return a latLong coordinates
-     * @see RSSProducerConnector#openNLP
+     * @see RSSMock#openNLP
      */
     private LatLong geocodeRSS(String text, String source, OpenNLP.langOptions lang) {
         long start = System.currentTimeMillis();
