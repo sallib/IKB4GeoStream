@@ -21,9 +21,7 @@ package com.waves_rsp.ikb4stream.scoring.event;
 import com.waves_rsp.ikb4stream.core.datasource.model.IScoreProcessor;
 import com.waves_rsp.ikb4stream.core.metrics.MetricsLogger;
 import com.waves_rsp.ikb4stream.core.model.Event;
-import com.waves_rsp.ikb4stream.core.model.LatLong;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
-import com.waves_rsp.ikb4stream.core.util.LanguageDetection;
 import com.waves_rsp.ikb4stream.core.util.RulesReader;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
 import com.waves_rsp.ikb4stream.datasource.rssmock.RSSMock;
@@ -149,12 +147,12 @@ public class EventScoreProcessor implements IScoreProcessor {
     @Override
     public List<String> getSources() {
         List<String> sources = new ArrayList<>();
-        RSSMock rssMock = new RSSMock();
         try {
+            RSSMock rssMock = new RSSMock();
             String allSources = PROPERTIES_MANAGER.getProperty("event.scoring.sources");
             sources.addAll(Arrays.asList(allSources.split(",")));
-            //Add automacaly all mock RSS sources.
-            rssMock.getRSSMockSources().forEach(s -> sources.add(s));
+            //Add automatically all mock RSS sources.
+            sources.addAll(rssMock.getRSSMockSources());
         } catch (IllegalArgumentException e) {
             LOGGER.warn(e.getMessage());
         }
