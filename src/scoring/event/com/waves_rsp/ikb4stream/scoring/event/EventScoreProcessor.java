@@ -24,7 +24,6 @@ import com.waves_rsp.ikb4stream.core.model.Event;
 import com.waves_rsp.ikb4stream.core.model.PropertiesManager;
 import com.waves_rsp.ikb4stream.core.util.RulesReader;
 import com.waves_rsp.ikb4stream.core.util.nlp.OpenNLP;
-import com.waves_rsp.ikb4stream.datasource.rssmock.RSSMock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
