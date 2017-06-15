@@ -18,7 +18,7 @@
 sourceSets {
     scoringEvent {
         java {
-            srcDirs = ['src/core', 'src/scoring/event', '/src/datasource/rssmock']
+            srcDirs = ['src/core', 'src/scoring/event']
             compileClasspath += core.compileClasspath + core.output
         }
     }

@@ -28,6 +28,7 @@ import com.waves_rsp.ikb4stream.datasource.rssmock.RSSMock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -152,7 +153,8 @@ public class EventScoreProcessor implements IScoreProcessor {
             String allSources = PROPERTIES_MANAGER.getProperty("event.scoring.sources");
             sources.addAll(Arrays.asList(allSources.split(",")));
             //Add automatically all mock RSS sources.
-            sources.addAll(rssMock.getRSSMockSources());
+            File[] files = new File("resources/datasource/rssmock/mockfiles").listFiles();
+            Arrays.asList(files).forEach(f->sources.add("MOCK_"+f.getName()));
         } catch (IllegalArgumentException e) {
             LOGGER.warn(e.getMessage());
         }
